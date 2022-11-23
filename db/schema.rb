@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_23_072210) do
+ActiveRecord::Schema.define(version: 2022_11_23_072651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(version: 2022_11_23_072210) do
     t.integer "retail_price", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "brand_id"
+    t.bigint "category_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
@@ -69,4 +73,6 @@ ActiveRecord::Schema.define(version: 2022_11_23_072210) do
 
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories"
 end
