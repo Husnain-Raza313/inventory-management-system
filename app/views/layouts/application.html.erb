@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+  <div class="wrapper">
+    <%=render 'shared/sidebar'%>
+   <div id="content">   
+    <div class="container">
+    <%=yield%>
+    </div>
+    </div>
+ </div>
+</body>
 </html>
