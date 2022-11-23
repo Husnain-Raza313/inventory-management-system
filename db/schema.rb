@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2022_11_22_165146) do
     t.integer "quantity", default: 0, null: false
     t.integer "sold_quantity", default: 0, null: false
     t.boolean "available", default: true, null: false
-    t.integer "category_id", default: 0, null: false
     t.integer "price_per_unit", default: 0, null: false
     t.integer "bulk_price", default: 0, null: false
     t.integer "retail_price", default: 0, null: false
