@@ -10,21 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_23_084100) do
+ActiveRecord::Schema.define(version: 2022_11_23_140521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "name", limit: 30, default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "name", limit: 30, default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories_products", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "product_id", null: false
+    t.index ["category_id", "product_id"], name: "index_categories_products_on_category_id_and_product_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -39,9 +45,9 @@ ActiveRecord::Schema.define(version: 2022_11_23_084100) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "customer_name", default: "", null: false
-    t.string "customer_address"
-    t.string "phone_no", default: "", null: false
+    t.string "customer_name", limit: 30, default: "", null: false
+    t.string "customer_address", limit: 30
+    t.string "phone_no", limit: 15, default: "", null: false
     t.integer "total_price", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_11_23_084100) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "serial_no", default: "", null: false
+    t.string "serial_no", limit: 30, default: "", null: false
     t.text "description"
     t.string "image"
     t.integer "quantity", default: 0, null: false
@@ -71,23 +77,32 @@ ActiveRecord::Schema.define(version: 2022_11_23_084100) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "brand_id"
-    t.bigint "category_id"
+    t.bigint "user_id"
+    t.string "name", limit: 30, default: "", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
-    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.string "name", limit: 30, default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer "order_status", default: 0, null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_transactions_on_order_id"
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "email", limit: 30, default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name", default: "", null: false
-    t.string "username", default: "", null: false
-    t.string "phone_no", default: "", null: false
+    t.string "name", limit: 30, default: "", null: false
+    t.string "username", limit: 30, default: "", null: false
+    t.string "phone_no", limit: 15, default: "", null: false
     t.string "image"
     t.text "description"
     t.string "reset_password_token"
@@ -105,5 +120,6 @@ ActiveRecord::Schema.define(version: 2022_11_23_084100) do
   add_foreign_key "product_suppliers", "products"
   add_foreign_key "product_suppliers", "suppliers"
   add_foreign_key "products", "brands"
-  add_foreign_key "products", "categories"
+  add_foreign_key "products", "users"
+  add_foreign_key "transactions", "orders"
 end

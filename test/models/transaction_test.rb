@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class SupplierTest < ActiveSupport::TestCase
+class TransactionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
