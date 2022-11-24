@@ -15,10 +15,10 @@
       <%=render 'shared/sidebar'%>
       <div id="content">
         <div class="container">
+        <%= render "layouts/flash" %>
         <%=yield%>
         </div>
       </div>
     </div>
   </body>
-
 </html>
