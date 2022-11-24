@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 2022_11_23_172208) do
 
   create_table "suppliers", force: :cascade do |t|
     t.string "name", limit: 30, default: "", null: false
+    t.string "supplier_address", default: "", null: false
+    t.string "phone_no", limit: 15, default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
