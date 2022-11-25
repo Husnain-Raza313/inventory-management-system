@@ -15,7 +15,7 @@
              <%= image_tag "adidas.jpeg", class:"card-img-top" %>
             <div class="card-body">
               <h5 class="card-title"><%= brand.name %></h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text"><%= brand.description %></p>
               <%= link_to 'Show', brand, class:"btn btn-primary" %>
               <%= link_to 'Edit', edit_brand_path(brand), class:"btn btn-warning" %>
               <%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>

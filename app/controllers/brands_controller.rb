@@ -56,6 +56,6 @@ class BrandsController < ApplicationController
     end
 
     def brand_params
-      params.fetch(:brand, {})
+      params.require(:brand).permit(:name, :description, :image)
     end
 end

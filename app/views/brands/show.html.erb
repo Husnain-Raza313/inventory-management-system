@@ -1,4 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Back', brands_path %>
+<div class="jumbotron bg-white p-5 border-info border rounded-2 w-75 mx-auto">
+  <div class="container d-flex flex-row justify-content-between">
+    <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
+      <h1 class="text-black" ><%= @brand.name %></h1>
+      <p class="text-grey" ><%= @brand.description %></p>
+      <div>
+      <%= link_to 'Edit', edit_brand_path(@brand), class:"btn btn-primary btn-lg" %>
+      <%= link_to 'Back', brands_path, class:"btn btn-dark btn-lg" %>
+      </div>
+    </div>
+    <div class="rounded overflow-hidden w-50 m-auto">
+    <%= image_tag "adidas.jpeg", class:"border border-info w-100" %>
+    </div>
+  </div>
+</div>
