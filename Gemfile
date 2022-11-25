@@ -31,6 +31,8 @@ gem "rolify"
 gem 'devise'
 # Use carrierwave for image uploading
 gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
+
+gem 'client_side_validations'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
