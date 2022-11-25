@@ -40,6 +40,8 @@ a:focus {
   background: #7386d5;
   color: #fff;
   transition: all 0.3s;
+  position:fixed ;
+  height: 100vh;
 }
 
 #sidebar.active {
@@ -126,6 +128,7 @@ a.article:hover {
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
+  margin-left: 250px;
 }
 
 @media (max-width: 768px) {
