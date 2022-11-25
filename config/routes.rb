@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'home/index'
-  root 'home#index'
+  resources :home, only: [:index]
   devise_for :users
+  authenticated :user do
+    root to: "home#index", as: :admin_route
+  end
+  root to: "home#index" 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
