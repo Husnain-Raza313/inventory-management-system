@@ -1,30 +1,19 @@
 <%= form_with(model: @brand, validate: true) do |form| %>
- <% if brand.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(brand.errors.count, "error") %> prohibited this brand from being saved:</h2>
-
-      <ul>
-        <% brand.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
     <div class="form-group mb-2">
-      <%= form.label :name, style: "display: block" %>
+      <%= form.label :name, class:"d-block" %>
       <%= form.text_field :name, class:"form-control w-50" %>
     </div>
     <div class="form-group mb-2">
-      <%= form.label :description, style: "display: block"%>
+      <%= form.label :description, class:"d-block" %>
       <%= form.text_field :description, class:"form-control w-50" %>
     </div>
     <div class="form-group mb-2">
-      <%= form.label :image, style: "display: block" %>
+      <%= form.label :image, class:"d-block" %>
       <div class="w-25">
       <%= image_view(@brand) %>
       </div>
       <br/>
-      <%= form.file_field :image, style: "display: block", id: 'image-file' %><br/>
+      <%= form.file_field :image, class:"d-block", id: 'image-file' %><br/>
       <p id="error-msg", class="text-danger" ></p>
 
     </div>
