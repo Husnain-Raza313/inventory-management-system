@@ -1,41 +1,43 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class BrandsTest < ApplicationSystemTestCase
   setup do
     @brand = brands(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit brands_url
-    assert_selector "h1", text: "Brands"
+    assert_selector 'h1', text: 'Brands'
   end
 
-  test "creating a Brand" do
+  test 'creating a Brand' do
     visit brands_url
-    click_on "New Brand"
+    click_on 'New Brand'
 
-    click_on "Create Brand"
+    click_on 'Create Brand'
 
-    assert_text "Brand was successfully created"
-    click_on "Back"
+    assert_text 'Brand was successfully created'
+    click_on 'Back'
   end
 
-  test "updating a Brand" do
+  test 'updating a Brand' do
     visit brands_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    click_on "Update Brand"
+    click_on 'Update Brand'
 
-    assert_text "Brand was successfully updated"
-    click_on "Back"
+    assert_text 'Brand was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a Brand" do
+  test 'destroying a Brand' do
     visit brands_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "Brand was successfully destroyed"
+    assert_text 'Brand was successfully destroyed'
   end
 end
