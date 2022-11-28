@@ -8,12 +8,12 @@
       <%= form.text_field :description, class:"form-control w-75" %>
     </div>
     <div class="form-group mb-2">
-      <%= form.label :photo, class:"d-block" %>
+      <%= form.label :image, class:"d-block" %>
       <div class="w-25">
       <%= image_view(@brand) %>
       </div>
       <br/>
-      <%= form.file_field :photo, class:"d-block", id: 'image-file' %><br/>
+      <%= form.file_field :image, class:"d-block", id: 'image-file' %><br/>
       <p id="error-msg", class="text-danger" ></p>
 
     </div>
