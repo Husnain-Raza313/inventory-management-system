@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_one_attached :image, dependent: :destroy
   after_create :assign_default_role, if: -> { roles.blank? }
 
+  after_create :assign_default_role
+
   private
 
   def image_type
