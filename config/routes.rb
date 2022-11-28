@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   authenticated :user, ->(u) { u.has_role?(:cashier) } do
     root to: 'home#index', as: :user_route
   end
+  root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
