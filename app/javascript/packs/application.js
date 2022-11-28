@@ -15,4 +15,5 @@ import "bootstrap"
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all";
 require('@client-side-validations/client-side-validations/src')
+import "brands"
 
