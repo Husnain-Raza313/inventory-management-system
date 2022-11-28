@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Brand < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  has_one_attached :photo
 
   validates :name, presence: true, length: { maximum: 30, minimum: 1 }
 
