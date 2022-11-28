@@ -4,6 +4,6 @@ class Brand < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true, length: { maximum: 30, minimum: 1 }
-
+  validates :description, presence: true, length: { minimum: 10, maximum: 400 }
   has_many :products, dependent: :destroy
 end
