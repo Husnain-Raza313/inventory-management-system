@@ -20,15 +20,17 @@ class ApplicationController < ActionController::Base
 
   def set_layout
     current_user ? 'application' : 'auth'
+  end
 
   private
+
   def record_not_found(error)
     flash[:danger] = error.message
     redirect_back(fallback_location: root_path)
   end
 
   def page_not_found(_error)
-    flash[:danger] = 'SORRY!!! PAGE NOT FOUND'
+    flash[:danger] = t('page_not_found')
     redirect_back(fallback_location: root_path)
   end
 end

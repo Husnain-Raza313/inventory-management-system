@@ -18,7 +18,8 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
-      redirect_to brand_url(@brand), notice: 'Brand was successfully created.'
+      flash[:success] = t('brand.create.success')
+      redirect_to brand_url(@brand)
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +27,8 @@ class BrandsController < ApplicationController
 
   def update
     if @brand.update(brand_params)
-      redirect_to brand_url(@brand), notice: 'Brand was successfully updated.'
+      flash[:success] = t('brand.update.success')
+      redirect_to brand_url(@brand)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +36,7 @@ class BrandsController < ApplicationController
 
   def destroy
     if @brand.destroy
-      flash[:success] = 'Brand was successfully destroyed.'
+      flash[:success] = t('brand.destroy.success')
     else
       flash[:danger] = @brand.errors.full_messages.to_sentence
     end
