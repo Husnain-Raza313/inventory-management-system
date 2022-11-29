@@ -12,4 +12,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 import "bootstrap"
+import 'bootstrap-icons/font/bootstrap-icons.css'
+import "@fortawesome/fontawesome-free/js/all";
 

@@ -1,0 +1,29 @@
+<section class="vh-100 sign-in-section d-flex">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5 sample_image">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-outline mb-4">
+            <%= f.email_field :email, autofocus: true, class:"form-control form-control-lg",placeholder:"Enter a valid email address" %>
+            <label class="form-label" for="form3Example3">Email address</label>
+          </div>
+
+          <div class="form-outline mb-3">
+            <%= f.password_field :password, class:"form-control form-control-lg",placeholder:"Enter password" %>
+            <label class="form-label" for="form3Example4">Password</label>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <%=f.submit "Login",class:"btn btn-primary btn-lg login-button"%>
+            <p class="small fw-bold mt-2 pt-1 mb-0"> Dont have an account? <a href="<%=new_user_registration_path%>"
+                class="link-danger">Register</a></p>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -13,17 +13,38 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap/scss/bootstrap";
- 
- body {
-    font-family: "serif";
-    background: #fafafa;
-  }
-  
-  p {
-    font-family: "serif";
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-  }
+@import "bootstrap/scss/bootstrap";
+$fa-font-path: "@fortawesome/fontawesome-free/webfonts";
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/v4-shims";
+body {
+  font-family: "serif";
+  background: #fafafa;
+}
+
+p {
+  font-family: "serif";
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+.alert-alert {
+  @extend .alert-warning !optional;
+}
+.alert-notice {
+  @extend .alert-success !optional;
+}
+.flash {
+  position: absolute;
+  z-index: 100;
+  padding-right: 30px;
+  padding-left: 30px;
+  top: 0;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
+}
