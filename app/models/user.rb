@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
   validates :description, length: { minimum: 10, maximum: 30 }
   validates :email, format: { with: VALID_EMAIL_REGEX, multiline: true }
-  validate :image_type, if: -> { image.attached? }
+  validate :image_type, if: -> { image.attached? && !image.content_type.in?(%('image/jpeg image/png image/heic')) }
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -18,8 +18,6 @@ class User < ApplicationRecord
   private
 
   def image_type
-    return if image.content_type.in?(%('image/jpeg image/png image/heic'))
-
     errors.add(:image, I18n.t('user.image'))
   end
 end
