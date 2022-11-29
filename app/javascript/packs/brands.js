@@ -1,4 +1,3 @@
-let fileInput = document.getElementById('image-file');
 $(document).on('change', '#image-file', function(){
     let fileInput = document.getElementById('image-file');
         let filePath = fileInput.value;
