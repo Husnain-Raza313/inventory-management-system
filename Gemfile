@@ -23,8 +23,11 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'rolify'
+<<<<<<< HEAD
 gem 'activestorage-validator'
 
+=======
+>>>>>>> fc3c5ed (Product-category:: Removed unnecessary code from controller Added Strings in project translation files and  Resolved Conflicts)
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
