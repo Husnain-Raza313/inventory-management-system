@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :set_layout
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+  rescue_from ActionController::UnknownFormat, with: :page_not_found
+
   protected
 
   def configure_permitted_parameters
@@ -17,5 +20,15 @@ class ApplicationController < ActionController::Base
 
   def set_layout
     current_user ? 'application' : 'auth'
+
+  private
+  def record_not_found(error)
+    flash[:danger] = error.message
+    redirect_back(fallback_location: root_path)
+  end
+
+  def page_not_found(_error)
+    flash[:danger] = 'SORRY!!! PAGE NOT FOUND'
+    redirect_back(fallback_location: root_path)
   end
 end
