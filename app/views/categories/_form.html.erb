@@ -1,0 +1,27 @@
+ <div class="form-body">
+    <div class="row">
+      <div class="form-holder">
+        <div class="form-content">
+          <div class="form-items">
+            <h3>New Category</h3>
+            <p>Fill in the data below.</p>
+            <%= form_with(model: category) do |form| %>
+              <%= render "layouts/error_messages", messages: category %>
+               <div class="col-md-12">
+                 <%= form.text_field :name, class:"form-control", placeholder:"Category Name" %>
+               </div>
+              <div class="col-md-12">
+                <%= form.text_field :description, class:"form-control", placeholder:"Enter Category Description" %>
+              </div>
+              <div class="col-md-12">
+                <%= form.file_field :image,class:"image-field"%>
+              </div>
+              <div class="form-button mt-3 col-md-4">
+                <%= form.submit class: "btn btn-primary submit-button" %>
+              </div>
+            <%end%>
+         </div>
+       </div>
+     </div>
+   </div>
+</div>
