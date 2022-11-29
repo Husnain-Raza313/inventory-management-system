@@ -21,6 +21,7 @@ gem 'turbolinks', '~> 5'
 gem 'figaro'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
+gem "rolify"
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

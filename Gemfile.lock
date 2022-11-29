@@ -93,7 +93,6 @@ GEM
       thor (>= 0.14.0, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    htmlbeautifier (1.4.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -177,6 +176,7 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    rolify (6.0.0)
     rubocop (1.39.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -268,7 +268,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   figaro
-  htmlbeautifier
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
@@ -276,6 +275,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
+  rolify
   rubocop
   rubocop-minitest
   rubocop-performance
