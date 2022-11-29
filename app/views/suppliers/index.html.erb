@@ -12,9 +12,9 @@
   <tbody>
     <% @suppliers.each do |supplier| %>
       <tr>
-        <td><%= link_to 'Show', supplier %></td>
-        <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
-        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', supplier, class:"btn btn-outline-primary" %></td>
+        <td><%= link_to 'Edit', edit_supplier_path(supplier), class:"btn btn-outline-warning" %></td>
+        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Supplier', new_supplier_path %>
+<%= link_to 'Add New Supplier', new_supplier_path, class:"btn btn-dark btn-lg" %>
