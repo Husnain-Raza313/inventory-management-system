@@ -1,7 +1,7 @@
 <h1>Brands</h1>
   <div class="container d-flex flex-row">
     <% @brands.each do |brand| %>
-        <div class="card m-3 rounded-2" style="width: 18rem;">
+        <div class="card m-3 rounded-2 card-width">
              <%= image_view(brand) %>
              <hr class="m-0">
              <h5 class="card-title mx-3 mt-3"><%= brand.name %></h5>

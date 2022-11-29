@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import "bootstrap/scss/bootstrap";
 $fa-font-path: "@fortawesome/fontawesome-free/webfonts";
 @import "@fortawesome/fontawesome-free/scss/fontawesome";
@@ -48,3 +49,7 @@ p {
   margin-top: 20px;
   margin-right: 20px;
 }
+.card-width{
+    width: 18rem;
+  }
+
