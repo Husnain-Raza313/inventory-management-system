@@ -29,7 +29,6 @@ en:
       success: "Category was successfully updated."
     destroy:
       success: "Category was successfully destroyed."
-    Add Category: "Add New Category"
-    All Categories: "All Categories"
-    Catgories List: "Categories List"
+    add_category: "Add New Category"
+    all_categories: "All Categories"
     
