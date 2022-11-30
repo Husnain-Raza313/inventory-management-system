@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :products, dependent: :destroy
   has_one_attached :image, dependent: :destroy
-  after_create :assign_default_role
+  after_create :assign_default_role, if: -> { roles.blank? }
 
   private
 
@@ -24,6 +24,6 @@ class User < ApplicationRecord
   end
 
   def assign_default_role
-    self.add_role(:cashier) if self.roles.blank?
+    add_role(:cashier)
   end
 end
