@@ -1,4 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_supplier_path(@supplier), , class:"btn btn-outline-primary btn-lg" %> |
-<%= link_to 'Suppliers List', suppliers_path, class:"btn btn-dark btn-lg" %>
+<div class="jumbotron bg-white p-5 border-info border rounded-2 ml-5">
+  <div class="container d-flex flex-row justify-content-between">
+    <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
+      <h2 class="text-black" ><b><%= @supplier.name %></b></h2>
+      <h5 class="text-black" ><b>Phone No: <%= @supplier.phone_no %></b></h5>
+      <p class="text-grey w-75" ><b>Address: </b><%= @supplier.supplier_address %></p>
+      <div class="my-3" >
+        <%= link_to t('edit'), edit_supplier_path(@supplier), class:"btn btn-outline-primary btn-lg" %>
+      </div>
+    </div>
+    <div class="rounded overflow-hidden w-50 m-auto">
+      <%= image_view(@supplier) %>
+    </div>
+  </div>
+</div>
+<%= link_to t('Suppliers List'), suppliers_path, class:"btn btn-dark btn-lg m-3" %>

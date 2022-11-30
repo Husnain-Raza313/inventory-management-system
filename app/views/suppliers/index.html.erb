@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Suppliers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="container d-flex flex-row">
+  <% if @suppliers.present? %>
     <% @suppliers.each do |supplier| %>
-      <tr>
-        <td><%= link_to 'Show', supplier, class:"btn btn-outline-primary" %></td>
-        <td><%= link_to 'Edit', edit_supplier_path(supplier), class:"btn btn-outline-warning" %></td>
-        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %></td>
-      </tr>
+      <div class="card m-3 rounded-2 card-width" style="width: 18rem;">
+        <%= image_view(supplier) %>
+        <hr class="m-0">
+        <div class="d-flex flex-column justify-content-start image-content-start">
+          <h5 class="mx-3 mt-3">Name: <%= supplier.name %></h5>
+          <h5 class="mx-3">Phone No: <%= supplier.phone_no %></h5>
+        </div>
+        <div class="ml-3 mb-4 d-flex flex-column justify-content-between">
+          <p class="card-text">Address: <%= supplier.supplier_address %></p>
+          <div>
+            <%= link_to t('show'), supplier, class:"btn btn-outline-primary" %>
+            <%= link_to t('edit'), edit_supplier_path(supplier), class:"btn btn-outline-warning" %>
+            <%= link_to t('destroy'), supplier, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
+  <% end %>
+</div>
 <br>
-
 <%= link_to 'Add New Supplier', new_supplier_path, class:"btn btn-dark btn-lg" %>
