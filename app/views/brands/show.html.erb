@@ -3,8 +3,8 @@
     <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
       <h1 class="text-black" ><b><%= @brand.name %></b></h1>
       <p class="text-grey" ><%= @brand.description %></p>
-      <h5 class="text-black" >Products: nil</h5>
-      <h5 class="text-black" >Categories: nil</h5>
+      <h5 class="text-black" ><%= t('brand.products') %>: nil</h5>
+      <h5 class="text-black" ><%= t('brand.categories') %> : nil</h5>
       <div class="my-3" >
         <%= link_to t('edit_button'), edit_brand_path(@brand), class:"btn btn-outline-primary btn-lg" %>
       </div>

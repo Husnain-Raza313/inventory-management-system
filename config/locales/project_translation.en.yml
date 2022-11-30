@@ -17,5 +17,8 @@ en:
     add: "Add New Brand"
     all: "All Brands"
     list: "Brands List"
+    edit: "Editing Brand"
+    categories: "Categories"
+    products: "Products"
 
 
