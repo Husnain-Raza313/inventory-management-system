@@ -26,13 +26,13 @@
                 <%= form.number_field :price_per_unit, class:"form-control", placeholder:"Enter price per unit" %>
               </div>
                <div class="col-md-12">
-                 <%= form.collection_select :category_ids, Category.all, :id, :name, {include_blank: true}, multiple: true, class: "select2 form-control" %>
+                 <%= form.select :category_ids, options_for_select(Category.all.map{|c|[c.id, c.name]}), {include_blank: false}, multiple: true, class: "select2 form-control" %>
               </div>
               <div class="col-md-12">
                 <%= form.number_field :retail_price, class:"form-control", placeholder:"Enter Retail Price" %>
               </div>
               <div class="col-md-12">
-                 <%= form.collection_select :supplier_ids, Supplier.all, :id, :name, {include_blank: true}, multiple: true, class: "select2 form-control" %>
+                <%= form.select :supplier_ids, options_for_select(Supplier.all.map{|s|[s.id, s.name]}), {include_blank: true}, multiple: true, class: "select2 form-control"%>
               </div>
               <div class="col-md-12">
                 <%= form.number_field :bulk_price, class:"form-control", placeholder:"Enter Bulk Price" %>
@@ -50,3 +50,6 @@
    </div>
 </div>
 
+<script>
+
+</script>
