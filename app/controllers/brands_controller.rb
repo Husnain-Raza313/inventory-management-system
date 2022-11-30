@@ -23,7 +23,6 @@ class BrandsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def update
@@ -33,7 +32,6 @@ class BrandsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   def destroy
