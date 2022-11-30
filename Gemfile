@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem "rolify"
 
-#Active Storage Validator
 gem 'activestorage-validator'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -31,8 +30,6 @@ gem 'activestorage-validator'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Devise for Authentication
 gem 'devise'
-# Use carrierwave for image uploading
-gem 'carrierwave', '>= 3.0.0.beta', '< 4.0'
 
 gem 'client_side_validations'
 # Use Active Storage variant
