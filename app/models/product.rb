@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  validates :name, :image, :description, :serial_no, :bulk_price, :price_per_unit, :retail_price, presence: true
+  validates :serial_no, :description, length: { minimum: 10, maximum: 30 }
+  validates :bulk_price, numericality: { greater_than: :price_per_unit }
+  validates :price_per_unit, numericality: { greater_than: :retail_price }
+  validate :image_type, if: -> { image.attached? && !image.content_type.in?(%('image/jpeg image/png image/heic')) }
   has_many :product_suppliers, dependent: :destroy
   has_many :suppliers, through: :product_suppliers
 
@@ -9,4 +14,15 @@ class Product < ApplicationRecord
 
   belongs_to :brand
   belongs_to :user
+
+  has_one_attached :image, dependent: :destroy
+
+  belongs_to :brand
+  belongs_to :user
+
+  private
+
+  def image_type
+    errors.add(:image, I18n.t('product.image'))
+  end
 end
