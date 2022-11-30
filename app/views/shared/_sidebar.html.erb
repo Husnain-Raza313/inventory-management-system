@@ -32,13 +32,17 @@
       </ul>
     </li>
     <li>
-      <a href="#categorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Category</a>
-      <ul class="collapse list-unstyled" id="categorySubmenu">
+      <a href="#supplierSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Supplier</a>
+      <ul class="collapse list-unstyled" id="supplierSubmenu">
         <li>
           <%= link_to t('add', param:'Category'), new_category_path %>
         </li>
         <li>
           <%= link_to t('all',param:'Categories'), categories_path %>
+          <%= link_to t('supplier.add'), new_supplier_path %>
+        </li>
+        <li>
+          <%= link_to t('supplier.all'), suppliers_path %>
         </li>
       </ul>
     <ul class="list-unstyled CTAs">

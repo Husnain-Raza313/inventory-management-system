@@ -17,37 +17,30 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(supplier_params)
-
-    respond_to do |format|
-      if @supplier.save
-        format.html { redirect_to supplier_url(@supplier), notice: "Supplier was successfully created." }
-        format.json { render :show, status: :created, location: @supplier }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @supplier.errors, status: :unprocessable_entity }
-      end
+    if @supplier.save
+      flash[:success] = t('supplier.create.success')
+      redirect_to supplier_url(@supplier)
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @supplier.update(supplier_params)
-        format.html { redirect_to supplier_url(@supplier), notice: "Supplier was successfully updated." }
-        format.json { render :show, status: :ok, location: @supplier }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @supplier.errors, status: :unprocessable_entity }
-      end
+    if @supplier.update(supplier_params)
+      flash[:success] = t('supplier.update.success')
+      redirect_to supplier_url(@supplier)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @supplier.destroy
-
-    respond_to do |format|
-      format.html { redirect_to suppliers_url, notice: "Supplier was successfully destroyed." }
-      format.json { head :no_content }
+    if @supplier.destroy
+      flash[:success] = t('supplier.destroy.success')
+    else
+      flash[:danger] = @supplier.errors.full_messages.to_sentence
     end
+    redirect_to suppliers_url
   end
 
   private

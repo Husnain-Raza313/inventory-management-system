@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :home, only: %i[index]
   resources :brands
+  resources :suppliers
   devise_for :users
   authenticated :user, ->(u) { u.has_role?(:admin) } do
     root to: 'home#index', as: :admin_route
