@@ -1,18 +1,28 @@
 <%= form_with(model: @supplier, validate: true) do |form| %>
    <%# <%= render 'layouts/error_messages'%>
-    <div class="form-group mb-2">
-      <%= form.label :name, class:"d-block" %>
-      <%= form.text_field :name, class:"form-control w-50" %>
+  <div class="form-group mb-2">
+    <%= form.label :name, class:"d-block" %>
+    <%= form.text_field :name, class:"form-control w-50" %>
+  </div>
+  <div class="form-group mb-2">
+    <%= form.label :supplier_address, class:"d-block" %>
+    <%= form.text_field :supplier_address, class:"form-control w-75" %>
+  </div>
+  <div class="form-group mb-2">
+    <%= form.label :phone_no, class:"d-block" %>
+    <%= form.text_field :phone_no, class:"form-control w-50" %>
+  </div>
+  <div class="form-group mb-2">
+    <%= form.label :image, class:"d-block" %>
+    <div class="w-25">
+      <%= image_view(@supplier) %>
     </div>
-    <div class="form-group mb-2">
-      <%= form.label :supplier_address, class:"d-block" %>
-      <%= form.text_field :supplier_address, class:"form-control w-75" %>
-    </div>
-    <div class="form-group mb-2">
-      <%= form.label :phone_no, class:"d-block" %>
-      <%= form.text_field :phone_no, class:"form-control w-50" %>
-    </div>
-    <div class="actions">
-        <%= form.submit class:"btn btn-success mb-5" %>
-    </div>
+    <br/>
+    <%= form.file_field :image, class:"d-block", id: 'image-file' %>
+    <br/>
+    <p id="error-msg", class="text-danger" ></p>
+  </div>
+  <div class="actions">
+    <%= form.submit class:"btn btn-success mb-5" %>
+  </div>
 <% end %>
