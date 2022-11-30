@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   resources :home, only: %i[index]
   resources :brands
   devise_for :users

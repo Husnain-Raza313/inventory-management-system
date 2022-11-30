@@ -21,8 +21,9 @@ class BrandsController < ApplicationController
       flash[:success] = t('brand.create.success')
       redirect_to brand_url(@brand)
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
+
   end
 
   def update
@@ -30,8 +31,9 @@ class BrandsController < ApplicationController
       flash[:success] = t('brand.update.success')
       redirect_to brand_url(@brand)
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
+
   end
 
   def destroy
@@ -40,6 +42,7 @@ class BrandsController < ApplicationController
     else
       flash[:danger] = @brand.errors.full_messages.to_sentence
     end
+
     redirect_to brands_url
   end
 
