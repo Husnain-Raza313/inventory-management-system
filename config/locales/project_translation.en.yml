@@ -1,8 +1,8 @@
 en:
-  show_button: "Show"
-  edit_button: "Edit"
-  destroy_button: "Delete"
-  back_button: "Back"
+  show: "Show"
+  edit: "Edit"
+  destroy: "Delete"
+  back: "Back"
   page_not_found: " Page Not Found!!!"
   confirmation_msg: "Are You Sure?"
   user:
