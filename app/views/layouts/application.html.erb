@@ -12,13 +12,13 @@
 
   <body>
     <div class="wrapper">
-      <%if current_user.has_role?(:admin)%>
-        <%=render 'shared/sidebar'%>
-      <%end%>
+      <% if current_user.has_role?(:admin) %>
+        <%= render 'shared/sidebar' %>
+      <% end %>
       <div id="content">
         <div class="container">
           <%= render "layouts/flash" %>
-          <%=yield%>
+          <%= yield %>
         </div>
       </div>
     </div>
