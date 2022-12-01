@@ -3,9 +3,9 @@
 module BrandsHelper
   def image_view(brand)
     if brand.image.filename.nil?
-      image_tag('no-image.jpeg', size: '500x250', alt: 'Brand Image', class: ' w-100 rounded-top')
+      image_tag('no-image.jpeg', size: ApplicationHelper::IMAGE_SIZE, alt: t('image', param: 'Brand'), class: ' w-100 rounded-top')
     else
-      image_tag(brand.image, size: '500x250', alt: 'Brand Image', class: ' w-100 rounded-top')
+      image_tag(brand.image, size: ApplicationHelper::IMAGE_SIZE, alt: t('image', param: 'Brand'), class: ' w-100 rounded-top')
     end
   end
 end

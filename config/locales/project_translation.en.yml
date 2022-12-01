@@ -14,7 +14,7 @@ en:
     success: "%{param} was successfully updated."
   destroy:
     success: "%{param} was successfully destroyed."
-        
+
   add: "Add New %{param}"
   all: "All %{param}"
   list: "%{param} List"
@@ -22,4 +22,4 @@ en:
   all_categories: "List %{param}"
   products: "Products"
   categories: "categories"
-
+  image: "%{param} image "
