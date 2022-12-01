@@ -1,22 +1,21 @@
 <h1>Categories</h1>
-   <%if @categories.present?%>
+<% if @categories.present? %>
   <div class="container d-flex flex-row">
     <% @categories.each do |category| %>
-      <div class="card m-3 rounded-2" style="width: 18rem;">
-        <%= image_view(category) %>
-          <hr class="m-0">
-          <h5 class="card-title mx-3 mt-3"><%= category.name %></h5>
-            <div class="card-body d-flex flex-column justify-content-between">
-              <p class="card-text"><%= category.description %></p>
-              <div>
-                <%= link_to t('show-button'), category, class:"btn btn-outline-primary" %>
-                <%= link_to t('edit-button'), edit_category_path(category), class:"btn btn-outline-warning" %>
-                <%= link_to t('destroy-button'), category, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
-            </div>
-          </div>
+    <div class="card m-3 rounded-2" style="width: 18rem;">
+      <%= image_view(category) %>
+      <hr class="m-0">
+      <h5 class="card-title mx-3 mt-3"><%= category.name %></h5>
+      <div class="card-body d-flex flex-column justify-content-between">
+        <p class="card-text"><%= category.description %></p>
+        <div>
+          <%= link_to t('show-button'), category, class:"btn btn-outline-primary" %>
+          <%= link_to t('edit-button'), edit_category_path(category), class:"btn btn-outline-warning" %>
+          <%= link_to t('destroy-button'), category, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+        </div>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
 <br>
-<%end%>
+<% end %>
 <%= link_to t('brand.add_category'), new_category_path, class:"btn btn-dark btn-lg" %>
