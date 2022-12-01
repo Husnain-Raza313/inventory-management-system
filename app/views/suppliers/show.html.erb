@@ -5,7 +5,7 @@
       <h5 class="text-black" ><b>Phone No: <%= @supplier.phone_no %></b></h5>
       <p class="text-grey w-75" ><b>Address: </b><%= @supplier.supplier_address %></p>
       <div class="my-3" >
-        <%= link_to t('edit_button'), edit_supplier_path(@supplier), class:"btn btn-outline-primary btn-lg" %>
+        <%= link_to t('edit'), edit_supplier_path(@supplier), class:"btn btn-outline-primary btn-lg" %>
       </div>
     </div>
     <div class="rounded overflow-hidden w-50 m-auto">
