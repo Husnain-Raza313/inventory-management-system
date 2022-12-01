@@ -35,10 +35,10 @@
       <a href="#categorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Category</a>
       <ul class="collapse list-unstyled" id="categorySubmenu">
         <li>
-          <a href="<%=new_category_path%>">Add Category</a>
+          <%= link_to t('category.add_category'), new_category_path %>
         </li>
         <li>
-          <a href="<%=categories_path%>">All Categories</a>
+          <%= link_to t('category.all_categories'), categories_path %>
         </li>
       </ul>
     <ul class="list-unstyled CTAs">
