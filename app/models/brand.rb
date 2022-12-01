@@ -6,6 +6,6 @@ class Brand < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 30, minimum: 1 }
   validates :image, presence: true,
-                    blob: { content_type: ['image/png', 'image/gif', 'image/jpg', 'image/jpeg'], size_range: 1..(5.megabytes) }
+                    blob: { content_type: ALLOWED_IMAGE_TYPES, size_range: ALLOWED_IMAGE_SIZE }
   validates :description, presence: true, length: { minimum: 10, maximum: 400 }
 end

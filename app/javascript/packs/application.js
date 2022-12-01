@@ -13,6 +13,3 @@ require('@client-side-validations/client-side-validations/src')
 require('packs/brands')
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all";
-
-
-
