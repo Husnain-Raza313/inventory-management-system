@@ -13,10 +13,11 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
-      flash[:success] = t('category.create.success')
+      flash[:success] = t('create.success', param: 'category')
       redirect_to category_url(@category)
     else
-      render :new, status: :unprocessable_entity
+      flash[:warning] = @category.errors.full_messages.to_sentence
+      redirect_to new_category_path
     end
   end
 
@@ -25,16 +26,17 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params)
-      flash[:success] = t('category.update.success')
+      flash[:success] = t('update.success', param: 'category')
       redirect_to category_url(@category)
     else
-      render :edit, status: :unprocessable_entity
+      flash[:warning] = @category.errors.full_messages.to_sentence
+      redirect_to edit_category_path(@category)
     end
   end
 
   def destroy
-    if @brand.destroy
-      flash[:success] = t('category.destroy.success')
+    if @category.destroy
+      flash[:success] = t('destroy.success', param: 'category')
     else
       flash[:danger] = @category.errors.full_messages.to_sentence
     end
@@ -44,7 +46,7 @@ class CategoriesController < ApplicationController
   private
 
   def set_category
-    @category = Category.find_by(id: params[:id])
+    @category = Category.find(id: params[:id])
   end
 
   def category_params
