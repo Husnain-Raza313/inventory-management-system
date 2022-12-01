@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :home, only: %i[index]
+  resources :brands
   devise_for :users
   authenticated :user do
     root to: 'home#index', as: :admin_route

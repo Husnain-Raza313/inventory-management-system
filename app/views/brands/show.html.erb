@@ -1,0 +1,17 @@
+<div class="jumbotron bg-white p-5 border-info border rounded-2 w-100 ml-5">
+  <div class="container d-flex flex-row justify-content-between">
+    <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
+      <h1 class="text-black" ><b><%= @brand.name %></b></h1>
+      <p class="text-grey" ><%= @brand.description %></p>
+      <h5 class="text-black" ><%= t('brand.products') %>: nil</h5>
+      <h5 class="text-black" ><%= t('brand.categories') %> : nil</h5>
+      <div class="my-3" >
+        <%= link_to t('edit'), edit_brand_path(@brand), class:"btn btn-outline-primary btn-lg" %>
+      </div>
+    </div>
+    <div class="rounded overflow-hidden w-50 m-auto">
+      <%= image_view(@brand) %>
+    </div>
+  </div>
+</div>
+<%= link_to t('brand.list'), brands_path, class:"btn btn-dark btn-lg m-3" %>

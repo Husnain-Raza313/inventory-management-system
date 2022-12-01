@@ -24,10 +24,10 @@
       <a href="#brandSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Brands</a>
       <ul class="collapse list-unstyled" id="brandSubmenu">
         <li>
-            <a href="#">Add Brand</a>
+            <%= link_to t('brand.add'), new_brand_path %>
         </li>
         <li>
-          <a href="#">All Brands</a>
+          <%= link_to t('brand.all'), brands_path %>
         </li>
       </ul>
     </li>

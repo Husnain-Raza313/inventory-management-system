@@ -21,8 +21,9 @@ gem 'turbolinks', '~> 5'
 gem 'figaro'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
-gem "rolify"
+gem 'rolify'
 
+gem 'activestorage-validator'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -30,6 +31,7 @@ gem "rolify"
 # Use Devise for Authentication
 gem 'devise'
 
+gem 'client_side_validations'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
