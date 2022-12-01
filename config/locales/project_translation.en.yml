@@ -1,34 +1,25 @@
 en:
-  show: "Show"
-  edit: "Edit"
-  delete: "Delete"
+  show-button: "Show"
+  edit-button: "Edit"
+  delete-button: "Delete"
   back: "Back"
   page_not_found: " Page Not Found!!!"
   confirmation_msg: "Are You Sure?"
   user:
     image: "needs to be a jpeg or png!"
-  brand:
-    create:
-      success: "Brand was successfully created."
-    update:
-      success: "Brand was successfully updated."
-    destroy:
-      success: "Brand was successfully destroyed."
-    add: "Add New Brand"
-    all: "All Brands"
-    list: "Brands List"
-    edit: "Editing Brand"
-    categories: "Categories"
-    products: "Products"
 
+  create:
+    success: "%{param} was successfully created."
+  update:
+    success: "%{param} was successfully updated."
+  destroy:
+    success: "%{param} was successfully destroyed."
+        
+  add: "Add New %{param}"
+  all: "All %{param}"
+  list: "%{param} List"
+  edit: "Editing %{param}"
+  all_categories: "List %{param}"
+  products: "Products"
+  categories: "categories"
 
-  category:
-    create:
-      success: "Category was successfully created."
-    update:
-      success: "Category was successfully updated."
-    destroy:
-      success: "Category was successfully destroyed."
-    add_category: "Add New Category"
-    all_categories: "List Categories"
-    
