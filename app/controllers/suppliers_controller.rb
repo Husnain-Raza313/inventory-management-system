@@ -21,7 +21,7 @@ class SuppliersController < ApplicationController
       flash[:success] = t('supplier.create.success')
       redirect_to supplier_url(@supplier)
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
@@ -30,7 +30,7 @@ class SuppliersController < ApplicationController
       flash[:success] = t('supplier.update.success')
       redirect_to supplier_url(@supplier)
     else
-      render :edit, status: :unprocessable_entity
+      render :edit
     end
   end
 
@@ -40,10 +40,12 @@ class SuppliersController < ApplicationController
     else
       flash[:danger] = @supplier.errors.full_messages.to_sentence
     end
+
     redirect_to suppliers_url
   end
 
   private
+
     def set_supplier
       @supplier = Supplier.find_by_id(params[:id])
     end
