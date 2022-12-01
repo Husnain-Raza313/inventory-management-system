@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: %i[ show edit update destroy ]
+  before_action :set_supplier, only: %i[show edit update destroy]
 
   def index
     @suppliers = Supplier.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @supplier = Supplier.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @supplier = Supplier.new(supplier_params)
@@ -46,11 +46,11 @@ class SuppliersController < ApplicationController
 
   private
 
-    def set_supplier
-      @supplier = Supplier.find_by_id(params[:id])
-    end
+  def set_supplier
+    @supplier = Supplier.find_by(id: params[:id])
+  end
 
-    def supplier_params
-      params.require(:supplier).permit(:name, :supplier_address, :phone_no, :image)
-    end
+  def supplier_params
+    params.require(:supplier).permit(:name, :supplier_address, :phone_no, :image)
+  end
 end
