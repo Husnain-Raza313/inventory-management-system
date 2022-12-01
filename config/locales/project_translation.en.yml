@@ -8,6 +8,10 @@ en:
   phone: "Phone No"
   address: "Address"
   name: "Name"
+  edit_heading: "Editing %{title} "
+  add: "Add New %{title}"
+  all: "All %{title}"
+  list: "%{title} List"
   user:
     image: "needs to be a jpeg or png!"
 
