@@ -1,4 +1,4 @@
-<h1>Suppliers</h1>
+<h1><%= t('supplier.all') %></h1>
 <div class="container d-flex flex-row">
   <% if @suppliers.present? %>
     <% @suppliers.each do |supplier| %>
@@ -6,15 +6,15 @@
         <%= image_view(supplier) %>
         <hr class="m-0">
         <div class="d-flex flex-column justify-content-start image-content-start">
-          <h5 class="mx-3 mt-3">Name: <%= supplier.name %></h5>
-          <h5 class="mx-3">Phone No: <%= supplier.phone_no %></h5>
+          <h5 class="mx-3 mt-3"><%= t('name') %>: <%= supplier.name %></h5>
+          <h5 class="mx-3"><%= t('phone') %>: <%= supplier.phone_no %></h5>
         </div>
         <div class="ml-3 mb-4 d-flex flex-column justify-content-between">
-          <p class="card-text mr-2">Address: <%= supplier.supplier_address %></p>
+          <p class="card-text mr-2"><%= t('address') %>: <%= supplier.supplier_address %></p>
           <div>
             <%= link_to t('show'), supplier, class:"btn btn-outline-primary" %>
             <%= link_to t('edit'), edit_supplier_path(supplier), class:"btn btn-outline-warning" %>
-            <%= link_to t('destroy'), supplier, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
+            <%= link_to t('delete'), supplier, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
           </div>
         </div>
       </div>
