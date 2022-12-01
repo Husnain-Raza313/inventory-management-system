@@ -1,7 +1,7 @@
 en:
   show: "Show"
   edit: "Edit"
-  destroy: "Delete"
+  delete: "Delete"
   back: "Back"
   page_not_found: " Page Not Found!!!"
   confirmation_msg: "Are You Sure?"
