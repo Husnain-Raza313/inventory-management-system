@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
 
     if @category.save
       flash[:success] = t('create.success', param: 'category')
-      redirect_to category_url(@category)
+      redirect_to category_path(@category)
     else
       flash[:warning] = @category.errors.full_messages.to_sentence
       redirect_to new_category_path
@@ -46,7 +46,7 @@ class CategoriesController < ApplicationController
   private
 
   def set_category
-    @category = Category.find(id: params[:id])
+    @category = Category.find(params[:id])
   end
 
   def category_params
