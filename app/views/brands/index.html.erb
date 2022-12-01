@@ -1,4 +1,4 @@
-<h1><%= t('all', title: 'Brands') %></h1>
+<h1><%= t('all', param: 'Brands') %></h1>
 <div class="container d-flex flex-row">
   <% if @brands.present? %>
     <% @brands.each do |brand| %>
@@ -19,4 +19,4 @@
   <% end %>
 </div>
 <br>
-<%= link_to t('add', title: 'Brand'), new_brand_path, class:"btn btn-dark btn-lg" %>
+<%= link_to t('add', param: 'Brand'), new_brand_path, class:"btn btn-dark btn-lg" %>
