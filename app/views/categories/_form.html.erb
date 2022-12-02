@@ -7,10 +7,10 @@
             <%= form_with(model: category) do |form| %>
               <%= render "layouts/error_messages", messages: category %>
                <div class="col-md-12">
-                 <%= form.text_field :name, class:"form-control", placeholder:"Category Name" %>
+                 <%= form.text_field :name, class:"form-control" %>
                </div>
               <div class="col-md-12">
-                <%= form.text_field :description, class:"form-control", placeholder:"Enter Category Description" %>
+                <%= form.text_field :description, class:"form-control"%>
               </div>
               <div class="col-md-12">
                 <%= form.file_field :image,class:"image-field"%>
