@@ -3,8 +3,7 @@
       <div class="form-holder">
         <div class="form-content">
           <div class="form-items">
-            <h3>New Category</h3>
-            <p>Fill in the data below.</p>
+            <h3><%= t('add', param: 'Category') %></h3>
             <%= form_with(model: category) do |form| %>
               <%= render "layouts/error_messages", messages: category %>
                <div class="col-md-12">

@@ -11,7 +11,7 @@
         <div>
           <%= link_to t('show-button'), category, class:"btn btn-outline-primary" %>
           <%= link_to t('edit-button'), edit_category_path(category), class:"btn btn-outline-warning" %>
-          <%= link_to t('destroy-button'), category, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
+          <%= link_to t('delete-button'), category, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
         </div>
       </div>
     </div>
