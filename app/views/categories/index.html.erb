@@ -2,7 +2,7 @@
 <% if @categories.present? %>
   <div class="container d-flex flex-row">
     <% @categories.each do |category| %>
-    <div class="card m-3 rounded-2">
+    <div class="card m-3 rounded-2 card-width">
       <%= image_view(category) %>
       <hr class="m-0">
       <h5 class="card-title mx-3 mt-3"><%= category.name %></h5>
