@@ -40,6 +40,7 @@ class CategoriesController < ApplicationController
     else
       flash[:danger] = @category.errors.full_messages.to_sentence
     end
+    
     redirect_to category_url
   end
 
