@@ -18,25 +18,27 @@ class SuppliersController < ApplicationController
   def create
     @supplier = Supplier.new(supplier_params)
     if @supplier.save
-      flash[:success] = t('supplier.create.success')
+      flash[:success] = t('create.success', param: 'supplier')
       redirect_to supplier_url(@supplier)
     else
+      flash[:warning] = @supplier.errors.full_messages.to_sentence
       render :new
     end
   end
 
   def update
     if @supplier.update(supplier_params)
-      flash[:success] = t('supplier.update.success')
+      flash[:success] = t('update.success', param: 'supplier')
       redirect_to supplier_url(@supplier)
     else
+      flash[:warning] = @supplier.errors.full_messages.to_sentence
       render :edit
     end
   end
 
   def destroy
     if @supplier.destroy
-      flash[:success] = t('supplier.destroy.success')
+      flash[:success] = t('destroy.success', param: 'supplier')
     else
       flash[:danger] = @supplier.errors.full_messages.to_sentence
     end
@@ -47,7 +49,7 @@ class SuppliersController < ApplicationController
   private
 
   def set_supplier
-    @supplier = Supplier.find_by(id: params[:id])
+    @supplier = Supplier.find(params[:id])
   end
 
   def supplier_params
