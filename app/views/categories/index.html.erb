@@ -1,6 +1,6 @@
 <h1>Categories</h1>
 <% if @categories.present? %>
-  <div class='container d-flex flex-row">
+  <div class="container d-flex flex-row">
     <% @categories.each do |category| %>
     <div class="card m-3 rounded-2">
       <%= image_view(category) %>
