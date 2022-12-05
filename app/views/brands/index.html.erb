@@ -9,9 +9,9 @@
         <div class="card-body d-flex flex-column justify-content-between">
           <p class="card-text"><%= brand.description %></p>
           <div>
-            <%= link_to t('show'), brand, class:"btn btn-outline-primary" %>
-            <%= link_to t('edit'), edit_brand_path(brand), class:"btn btn-outline-warning" %>
-            <%= link_to t('delete'), brand, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
+            <%= link_to t('show-button'), brand, class:"btn btn-outline-primary" %>
+            <%= link_to t('edit-button'), edit_brand_path(brand), class:"btn btn-outline-warning" %>
+            <%= link_to t('delete-button'), brand, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
           </div>
         </div>
       </div>
