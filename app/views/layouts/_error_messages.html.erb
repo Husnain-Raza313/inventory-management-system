@@ -1,6 +1,6 @@
-<% if messages %>
+<% if messages.present? %>
   <div class="alert alert-danger">
-    <% messages.errors.full_messages.each do |message| %>
+    <% messages.each do |message| %>
       <div class="field-with-errors"><%= message %></div>
     <% end %>
   </div>

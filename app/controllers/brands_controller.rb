@@ -18,7 +18,7 @@ class BrandsController < ApplicationController
   def create
     @brand = Brand.new(brand_params)
     if @brand.save
-      flash[:success] = t('brand.create.success')
+      flash[:success] = t('create.success', param: 'brand')
       redirect_to brand_url(@brand)
     else
       render :new
@@ -27,7 +27,7 @@ class BrandsController < ApplicationController
 
   def update
     if @brand.update(brand_params)
-      flash[:success] = t('brand.update.success')
+      flash[:success] = t('update.success', param: 'brand')
       redirect_to brand_url(@brand)
     else
       render :edit
@@ -36,7 +36,7 @@ class BrandsController < ApplicationController
 
   def destroy
     if @brand.destroy
-      flash[:success] = t('brand.destroy.success')
+      flash[:success] = t('destroy.success', param: 'brand')
     else
       flash[:danger] = @brand.errors.full_messages.to_sentence
     end
