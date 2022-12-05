@@ -1,9 +1,8 @@
 <div id="all-flashes">
-<% if flash.any? %>
-    <% flash.each do |type, msg| %>
-        <div class="flash alert alert-<%=type%>">
-          <em><%= msg %></em>
-        </div>
+  <script type="text/javascript">
+    <% flash.each do |key, value| %>
+      <% type = key.to_s.gsub('alert', 'error').gsub('notice', 'success') %>
+      toastr.<%= type %>('<%= value %>')
     <% end %>
-<% end %>
+  </script>
 </div>
