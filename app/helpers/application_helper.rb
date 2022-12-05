@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-
-  IMAGE_SIZE = ('500x250').freeze
+  IMAGE_SIZE = '500x250'
   def image_view(obj)
-    return image_tag(obj.image, size: ApplicationHelper::IMAGE_SIZE, alt: t('image', param: "#{obj.class.name}"), class: ' w-100 rounded-top') if obj.image.attached?
+    if obj.image.attached?
+      return image_tag(obj.image, size: ApplicationHelper::IMAGE_SIZE, alt: t('image', param: obj.class.name.to_s),
+                                  class: ' w-100 rounded-top')
+    end
 
-    image_tag('no-image.jpeg', size: ApplicationHelper::IMAGE_SIZE, alt: t('image', param: "#{obj.class.name}"), class: ' w-100 rounded-top')
+    image_tag('no-image.jpeg', size: ApplicationHelper::IMAGE_SIZE, alt: t('image', param: obj.class.name.to_s),
+                               class: ' w-100 rounded-top')
   end
 end

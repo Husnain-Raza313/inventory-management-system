@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
 
@@ -40,7 +42,7 @@ class CategoriesController < ApplicationController
     else
       flash[:danger] = @category.errors.full_messages.to_sentence
     end
-    
+
     redirect_to category_url
   end
 
