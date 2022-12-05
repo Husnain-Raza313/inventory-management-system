@@ -15,8 +15,6 @@ class Product < ApplicationRecord
   belongs_to :brand
   has_one_attached :image, dependent: :destroy
 
-  after_create :remove_empty_array_elements
-
   private
 
   def image_type
