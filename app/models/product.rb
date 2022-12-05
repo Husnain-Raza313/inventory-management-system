@@ -13,12 +13,9 @@ class Product < ApplicationRecord
   has_many :categories, through: :category_products
 
   belongs_to :brand
-  belongs_to :user
-
   has_one_attached :image, dependent: :destroy
 
-  belongs_to :brand
-  belongs_to :user
+  after_create :remove_empty_array_elements
 
   private
 
