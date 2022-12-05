@@ -13,7 +13,6 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.integer :price_per_unit, null: false, default: 0
       t.integer :bulk_price, null: false, default: 0
       t.integer :retail_price, null: false, default: 0
-      t.references :user, null: false, foreign_key: true
       t.references :brand, null: false, foreign_key: true
       t.timestamps
     end

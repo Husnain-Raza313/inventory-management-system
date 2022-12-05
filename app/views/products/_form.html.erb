@@ -3,8 +3,7 @@
       <div class="form-holder">
         <div class="form-content">
           <div class="form-items">
-            <h3>New Product</h3>
-            <p>Fill in the data below.</p>
+            <h3> <%= t('add',param:'product') %> </h3>
             <%= form_with(model: product) do |form| %>
               <%= render "layouts/error_messages", messages: product %>
                <div class="col-md-12">
@@ -17,28 +16,28 @@
                 <%= form.file_field :image,class:"image-field"%>
               </div>
               <div class="col-md-12">
-                <%= form.text_field :description, class:"form-control", placeholder:"Enter Product Description" %>
+                <%= form.text_field :description, class:"form-control" %>
               </div>
               <div class="col-md-12">
-                <%= form.number_field :quantity, class:"form-control", placeholder:"Enter Product Quantity" %>
+                <%= form.number_field :quantity, class:"form-control" %>
               </div>
               <div class="col-md-12">
-                <%= form.number_field :price_per_unit, class:"form-control", placeholder:"Enter price per unit" %>
+                <%= form.number_field :price_per_unit, class:"form-control" %>
               </div>
                <div class="col-md-12">
-                 <%= form.select :category_ids, options_for_select(Category.all.map{|c|[c.id, c.name]}), {include_blank: false}, multiple: true, class: "select2 form-control" %>
+                 <%= form.select :category_id, options_for_select(all_categories), {include_blank: false}, multiple: true, class: "select2 form-control" %>
               </div>
               <div class="col-md-12">
-                <%= form.number_field :retail_price, class:"form-control", placeholder:"Enter Retail Price" %>
+                <%= form.number_field :retail_price, class:"form-control" %>
               </div>
               <div class="col-md-12">
-                <%= form.select :supplier_ids, options_for_select(Supplier.all.map{|s|[s.id, s.name]}), {include_blank: true}, multiple: true, class: "select2 form-control"%>
+                <%= form.select :supplier_id, options_for_select(all_suppliers), {include_blank: true}, multiple: true, class: "select2 form-control" %>
               </div>
               <div class="col-md-12">
-                <%= form.number_field :bulk_price, class:"form-control", placeholder:"Enter Bulk Price" %>
+                <%= form.number_field :bulk_price, class:"form-control" %>
               </div>
               <div class="col-md-12">
-                <%= form.select :brand_id, Brand.all.collect { |p| [ p.name, p.id ] },:prompt => 'Select Brand', required: true, class: 'form-control select-tag'  %>
+                <%= form.select :brand_id, all_brands,:prompt => 'Select Brand', required: true, class: 'form-control select-tag' %>
               </div>
               <div class="form-button mt-3 col-md-4">
                 <%= form.submit class: "btn btn-primary submit-button" %>
@@ -49,7 +48,3 @@
      </div>
    </div>
 </div>
-
-<script>
-
-</script>

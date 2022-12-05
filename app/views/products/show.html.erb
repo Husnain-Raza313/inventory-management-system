@@ -1,10 +1,13 @@
 <div class="jumbotron bg-white p-5 border-info border rounded-2 w-100 ml-5">
   <div class="container d-flex flex-row justify-content-between">
     <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
-      <h1 class="text-black" ><b><%= %></b></h1>
-      <p class="text-grey" ><%=%></p>
-      <h5 class="text-black" >Products: nil</h5>
-      <h5 class="text-black" >Categories: nil</h5>
+      <h1 class="text-black" ><b><%= t('serial_number') %><%= @product.serial_no %></b></h1>
+      <p class="text-grey" ><%= t('description') %><%= @product.description %></p>
+      <h5 class="text-black" ><%= t('quantity') %><%= @product.quantity %></h5>
+      <h5 class="text-black" ><%= t('availlable') %><%= @product.available %></h5>
+      <h5 class="text-black" ><%= t('price_per_unit') %><%= @product.price_per_unit %></h5>
+      <h5 class="text-black" ><%= t('bulk_price') %><%= @product.bulk_price %></h5>
+      <h5 class="text-black" ><%= t('retail_price') %><%= @product.retail_price %></h5>
       <div class="my-3" >
         <%= link_to t('edit_button'), edit_brand_path(@brand), class:"btn btn-outline-primary btn-lg" %>
       </div>
@@ -14,4 +17,4 @@
     </div>
   </div>
 </div>
-<%= link_to t('product.list'), products_path, class:"btn btn-dark btn-lg m-3" %>
+<%= link_to t('list',param: "Products"), products_path, class:"btn btn-dark btn-lg m-3" %>
