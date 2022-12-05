@@ -11,5 +11,7 @@ require("channels")
 require("bootstrap")
 require('@client-side-validations/client-side-validations/src')
 require('packs/brands')
+require('packs/flash')
+global.toastr = require('toastr')
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all";
