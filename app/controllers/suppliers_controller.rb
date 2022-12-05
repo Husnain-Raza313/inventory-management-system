@@ -17,6 +17,7 @@ class SuppliersController < ApplicationController
 
   def create
     @supplier = Supplier.new(supplier_params)
+
     if @supplier.save
       flash[:success] = t('create.success', param: 'supplier')
       redirect_to supplier_url(@supplier)
