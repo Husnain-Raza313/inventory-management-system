@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   resources :categories
   resources :home, only: %i[index]
   resources :brands
+  resources :suppliers
   devise_for :users
   authenticated :user, ->(u) { u.has_role?(:admin) } do
     root to: 'home#index', as: :admin_route
@@ -13,4 +15,5 @@ Rails.application.routes.draw do
   end
   root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  match ':status', to: 'application#page_not_found', via: :all
 end
