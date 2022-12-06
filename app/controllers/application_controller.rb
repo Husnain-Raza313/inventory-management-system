@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   layout :set_layout
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-  rescue_from ActionController::UnknownFormat, with: :page_not_found
+
+  def page_not_found
+    flash[:error] = t('page_not_found')
+    redirect_back(fallback_location: root_path)
+  end
 
   protected
 
@@ -26,11 +30,6 @@ class ApplicationController < ActionController::Base
 
   def record_not_found(error)
     flash[:error] = error.message
-    redirect_back(fallback_location: root_path)
-  end
-
-  def page_not_found(_error)
-    flash[:error] = t('page_not_found')
     redirect_back(fallback_location: root_path)
   end
 end
