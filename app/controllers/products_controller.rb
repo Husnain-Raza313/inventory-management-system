@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
-  before_action :set_brand, only: %i[create]
-  before_action :assign_categories_and_supplier_to_product, only: %i[create]
+  before_action :assign_categories_and_supplier_to_product, :set_brand, only: %i[create]
 
   def index
     @products = Product.all
@@ -52,6 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def set_brand
+    byebug
     @brand = Brand.find(params[:product][:brand_id])
   end
 
@@ -63,6 +63,7 @@ class ProductsController < ApplicationController
 
   def assign_categories_and_supplier_to_product
     remove_white_spaces if params[:product][:category_id].present? && params[:product][:suppler_id].present?
+    byebug
     if @product_category.present? && product_supplier.present?
       @product_category.each do |_product_category|
         @category = Category.find(:product_category)
@@ -73,7 +74,7 @@ class ProductsController < ApplicationController
         end
       end
     else
-      flash[:danger] = 'Select Category and Supplier'
+      flash[:alert] = t('invaliddata')
       redirect_to new_product_url
     end
   end
