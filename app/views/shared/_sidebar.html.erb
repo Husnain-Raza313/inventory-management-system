@@ -24,7 +24,7 @@
       <a href="#brandSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Brands</a>
       <ul class="collapse list-unstyled" id="brandSubmenu">
         <li>
-            <%= link_to t('add', param: 'Brand'), new_brand_path %>
+          <%= link_to t('add', param: 'Brand'), new_brand_path %>
         </li>
         <li>
           <%= link_to t('all', param: 'Brands'), brands_path %>
@@ -35,19 +35,28 @@
       <a href="#supplierSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Supplier</a>
       <ul class="collapse list-unstyled" id="supplierSubmenu">
         <li>
-          <%= link_to t('add', param:'Category'), new_category_path %>
-        </li>
-        <li>
-          <%= link_to t('all',param:'Categories'), categories_path %>
           <%= link_to t('add', param: 'Supplier'), new_supplier_path %>
         </li>
         <li>
           <%= link_to t('all', param: 'Supplier'), suppliers_path %>
         </li>
       </ul>
+    </li>
+    <li>
+      <a href="#categorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Category</a>
+      <ul class="collapse list-unstyled" id="categorySubmenu">
+        <li>
+          <%= link_to t('add', param:'Category'), new_category_path %>
+        </li>
+        <li>
+          <%= link_to t('all',param:'Categories'), categories_path %>
+        </li>
+      </ul>
+    </li>
     <ul class="list-unstyled CTAs">
       <li>
         <%=link_to 'Signout', destroy_user_session_path, method: :delete, class:'info-button' %>
       </li>
     </ul>
+  </ul>
 </nav>

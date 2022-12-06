@@ -8,6 +8,14 @@ en:
   phone: "Phone No"
   address: "Address"
   name: "Name"
+  add: "Add New %{param}"
+  all: "All %{param}"
+  list: "%{param} List"
+  edit: "Editing %{param}"
+  all_categories: "List %{param}"
+  products: "Products"
+  categories: "categories"
+  image: "%{param} image "
   user:
     image: "needs to be a jpeg or png!"
 
@@ -17,12 +25,3 @@ en:
     success: "%{param} was successfully updated."
   destroy:
     success: "%{param} was successfully destroyed."
-
-  add: "Add New %{param}"
-  all: "All %{param}"
-  list: "%{param} List"
-  edit: "Editing %{param}"
-  all_categories: "List %{param}"
-  products: "Products"
-  categories: "categories"
-  image: "%{param} image "
