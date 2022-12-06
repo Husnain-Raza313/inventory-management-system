@@ -1,5 +1,5 @@
 <h1><%= t('products') %></h1>
-  <%if @products.present?%>
+<%if @products.present?%>
 <div class="container d-flex flex-row">
     <% @products.each do |product| %>
       <div class="card m-3 rounded-2" style="width: 18rem;">
@@ -16,7 +16,7 @@
         </div>
       </div>
     <% end %>
-  <% end %>
+<% end %>
 </div>
 <br>
 <%= link_to t('add',param: 'Product'), new_product_path, class:"btn btn-dark btn-lg" %>
