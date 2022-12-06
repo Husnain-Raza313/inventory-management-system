@@ -5,7 +5,7 @@
           <div class="form-items">
             <h3><%= t('add', param: 'Category') %></h3>
             <%= form_with(model: category) do |form| %>
-              <%= render "layouts/error_messages", messages: category %>
+              <%= render "layouts/error_messages", messages: category.errors.full_messages %>
                <div class="col-md-12">
                  <%= form.text_field :name, class:"form-control" %>
                </div>
