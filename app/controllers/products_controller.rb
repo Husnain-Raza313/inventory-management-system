@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
-  before_action :assign_categories_and_supplier_to_product, :set_brand, only: %i[create]
+  before_action :set_brand, only: %i[create]
 
   def index
     @products = Product.all
@@ -12,11 +12,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = @brand.products.new(product_params)
+    assign_categories_and_supplier_to_product
     if @product.save
       flash[:success] = t('create.success', param: 'Product')
       redirect_to product_url(@product)
     else
-      flash[:warning] = @product.errors
+      flash[:warning] = @product.errors.full_messages.to_sentence
       redirect_to new_product_url(@product)
     end
   end
@@ -29,7 +30,7 @@ class ProductsController < ApplicationController
       flash[:success] = t('update.success', param: 'Product')
       redirect_to product_url(@product)
     else
-      flash[:warning] = @product.errors
+      flash[:warning] = @product.errors.full_messages.to_sentence
       redirect_to edit_product_url(@product)
     end
   end
@@ -55,25 +56,25 @@ class ProductsController < ApplicationController
   end
 
   def remove_empty_array_elements
-    @product_category = params[:product][:category_id].reject { |e| e.nil? || e&.empty? }
-    @product_supplier = params[:product][:suppler_id].reject { |e| e.nil? || e&.empty? }
-    [@product_category, product_supplier]
+    @product_category = params[:product][:category_ids].reject { |e| e.nil? || e&.empty? }
+    @product_supplier = params[:product][:supplier_ids].reject { |e| e.nil? || e&.empty? }
+    [@product_category, @product_supplier]
   end
 
   def assign_categories_and_supplier_to_product
-    remove_white_spaces if params[:product][:category_id].present? && params[:product][:suppler_id].present?
-    if @product_category.present? && product_supplier.present?
+    remove_empty_array_elements if params[:product][:category_ids].present? && params[:product][:supplier_ids].present?
+    if @product_category.present? && @product_supplier.present?
       @product_category.each do |_product_category|
-        @category = Category.find(:product_category)
+        @category = Category.find(_product_category)
         @product.categories << @category
         @product_supplier.each do |_product_supplier|
-          @supplier = Supplier.find(:product_supplier)
+          @supplier = Supplier.find(_product_supplier)
           @product.suppliers << @supplier
         end
       end
     else
       flash[:alert] = t('invaliddata')
-      redirect_to new_product_url
+      nil
     end
   end
 
