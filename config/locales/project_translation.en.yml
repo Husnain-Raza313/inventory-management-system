@@ -1,4 +1,5 @@
 en:
+
   show-button: "Show"
   edit-button: "Edit"
   delete-button: "Delete"
@@ -8,6 +9,7 @@ en:
   phone: "Phone No"
   address: "Address"
   name: "Name"
+
   user:
     image: "needs to be a jpeg or png!"
 
