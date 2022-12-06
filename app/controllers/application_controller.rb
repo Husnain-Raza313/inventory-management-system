@@ -25,12 +25,12 @@ class ApplicationController < ActionController::Base
   private
 
   def record_not_found(error)
-    flash[:danger] = error.message
+    flash[:error] = error.message
     redirect_back(fallback_location: root_path)
   end
 
   def page_not_found(_error)
-    flash[:danger] = t('page_not_found')
+    flash[:error] = t('page_not_found')
     redirect_back(fallback_location: root_path)
   end
 end
