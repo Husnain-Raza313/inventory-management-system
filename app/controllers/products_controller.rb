@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = @brand.products.new(product_params)
-    assign_categories_and_supplier_to_product
-
+    ProductService.assign_categories_and_supplier_to_product(params[:product][:category_ids],
+                                                             params[:product][:supplier_ids], flash)
     if @product.save
       flash[:success] = t('create.success', param: 'Product')
       redirect_to product_url(@product)
@@ -54,30 +54,6 @@ class ProductsController < ApplicationController
 
   def set_brand
     @brand = Brand.find(params[:product][:brand_id])
-  end
-
-  def remove_empty_array_elements
-    @product_category = params[:product][:category_ids].reject { |e| e.nil? || e&.empty? }
-    @product_supplier = params[:product][:supplier_ids].reject { |e| e.nil? || e&.empty? }
-    [@product_category, @product_supplier]
-  end
-
-  def assign_categories_and_supplier_to_product
-    remove_empty_array_elements if params[:product][:category_ids].present? && params[:product][:supplier_ids].present?
-
-    if @product_category.present? && @product_supplier.present?
-      @product_category.each do |_product_category|
-        @category = Category.find(_product_category)
-        @product.categories << @category
-        @product_supplier.each do |_product_supplier|
-          @supplier = Supplier.find(_product_supplier)
-          @product.suppliers << @supplier
-        end
-      end
-    else
-      flash[:alert] = t('invaliddata')
-      nil
-    end
   end
 
   def product_params
