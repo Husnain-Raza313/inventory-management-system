@@ -10,7 +10,7 @@ To run this project locally, system needs to have following softwares installed
 
 Git
 Ruby [2.7.2]
-Rails [6.0]
+Rails [6.1]
 Postgresql db
 
 ## Setup
