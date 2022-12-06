@@ -13,7 +13,8 @@ require("bootstrap")
 require('@client-side-validations/client-side-validations/src')
 require('packs/brands')
 require('packs/flash')
+require("packs/select2setup")
 global.toastr = require('toastr')
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all";
-require("packs/select2setup")
+

@@ -1,4 +1,4 @@
-<h1><%= t('Edit', param: 'product') %></h1>
+<h1><%= t('edit', param: 'product') %></h1>
 <%= render 'form', product: @product %>
-<%= link_to t('showbutton'), @product %> |
-<%= link_to t('backbutton'), products_path %>
+<%= link_to t('show-button'), @product, class:"btn btn-primary" %> |
+<%= link_to t('back-button'), products_path, class:"btn btn-danger" %>

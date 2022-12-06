@@ -23,7 +23,7 @@ en:
   add: "Add New %{param}"
   all: "All %{param}"
   list: "%{param} List"
-  edit: "Editing %{param}"
+  edit: "Edit %{param}"
   all_categories: "List %{param}"
   products: "Products"
   categories: "categories"
