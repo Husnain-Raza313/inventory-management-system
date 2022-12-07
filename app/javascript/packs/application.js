@@ -16,5 +16,6 @@ require('packs/flash')
 require("packs/select2setup")
 global.toastr = require('toastr')
 import 'bootstrap-icons/font/bootstrap-icons.css'
-import "@fortawesome/fontawesome-free/js/all";
+import "@fortawesome/fontawesome-free/js/all"
+import "chartkick/chart.js"
 

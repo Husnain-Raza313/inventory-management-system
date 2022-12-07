@@ -2,11 +2,13 @@
 
 Rails.application.routes.draw do
 
+  get 'reports/index'
   resources :categories
   resources :products
   resources :home, only: %i[index]
   resources :brands
   resources :suppliers
+  resources :reports
   devise_for :users
   authenticated :user, ->(u) { u.has_role?(:admin) } do
     root to: 'home#index', as: :admin_route
