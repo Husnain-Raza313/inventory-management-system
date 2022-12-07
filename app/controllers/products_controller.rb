@@ -12,8 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = @brand.products.new(product_params)
-    ProductService.assign_categories_and_supplier_to_product(params[:product][:category_ids],
-                                                             params[:product][:supplier_ids], flash)
+    ProductService.new(params[:product][:category_ids], params[:product][:supplier_ids], flash, @product).execute
     if @product.save
       flash[:success] = t('create.success', param: 'Product')
       redirect_to product_url(@product)

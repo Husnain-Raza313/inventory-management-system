@@ -1,12 +1,25 @@
 class ProductService
-  def self.remove_empty_array_elements(category_ids, supplier_ids)
-    @product_category = category_ids.reject { |e| e.nil? || e&.empty? }
-    @product_supplier = supplier_ids.reject { |e| e.nil? || e&.empty? }
+  def initialize(category_ids, supplier_ids, flash, product)
+    @category_ids = category_ids
+    @supplier_ids = supplier_ids
+    @flash = flash
+    @product = product
+  end
+
+  def execute
+    assign_categories_and_supplier_to_product
+  end
+
+  private
+
+  def remove_empty_array_elements
+    @product_category = @category_ids.reject { |e| e.nil? || e&.empty? }
+    @product_supplier = @supplier_ids.reject { |e| e.nil? || e&.empty? }
     [@product_category, @product_supplier]
   end
 
-  def self.assign_categories_and_supplier_to_product(category_ids, supplier_ids, flash)
-    remove_empty_array_elements(category_ids, supplier_ids) if category_ids.present? && supplier_ids.present?
+  def assign_categories_and_supplier_to_product
+    remove_empty_array_elements  if @category_ids.present? && @supplier_ids.present?
     if @product_category.present? && @product_supplier.present?
       @product_category.each do |_product_category|
         @category = Category.find(_product_category)
@@ -18,7 +31,7 @@ class ProductService
       end
 
     else
-      flash[:alert] = I18n.t('select_category_and_supplier')
+      @flash[:alert] = I18n.t('select_category_and_supplier')
       nil
     end
   end
