@@ -77,7 +77,8 @@
   color: #fff;
 }
 
-.form-content input[type="text"] {
+.form-content input[type="text"],
+[type="number"] {
   width: 100%;
   padding: 9px 20px;
   text-align: left;
@@ -91,6 +92,10 @@
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   margin-top: 16px;
+}
+
+.dropdown {
+  margin-top: 12px;
 }
 
 .image-field {

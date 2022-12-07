@@ -1,21 +1,15 @@
 en:
+
   show-button: "Show"
   edit-button: "Edit"
   delete-button: "Delete"
-  back: "Back"
+  back-button: "Back"
   page_not_found: " Page Not Found!!!"
   confirmation_msg: "Are You Sure?"
   phone: "Phone No"
   address: "Address"
   name: "Name"
-  add: "Add New %{param}"
-  all: "All %{param}"
-  list: "%{param} List"
-  edit: "Editing %{param}"
-  all_categories: "List %{param}"
-  products: "Products"
-  categories: "categories"
-  image: "%{param} image "
+
   user:
     image: "needs to be a jpeg or png!"
 
@@ -25,3 +19,19 @@ en:
     success: "%{param} was successfully updated."
   destroy:
     success: "%{param} was successfully destroyed."
+
+  add: "Add New %{param}"
+  all: "All %{param}"
+  list: "%{param} List"
+  edit: "Edit %{param}"
+  products: "Products"
+  categories: "categories"
+  image: "%{param} image "
+  serial_number: "Serial-Number"
+  description: "Description"
+  quantity: "Quantity"
+  availlable: "Availlable"
+  price_per_unit: "Price-Per-Unit"
+  bulk_price: "Bulk-price"
+  retail_price: "Retail-Price"
+  select_category_and_supplier: "Select Category and Supplier"

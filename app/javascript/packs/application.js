@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 //= require jquery
 //= require jquery_ujs
+//= require select2
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -12,6 +13,8 @@ require("bootstrap")
 require('@client-side-validations/client-side-validations/src')
 require('packs/brands')
 require('packs/flash')
+require("packs/select2setup")
 global.toastr = require('toastr')
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all";
+

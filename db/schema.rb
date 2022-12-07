@@ -109,12 +109,10 @@ ActiveRecord::Schema.define(version: 2022_11_29_151120) do
     t.integer "price_per_unit", default: 0, null: false
     t.integer "bulk_price", default: 0, null: false
     t.integer "retail_price", default: 0, null: false
-    t.bigint "user_id", null: false
     t.bigint "brand_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -178,6 +176,5 @@ ActiveRecord::Schema.define(version: 2022_11_29_151120) do
   add_foreign_key "product_suppliers", "products"
   add_foreign_key "product_suppliers", "suppliers"
   add_foreign_key "products", "brands"
-  add_foreign_key "products", "users"
   add_foreign_key "transactions", "orders"
 end
