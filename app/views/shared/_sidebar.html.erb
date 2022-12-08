@@ -12,11 +12,11 @@
     <li>
       <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products</a>
       <ul class="collapse list-unstyled" id="productSubmenu">
-         <li>
-         <a href="#">All Products</a>
+        <li>
+          <%= link_to t('add', param: 'Product'), new_product_path %>
         </li>
         <li>
-          <a href="#">Add Product</a>
+          <%= link_to t('all', param: 'Products'), products_path %>
         </li>
       </ul>
     </li>
@@ -52,6 +52,9 @@
           <%= link_to t('all',param:'Categories'), categories_path %>
         </li>
       </ul>
+    </li>
+    <li>
+      <a href="/reports"><%= t('reports') %></a>
     </li>
     <ul class="list-unstyled CTAs">
       <li>

@@ -1,2 +1,1 @@
-<%byebug%>
-$(".reportssection").append("<%= j render(:partial => 'reports/charts') %>");
+$("#reportssection").append("<%= j render(partial: 'reports/chart',locals: { product: @product } ) %>");
