@@ -12,6 +12,8 @@ class Product < ApplicationRecord
   has_many :suppliers, through: :product_suppliers
   has_many :category_products, dependent: :destroy
   has_many :categories, through: :category_products
+  has_many :order_items, dependent: :destroy
+  has_many :orders, through: :order_items
   belongs_to :brand
   has_one_attached :image, dependent: :destroy
 end

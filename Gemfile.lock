@@ -82,7 +82,7 @@ GEM
       xpath (~> 3.2)
     character_set (1.6.0)
       sorted_set (~> 1.0)
-    chartkick (4.2.1)
+    chartkick (1.5.2)
     childprocess (4.1.0)
     client_side_validations (21.0.0)
       js_regex (~> 3.7)
@@ -288,7 +288,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
-  chartkick
+  chartkick (~> 1.4, >= 1.4.1)
   client_side_validations
   devise
   figaro
