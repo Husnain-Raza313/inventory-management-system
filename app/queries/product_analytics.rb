@@ -9,12 +9,10 @@ class ProductAnalytics
   end
 
   def call
-    if @type == t('remaining')
+    if @type == I18n.t('remaining')
       exec_query(remaining_quantity_of_products)&.rows
-    elsif @type == t('sold')
-      exec_query(sold_quantity_of_products)&.rows
     else
-      byebug
+      exec_query(sold_quantity_of_products)&.rows
     end
   end
 
