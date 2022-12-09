@@ -1,5 +1,5 @@
 module ReportsHelper
     def reports_options
-      @filter_option= {Daily:"1",Monthly:"2",Yearly:"3"}  
+      @filter_option= ["Daily","Monthly","Yearly"]  
     end
 end
