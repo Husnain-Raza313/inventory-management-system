@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'reports/index'
   resources :categories
   resources :products
   resources :home, only: %i[index]
   resources :brands
   resources :suppliers
-  resources :reports
+  resources :reports, only: %i[index]
   devise_for :users
   authenticated :user, ->(u) { u.has_role?(:admin) } do
     root to: 'home#index', as: :admin_route
