@@ -1,1 +1,1 @@
-$("#reportssection").append("<%= j render(partial: 'reports/chart',locals: { product: @product } ) %>");
+$("#reportssection").html("<%= j render(partial: t('charts'), locals: { product: @product, chart_header_x: t('date'), chart_header_y: t('quantity')}) %>");

@@ -1,3 +1,1 @@
-<%# <%= form_tag reports_path, :method => :get do %>
-<%= select_tag "reports", options_for_select( [ "Daily","Monthly","Yearly" ], "Yearly" ), id: "reports_dropdown" %>
-<%# <%end%> 
+<%= select_tag "reports", options_for_select( reports_options, "Yearly" ), id: "reports_dropdown" %>
