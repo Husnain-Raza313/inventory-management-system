@@ -9,10 +9,12 @@ class ProductAnalytics
   end
 
   def call
-    if @type == 'remaining'
+    if @type == t('remaining')
       exec_query(remaining_quantity_of_products)&.rows
-    else
+    elsif @type == t('sold')
       exec_query(sold_quantity_of_products)&.rows
+    else
+      byebug
     end
   end
 
@@ -26,7 +28,7 @@ class ProductAnalytics
     "Select name,Count(quantity) from products WHERE id = #{@product.id} GROUP BY name"
   end
 
-   def sold_quantity_of_products
-     "SELECT products.name, Count(order_items.product_id) FROM products,order_items where order_items.product_id= #{@product.id} GROUP BY products.name"
-   end
+  def sold_quantity_of_products
+    "SELECT products.name, Count(order_items.quantity) FROM products,order_items where order_items.product_id= #{@product.id} GROUP BY products.name"
+  end
 end
