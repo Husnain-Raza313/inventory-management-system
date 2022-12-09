@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
+
   before_action :authenticate_user!
   protect_from_forgery with: :exception
   add_flash_types :danger, :info, :warning, :success, :messages
