@@ -10,7 +10,9 @@
       <h5 class="text-black" ><%= t('retail_price ') %><%= @product.retail_price %></h5>
       <h5 class="text-black" ><%= t('retail_price ') %><%= @product.brand.name %></h5>
       <div class="my-3" >
-        <%= link_to t('editbutton'), edit_product_path(@product), class:"btn btn-outline-primary btn-lg" %>
+        <%= link_to t('edit-button'), edit_product_path(@product), class:"btn btn-outline-primary " %>
+        <%= link_to t('analytics-button-remaining-count'), analytics_path(@product, type:"remaining"),class:"btn btn-outline-success " %>
+        <%= link_to t('analytics-button-sold-count'), analytics_path(@product, type:"sold"), class:"btn btn-outline-dark " %>
       </div>
     </div>
     <div class="rounded overflow-hidden w-50 m-auto">

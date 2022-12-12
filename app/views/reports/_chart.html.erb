@@ -1,0 +1,5 @@
+<div>
+  <%= line_chart @product, library: { isStacked: false, vAxis: { title: chart_header_y }, hAxis: { title: chart_header_x } } %>
+  <%= pie_chart @product, library: { isStacked: false, vAxis: { title: chart_header_y },  hAxis: { title: chart_header_x } } %>
+  <%= column_chart @product, library: { isStacked: false, vAxis:{ title: chart_header_y },hAxis: { title: chart_header_x } } %>
+</div>

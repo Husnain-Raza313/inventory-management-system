@@ -1,0 +1,7 @@
+<h1><%= t('reports') %></h1>
+<%=render "form"%>
+<div id ="reportssection">
+  <%=render "chart", product: @product, chart_header_x: t('date'), chart_header_y: t('quantity') %>
+</div>
+
+

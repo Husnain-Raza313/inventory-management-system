@@ -23,7 +23,7 @@
               <%= form.select :category_ids, options_for_select(all_categories), {include_blank: false}, multiple: true, class: "select2 form-control" %>
             </div>
             <div class="col-md-12">
-              <%= form.number_field :retail_price, class:"form-control" %>
+              <%= form.number_field :retail_price, class:"form-control",placeholder:true %>
             </div>
             <div class="col-md-12 dropdown">
               <%= form.select :supplier_ids, options_for_select(all_suppliers), {include_blank: true}, multiple: true, class: "select2 form-control" %>
