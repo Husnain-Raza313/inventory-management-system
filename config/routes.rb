@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
+  get 'order', to: 'order#show'
+  resources :order_items
   resources :categories
   resources :products
   resources :home, only: %i[index]

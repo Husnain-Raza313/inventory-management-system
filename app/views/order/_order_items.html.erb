@@ -1,0 +1,12 @@
+<h1>ORDER DETAILS</h1>
+<hr>
+<% @order_items.each do |item|%>
+<h6><%= item.product.name %></h6>
+<h6><%= item.product.serial_no %></h6>
+  <%= form_with model: item, local: false do |f| %>
+    <%= f.hidden_field :product_id, value: item.product_id%>
+    <%= f.number_field :quantity, value: item.quantity.to_i, min: 1 %>
+    <%= f.submit "Update Order" %>
+    <%= link_to "Remove Item", item, method: :delete, remote: true %>
+  <% end %>
+<% end %>
