@@ -13,11 +13,5 @@ $(document).on('change', '#image-file', function(){
     fileInput.value = '';
   }
 });
-disableSubmit = function(id) {
-  let elem1 = document.getElementById("btn"+id);
-  let elem = document.getElementById(id);
-    elem1.classList.remove("d-none");
-    elem.classList.add("d-none");
-}
 
 
