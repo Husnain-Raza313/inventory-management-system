@@ -14,8 +14,8 @@ $(document).on('change', '#image-file', function(){
   }
 });
 disableSubmit = function(id) {
-  var elem1 = document.getElementById("btn"+id);
-    var elem = document.getElementById(id);
+  let elem1 = document.getElementById("btn"+id);
+  let elem = document.getElementById(id);
     elem1.classList.remove("d-none");
     elem.classList.add("d-none");
 }

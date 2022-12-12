@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   get 'order', to: 'order#show'
+  get 'orders', to: 'order#index'
   resources :order_items
   resources :categories
   resources :products

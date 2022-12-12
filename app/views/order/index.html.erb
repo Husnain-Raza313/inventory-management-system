@@ -1,0 +1,32 @@
+<h1><%= t('products') %></h1>
+<%if @products.present?%>
+  <div class="container d-flex flex-row">
+    <% @products.each do |product| %>
+      <div class="card m-3 rounded-2" style="width: 18rem;">
+        <%= image_view(product) %>
+        <hr class="m-0">
+        <h5 class="card-title mx-3 mt-3"><%= product.name %></h5>
+        <div class="card-body d-flex flex-column justify-content-between">
+          <p class="card-text"><%= product.serial_no %></p>
+          <div>
+            <%= link_to t('show-button'), product, class:"btn btn-outline-primary" %>
+            <%= link_to t('edit-button'), edit_product_path(product), class:"btn btn-outline-warning" %>
+            <%= link_to t('delete-button'), product, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
+          </div>
+        </div>
+      </div>
+      <% if @product_ids.include?(product.id) %>
+        <button class="btn btn-success">Already Ordered</button>
+      <% else %>
+        <%= form_with model: @order_items, local: false do |f| %>
+          <%= f.hidden_field :product_id, value: product.id%>
+          <%= f.number_field :quantity, value: 1, min: 1%>
+          <%= f.submit "Add To Order", id: "#{product.id}", class:"btn btn-primary", :onclick => "disableSubmit(#{product.id});" %>
+          <button class="d-none disabled btn btn-success"  id='btn<%=product.id%>'>Already Ordered</button>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+<br>
+<%= link_to t('add',param: 'Product'), new_product_path, class:"btn btn-dark btn-lg" %>
