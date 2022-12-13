@@ -19,7 +19,7 @@
         <div>
           <% if @product_ids.include?(product.id) %>
             <div class="bg-success text-center card-width m-3">
-              <p class="text-white">Already Ordered</p>
+              <p class="text-white"><%= t('ordered')%></p>
             </div>
           <% else %>
           <div class="d-flex flex-row ml-5">
@@ -27,7 +27,7 @@
               <%= f.hidden_field :product_id, value: product.id%>
               <%= f.number_field :quantity, value: 1, min: 1, class:"w-25" %>
               <%= f.submit "Add To Order", id: "#{product.id}", class:"btn btn-primary", :onclick => "disableSubmit(#{product.id});" %>
-              <button class="d-none disabled btn btn-success"  id='btn<%=product.id%>'>Already Ordered</button>
+              <button class="d-none disabled btn btn-success"  id='btn<%=product.id%>'><%= t('ordered')%></button>
             <% end %>
           </div>
           <% end %>
