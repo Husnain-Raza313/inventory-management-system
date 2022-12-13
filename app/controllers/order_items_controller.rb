@@ -14,7 +14,7 @@ class OrderItemsController < ApplicationController
   def update
     @order_item = @order.order_items.find(params[:id])
     if @order_item.update(order_params)
-      set_order_item("update")
+      set_order_item('update')
     else
       flash[:warning] = @product.errors.full_messages.to_sentence
     end
@@ -25,7 +25,7 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item = @order.order_items.find(params[:id])
     if @order_item.destroy
-      set_order_item("destroy")
+      set_order_item('destroy')
     else
       flash[:error] = @product.errors.full_messages.to_sentence
     end
@@ -43,8 +43,8 @@ class OrderItemsController < ApplicationController
     @order = current_order
   end
 
-  def set_order_item(action)
-    flash[:success] = t('#{action}.success', param: 'Order Item')
+  def set_order_item(_action)
+    flash[:success] = t("#{action}.success", param: 'Order Item')
     @order_items = current_order.order_items
   end
 end

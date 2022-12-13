@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OrdersHelper
   IMAGE_SIZE = '120x120'
   def product_image(obj)
