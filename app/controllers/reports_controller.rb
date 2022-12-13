@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   def index
     @product = SalesAnalytics.new(reports: params[:reports]).call if params[:reports].present?

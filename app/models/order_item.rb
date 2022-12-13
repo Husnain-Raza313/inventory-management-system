@@ -7,7 +7,7 @@ class OrderItem < ApplicationRecord
   before_save :set_total_price
 
   def total_price
-    self.product.retail_price * self.quantity
+    product.retail_price * quantity
   end
 
   private

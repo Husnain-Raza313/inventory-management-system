@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   before_save :set_total
 
   def total
-    order_items.collect {|order_item| order_item.valid? ? order_item.total_price : 0}.sum
+    order_items.collect { |order_item| order_item.valid? ? order_item.total_price : 0 }.sum
   end
 
   private

@@ -9,10 +9,10 @@ module ApplicationHelper
   end
 
   def current_order
-    if Order.find_by_id(session[:order_id]).nil?
+    if Order.find_by(id: session[:order_id]).nil?
       Order.new(user_id: current_user.id)
     else
-      Order.find_by_id(session[:order_id])
+      Order.find_by(id: session[:order_id])
     end
   end
 end
