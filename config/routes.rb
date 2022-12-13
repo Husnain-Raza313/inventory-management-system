@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :order_items
+  resources :order_items, only: %i[create update destroy]
   resources :categories
   resources :products
   resources :home, only: %i[index]
