@@ -55,3 +55,5 @@ en:
   update: "Update %{param}"
   none: "No %{param}!!!"
   ordered: "Ordered!!!"
+  home: "Home"
+  project_title: "Inventory Management System"
