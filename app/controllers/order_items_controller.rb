@@ -9,6 +9,7 @@ class OrderItemsController < ApplicationController
     end
 
     session[:order_id] = @order.id
+    render json: { message: "Successfully created order_item"}
   end
 
   def update

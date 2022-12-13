@@ -37,7 +37,7 @@
         <% end %>
         <div class="card">
           <div class="card-body">
-            <h2>Total: <%= current_order.total%></h2>
+            <h2><%= t('total')%>: <%= current_order.total%></h2>
             <button type="button" class="btn btn-warning btn-block btn-lg"><%=t('pay')%></button>
           </div>
         </div>
