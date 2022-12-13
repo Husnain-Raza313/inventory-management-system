@@ -19,7 +19,7 @@ class OrderItemsController < ApplicationController
       flash[:warning] = @product.errors.full_messages.to_sentence
     end
 
-    redirect_to order_path
+    redirect_to orders_path
   end
 
   def destroy
@@ -30,7 +30,7 @@ class OrderItemsController < ApplicationController
       flash[:error] = @product.errors.full_messages.to_sentence
     end
 
-    redirect_to order_path
+    redirect_to orders_path
   end
 
   private
