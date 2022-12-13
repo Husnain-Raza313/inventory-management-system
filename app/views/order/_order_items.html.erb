@@ -25,7 +25,7 @@
                   </div>
                   <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 w-100">
                     <h5 class="mb-2"><%=t('unit')%>: $<%= item.product.price_per_unit%></h5>
-                    <h5 class="mb-0"><%=t('total')%>: $<%= item.product.price_per_unit*item.quantity.to_i%></h5>
+                    <h5 class="mb-0"><%=t('total')%>: $<%= item.total_price %></h5>
                   </div>
                   <div class="col-md-1 col-lg-1 col-xl-1 text-end mr-5">
                     <%= link_to t('remove'), item, class:"btn btn-danger", method: :delete, remote: true %>
@@ -37,6 +37,7 @@
         <% end %>
         <div class="card">
           <div class="card-body">
+            <h2>Total: <%= current_order.total%></h2>
             <button type="button" class="btn btn-warning btn-block btn-lg"><%=t('pay')%></button>
           </div>
         </div>
