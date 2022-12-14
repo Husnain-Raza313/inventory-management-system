@@ -33,6 +33,7 @@ gem 'rolify'
 # Use Devise for Authentication
 gem 'client_side_validations'
 gem 'devise'
+gem 'prawn-html'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
