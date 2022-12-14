@@ -9,6 +9,8 @@
           <h5 class="card-title mx-3 mt-3"><%= product.name %></h5>
           <div class="card-body d-flex flex-column justify-content-between">
             <p class="card-text"><%= product.serial_no %></p>
+            <p class="card-text"><%= product.quantity %></p>
+            <p class="card-text"><%= t('sold') %>: <%= product.sold_quantity %></p>
             <div>
               <%= link_to t('show-button'), product, class:"btn btn-outline-primary" %>
               <%= link_to t('edit-button'), edit_product_path(product), class:"btn btn-outline-warning" %>
@@ -25,9 +27,9 @@
           <div class="d-flex flex-row ml-5">
             <%= form_with model: @order_items, local: false do |f| %>
               <%= f.hidden_field :product_id, value: product.id%>
-              <%= f.number_field :quantity, value: 1, min: 1, class:"w-25" %>
+              <%= f.number_field :quantity, value: 1, min: 1, max: product.quantity, class:"w-75" %>
               <%= f.submit "Add To Order", id: "#{product.id}", class:"btn btn-primary", :onclick => "disableSubmit(#{product.id});" %>
-              <button class="d-none disabled btn btn-success"  id='btn<%=product.id%>'><%= t('ordered')%></button>
+              <p class="d-none text-success mt-2"  id='btn<%=product.id%>'><%= t('ordered')%></p>
             <% end %>
           </div>
           <% end %>

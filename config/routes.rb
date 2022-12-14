@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   resources :order_items, only: %i[create update destroy]
-  resources :orders, only: %i[index]
+  resources :orders, only: %i[index show]
   resources :categories
   resources :products
   resources :home, only: %i[index]

@@ -20,15 +20,15 @@
                     <p><%= item.product.description%></p>
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-2 d-flex flex-column p-2">
-                    <%= f.number_field :quantity, value: item.quantity.to_i, min: 1 %>
-                    <%= f.submit t('update',param: 'Order') , class:"btn btn-primary" %>
+                    <%= f.number_field :quantity, value: item.quantity.to_i, min: 1, max: item.product.quantity %>
+                    <%= f.submit t('update-button',param: 'Order') , class:"btn btn-primary" %>
                   </div>
                   <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 w-100">
                     <h5 class="mb-2"><%=t('unit')%>: $<%= item.product.price_per_unit%></h5>
                     <h5 class="mb-0"><%=t('total')%>: $<%= item.total_price %></h5>
                   </div>
                   <div class="col-md-1 col-lg-1 col-xl-1 text-end mr-5">
-                    <%= link_to t('remove'), item, class:"btn btn-danger", method: :delete, remote: true %>
+                    <%= link_to t('remove'), item, class:"btn btn-danger", method: :delete %>
                   </div>
                 </div>
               </div>
@@ -37,8 +37,8 @@
         <% end %>
         <div class="card">
           <div class="card-body">
-            <h2><%= t('total')%>: <%= current_order.total%></h2>
-            <button type="button" class="btn btn-warning btn-block btn-lg"><%=t('pay')%></button>
+            <h2><%= t('total')%>: $<%= current_order.total%></h2>
+            <%= link_to t('pay'), order_path(current_order.id), class:"btn btn-warning btn-block btn-lg"%>
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ class OrderItemsController < ApplicationController
     if @order_item.destroy
       set_order_item('destroy')
     else
-      flash[:error] = @product.errors.full_messages.to_sentence
+      flash[:error] = @order_item.errors.full_messages.to_sentence
     end
 
     redirect_to orders_path
@@ -44,7 +44,7 @@ class OrderItemsController < ApplicationController
   end
 
   def set_order_item(_action)
-    flash[:success] = t("#{action}.success", param: 'Order Item')
+    flash[:success] = t("#{_action}.success", param: 'Order Item')
     @order_items = current_order.order_items
   end
 end
