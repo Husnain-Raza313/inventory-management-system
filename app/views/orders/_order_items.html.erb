@@ -39,6 +39,7 @@
           <div class="card-body">
             <h2><%= t('total')%>: $<%= current_order.total%></h2>
             <%= link_to t('pay'), order_path(current_order.id), class:"btn btn-warning btn-block btn-lg"%>
+            <%= link_to t('preview'), order_pdf_path, class:"btn btn-warning btn-block btn-lg"%>
           </div>
         </div>
       </div>

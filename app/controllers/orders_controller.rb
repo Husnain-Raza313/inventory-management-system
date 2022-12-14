@@ -25,6 +25,25 @@ class OrdersController < ApplicationController
     redirect_to user_route_path
   end
 
+  def preview
+    pdf = Prawn::Document.new
+    pdf.text "Order ID: #{current_order.id}"
+    pdf.text "Order Total: #{current_order.total_price}"
+    pdf.text "ITEM DETAILS : "
+    current_order.order_items.each do |item|
+      pdf.text "Serial No: #{item.product.serial_no}"
+      pdf.text "Name: #{item.product.name}"
+      pdf.text "Quantity: #{item.quantity}"
+      pdf.text "Retail Price: #{item.product.retail_price}"
+      pdf.text "Total Price: #{item.total_price}"
+    end
+    send_data(pdf.render,
+              filename: "#{current_order.id}",
+              type: 'application/pdf',
+              disposition: 'inline')
+
+  end
+
   private
 
   def update_product(product)
