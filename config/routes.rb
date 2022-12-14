@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     root to: 'orders#list', as: :user_route
   end
   root to: 'home#index'
-  get 'preview', to: 'orders#preview', as: :order_pdf
+  get 'preview', to: 'orders#download', as: :order_pdf
+  get 'download', defaults: { format: :pdf }, to: 'orders#download', as: :download_pdf
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   match ':status', to: 'application#page_not_found', via: :all
   get 'products/:id/analytics/:type', to: 'reports#analytics', as: :analytics

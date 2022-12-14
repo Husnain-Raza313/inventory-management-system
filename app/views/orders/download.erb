@@ -1,0 +1,16 @@
+<h1>Order Details</h1>
+<br>
+<div>
+  <h4>Order ID: <%=current_order.id%></h4>
+  <h4>Order Total: $<%=current_order.total_price%></h4>
+  <hr>
+    <% current_order.order_items.each do |item| %>
+    <h5>Item Details</h5>
+      <p>Serial Number:<%= item.product.serial_no %></p>
+      <p>Name: <%= item.product.name %> </p>
+      <p>Quantity: <%= item.quantity %> </p>
+      <p>Retail Price: <%= item.product.retail_price %> </p>
+      <p>Total: <%= item.total_price %> </p>
+      <hr>
+   <% end %>
+</div>
