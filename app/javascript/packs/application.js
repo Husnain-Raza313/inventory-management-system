@@ -15,6 +15,7 @@ require('packs/brands')
 require('packs/flash')
 require('packs/reports')
 require("packs/select2setup")
+require("packs/imageprev")
 global.toastr = require('toastr')
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all"

@@ -12,12 +12,12 @@ class ProductsController < ApplicationController
 
   def create
     @product = @brand.products.new(product_params)
-    ProductService.new(params[:product][:category_ids], params[:product][:supplier_ids], flash, @product).execute
-    if @product.save
+    result = ProductService.new(params[:product][:category_ids], params[:product][:supplier_ids], flash, @product).execute
+    if result.present? && @product.save
       flash[:success] = t('create.success', param: 'Product')
       redirect_to product_url(@product)
     else
-      flash[:warning] = @product.errors.full_messages.to_sentence
+      flash[:warning] = @product.errors.full_messages
       redirect_to new_product_url(@product)
     end
   end
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
       flash[:success] = t('update.success', param: 'Product')
       redirect_to product_url(@product)
     else
-      flash[:warning] = @product.errors.full_messages.to_sentence
+      flash[:warning] = @product.errors.full_messages
       redirect_to edit_product_url(@product)
     end
   end
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
     if @product.destroy
       flash[:success] = t('destroy.success', param: 'Product')
     else
-      flash[:danger] = @product.errors.full_messages.to_sentence
+      flash[:danger] = @product.errors.full_messages
     end
 
     redirect_to product_url

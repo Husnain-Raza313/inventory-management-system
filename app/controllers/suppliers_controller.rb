@@ -22,7 +22,7 @@ class SuppliersController < ApplicationController
       flash[:success] = t('create.success', param: 'supplier')
       redirect_to supplier_url(@supplier)
     else
-      flash[:warning] = @supplier.errors.full_messages.to_sentence
+      flash[:warning] = @supplier.errors.full_messages
       render :new
     end
   end
@@ -32,7 +32,7 @@ class SuppliersController < ApplicationController
       flash[:success] = t('update.success', param: 'supplier')
       redirect_to supplier_url(@supplier)
     else
-      flash[:warning] = @supplier.errors.full_messages.to_sentence
+      flash[:warning] = @supplier.errors.full_messages
       render :edit
     end
   end
@@ -41,7 +41,7 @@ class SuppliersController < ApplicationController
     if @supplier.destroy
       flash[:success] = t('destroy.success', param: 'supplier')
     else
-      flash[:danger] = @supplier.errors.full_messages.to_sentence
+      flash[:danger] = @supplier.errors.full_messages
     end
 
     redirect_to suppliers_url

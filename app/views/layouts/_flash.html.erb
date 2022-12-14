@@ -1,7 +1,13 @@
 <div id="flashes" class="d-none">
   <% flash.each do |key, value| %>
     <div class=<%= key.to_s.gsub('alert', 'error').gsub('notice', 'success') %>>
-      <em><%= value %></em>
+      <% if value.kind_of?(Array) %>
+        <% value.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      <% else %>
+        <em><%= value %></em>
+      <% end %>
     </div>
   <% end %>
 </div>

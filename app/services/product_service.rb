@@ -31,7 +31,7 @@ class ProductService
       end
 
     else
-      @flash[:alert] = I18n.t('select_category_and_supplier')
+      @product.errors.add(:base, I18n.t('select_category_and_supplier'))
       nil
     end
   end

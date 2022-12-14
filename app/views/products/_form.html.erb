@@ -31,13 +31,16 @@
             <div class="col-md-12">
               <%= form.number_field :bulk_price, class:"form-control", placeholder:true  %>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 mt-2">
               <%= form.select :brand_id, all_brands,:prompt => 'Select Brand', required: true, class: 'form-control select-tag' %>
             </div>
-            <div class="col-md-12">
-              <%= form.file_field :image,class:"image-field"%>
+            <div class="col-md-12 mt-2">
+              <div class="w-25">
+                <%= image_view(product) %>
+              </div>
+              <%= form.file_field :image, class: "d-block image-file" %>
             </div>
-            <div class="form-button mt-3 col-md-4">
+            <div class="form-button mt-4 col-md-4">
               <%= form.submit class: "btn btn-primary submit-button" %>
             </div>
           <%end%>

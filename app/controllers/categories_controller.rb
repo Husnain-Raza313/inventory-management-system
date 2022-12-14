@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
       flash[:success] = t('create.success', param: 'category')
       redirect_to category_path(@category)
     else
-      flash[:warning] = @category.errors.full_messages.to_sentence
+      flash[:warning] = @category.errors.full_messages
       redirect_to new_category_path
     end
   end
@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
       flash[:success] = t('update.success', param: 'category')
       redirect_to category_url(@category)
     else
-      flash[:warning] = @category.errors.full_messages.to_sentence
+      flash[:warning] = @category.errors.full_messages
       redirect_to edit_category_path(@category)
     end
   end
@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
     if @category.destroy
       flash[:success] = t('destroy.success', param: 'category')
     else
-      flash[:danger] = @category.errors.full_messages.to_sentence
+      flash[:danger] = @category.errors.full_messages
     end
 
     redirect_to category_url
