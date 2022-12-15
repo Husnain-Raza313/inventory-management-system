@@ -6,6 +6,7 @@ class Order < ApplicationRecord
   has_many :order_items, dependent: :destroy
 
   before_save :set_total
+  after_update :set_sold_quantity
 
   def total
     order_items.collect { |order_item| order_item.valid? ? order_item.total_price : 0 }.sum
@@ -15,5 +16,17 @@ class Order < ApplicationRecord
 
   def set_total
     self.total_price = total
+  end
+
+  def set_sold_quantity
+    order_items.collect do |order_item|
+      product = Product.find(order_item.product_id)
+      qty = product.quantity - order_item.quantity
+      sold_qty = product.sold_quantity + order_item.quantity
+      product.update(quantity: qty, sold_quantity: sold_qty)
+    end
+    # qty = product.quantity - order_items.product_quantity(product.id)
+    # sold_qty = product.sold_quantity + current_order.order_items.product_quantity(product.id)
+    # product.update(quantity: qty, sold_quantity: sold_qty)
   end
 end
