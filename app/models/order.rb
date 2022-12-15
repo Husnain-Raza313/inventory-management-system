@@ -25,8 +25,5 @@ class Order < ApplicationRecord
       sold_qty = product.sold_quantity + order_item.quantity
       product.update(quantity: qty, sold_quantity: sold_qty)
     end
-    # qty = product.quantity - order_items.product_quantity(product.id)
-    # sold_qty = product.sold_quantity + current_order.order_items.product_quantity(product.id)
-    # product.update(quantity: qty, sold_quantity: sold_qty)
   end
 end

@@ -37,19 +37,12 @@ class OrdersController < ApplicationController
   end
 
   def download
+    @products = Product.where(id: session[:order_array])
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: { page_size: 'A4' }
       end
     end
-  end
-
-  private
-
-  def update_product(product)
-    qty = product.quantity - current_order.order_items.product_quantity(product.id)
-    sold_qty = product.sold_quantity + current_order.order_items.product_quantity(product.id)
-    product.update(quantity: qty, sold_quantity: sold_qty)
   end
 end

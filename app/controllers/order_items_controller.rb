@@ -17,7 +17,7 @@ class OrderItemsController < ApplicationController
     if session[:order_array].delete(params[:id])
       set_order_item('destroy')
     else
-      flash[:error] ="Sorry! Can't be deleted"
+      flash[:error] =t('error-message')
     end
 
     redirect_to orders_path

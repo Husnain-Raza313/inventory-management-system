@@ -19,7 +19,7 @@
           </div>
         </div>
         <div>
-          <% unless session[:order_array].empty? %>
+          <% if session[:order_array].include?(product.id.to_s) %>
             <div class="bg-success text-center card-width m-3">
               <p class="text-white"><%= t('ordered')%></p>
             </div>

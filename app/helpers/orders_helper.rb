@@ -14,7 +14,7 @@ module OrdersHelper
 
   def total_price(item = nil)
     unless item.nil?
-      total=item.price_per_unit*session[item.id]
+      total=item.retail_price*session[item.id]
       session[:total_order_price]= session[:total_order_price] + total
       return total
     else

@@ -60,3 +60,4 @@ en:
   item_id: "%{param} ID"
   item_details: "%{param} Details"
   item_total: "%{param} Total"
+  error-message: "Sorry! It Failed"
