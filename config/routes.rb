@@ -2,7 +2,12 @@
 
 Rails.application.routes.draw do
   resources :order_items, only: %i[create update destroy]
-  resources :orders, only: %i[index show]
+  resources :orders, only: %i[index show] do
+    collection do
+      get 'preview', to: 'orders#download'
+      get 'download', defaults: { format: :pdf }
+    end
+  end
   resources :categories
   resources :products
   resources :home, only: %i[index]
@@ -17,8 +22,6 @@ Rails.application.routes.draw do
     root to: 'orders#list', as: :user_route
   end
   root to: 'home#index'
-  get 'preview', to: 'orders#download', as: :order_pdf
-  get 'download', defaults: { format: :pdf }, to: 'orders#download', as: :download_pdf
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   match ':status', to: 'application#page_not_found', via: :all
   get 'products/:id/analytics/:type', to: 'reports#analytics', as: :analytics

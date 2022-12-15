@@ -5,12 +5,12 @@
   <hr>
   <% current_order.order_items.each do |item| %>
     <h5><%= t('item_details',param: 'Product')%></h5>
-    <p class="d-flex justify-content-between"><span><%= t('serial_number')%></span><span><%= item.product.serial_no %></span></p>
-    <p class="d-flex justify-content-between"><span><%= t('name')%></span><span><%= item.product.name %></span></p>
-    <p class="d-flex justify-content-between"><span><%= t('quantity')%></span><span><%= item.quantity %></span></p>
-    <p class="d-flex justify-content-between"><span><%= t('retail_price')%></span><span><%= item.product.retail_price %></span></p>
-    <p class="d-flex justify-content-between"><span><%= t('total')%></span><span><%= item.total_price %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('serial_number')%></span>: <span><%= item.product.serial_no %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('name')%></span>: <span><%= item.product.name %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('quantity')%></span>: <span><%= item.quantity %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('retail_price')%></span>: <span><%= item.product.retail_price %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('total')%></span>: <span><%= item.total_price %></span></p>
     <hr>
   <% end %>
-  <h4 class="d-flex justify-content-between"><span><%= t('item_total',param: 'Order')%>:</span><span>$<%=current_order.total_price%></span></h4>
+  <h4 class="d-flex justify-content-between"><span><%= t('item_total',param: 'Order')%>: </span><span>$<%=current_order.total_price%></span></h4>
 </div>
