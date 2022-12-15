@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ProductAnalytics
+class ProductAnalytics < ApplicationQueries
   attr_reader :product, :type
 
   def initialize(product, type)

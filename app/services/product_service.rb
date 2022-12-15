@@ -1,4 +1,4 @@
-class ProductService
+class ProductService < ApplicationService
   def initialize(category_ids, supplier_ids, flash, product)
     @category_ids = category_ids
     @supplier_ids = supplier_ids

@@ -1,4 +1,4 @@
-class SalesAnalytics
+class SalesAnalytics < ApplicationQueries
   attr_reader :reports
 
   def initialize(reports)
