@@ -9,7 +9,7 @@ class OrderItem < ApplicationRecord
   scope :product_quantity, ->(id){ where(product_id: id).pluck(:quantity)[0] }
 
   def total_price
-    product.retail_price * quantity
+    product.retail_price * self.quantity
   end
 
   private

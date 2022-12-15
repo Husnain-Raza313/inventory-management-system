@@ -11,4 +11,14 @@ module OrdersHelper
     image_tag('no-image.jpeg', size: OrdersHelper::IMAGE_SIZE, alt: t('image', param: obj.class.name.to_s),
                                class: ' w-100 rounded-top')
   end
+
+  def total_price(item = nil)
+    unless item.nil?
+      total=item.price_per_unit*session[item.id]
+      session[:total_order_price]= session[:total_order_price] + total
+      return total
+    else
+      session[:total_order_price] = 0
+    end
+  end
 end

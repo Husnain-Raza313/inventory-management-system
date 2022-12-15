@@ -4,31 +4,32 @@
       <div class="col-10">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h3 class="fw-normal mb-0 text-black"><%= t('list',param: 'Order') %></h3>
+          <% total_price%>
         </div>
-        <% @order_items.each do |item|%>
-          <%= form_with model: item, local: false do |f| %>
-            <%= f.hidden_field :product_id, value: item.product_id%>
+        <% @products.each do |item|%>
+          <%= form_with url: order_item_url(session[item.id]), method: :patch do |f| %>
+            <%= f.hidden_field :product_id, value: item.id%>
             <div class="card rounded-3 mb-4">
               <div class="card-body p-4">
                 <div class="row d-flex justify-content-between align-items-center">
                   <div class="col-md-2 col-lg-2 col-xl-2">
-                    <%= product_image(item.product)%>
+                    <%= product_image(item)%>
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-3">
-                    <p class="fw-normal text-dark m-0"><%= item.product.name %></p>
-                    <p class="m-0"><%= item.product.serial_no%></p>
-                    <p><%= item.product.description%></p>
+                    <p class="fw-normal text-dark m-0"><%= item.name %></p>
+                    <p class="m-0"><%= item.serial_no%></p>
+                    <p><%= item.description%></p>
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-2 d-flex flex-column p-2">
-                    <%= f.number_field :quantity, value: item.quantity.to_i, min: 1, max: item.product.quantity %>
+                    <%= f.number_field :quantity, value: session[item.id].to_i, min: 1, max: item.quantity %>
                     <%= f.submit t('update-button',param: 'Order') , class:"btn btn-primary" %>
                   </div>
                   <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 w-100">
-                    <h5 class="mb-2"><%=t('unit')%>: $<%= item.product.price_per_unit%></h5>
-                    <h5 class="mb-0"><%=t('total')%>: $<%= item.total_price %></h5>
+                    <h5 class="mb-2"><%=t('unit')%>: $<%= item.price_per_unit%></h5>
+                    <h5 class="mb-0"><%=t('total')%>: $<%= total_price(item) %></h5>
                   </div>
                   <div class="col-md-1 col-lg-1 col-xl-1 text-end mr-5">
-                    <%= link_to t('remove'), item, class:"btn btn-danger", method: :delete %>
+                    <%= link_to t('remove'), order_item_url(item.id), class:"btn btn-danger", method: :delete %>
                   </div>
                 </div>
               </div>
@@ -37,8 +38,8 @@
         <% end %>
         <div class="card">
           <div class="card-body">
-            <h2><%= t('total')%>: $<%= current_order.total%></h2>
-            <%= link_to t('pay'), order_path(current_order.id), class:"btn btn-warning btn-block btn-lg mb-2"%>
+            <h2><%= t('total')%>: $<%= session[:total_order_price] %></h2>
+            <%= link_to t('pay'), checkout_orders_path, class:"btn btn-warning btn-block btn-lg mb-2"%>
             <%= link_to t('preview'), preview_orders_path, class:"btn btn-primary"%>
             <%= link_to t('download'), download_orders_path, class:"btn btn-success"%>
           </div>

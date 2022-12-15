@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :order_items, only: %i[create update destroy]
+  resources :order_items, only: %i[index create update destroy]
   resources :orders, only: %i[index show] do
     collection do
       get 'preview', to: 'orders#download'
       get 'download', defaults: { format: :pdf }
+      get 'checkout', to: 'orders#create'
     end
   end
   resources :categories

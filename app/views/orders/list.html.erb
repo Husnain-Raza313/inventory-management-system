@@ -19,13 +19,13 @@
           </div>
         </div>
         <div>
-          <% if @product_ids.include?(product.id) %>
+          <% unless session[:order_array].empty? %>
             <div class="bg-success text-center card-width m-3">
               <p class="text-white"><%= t('ordered')%></p>
             </div>
           <% else %>
           <div class="d-flex flex-row ml-5">
-            <%= form_with model: @order_items, local: false do |f| %>
+            <%= form_with url: order_items_path, local: false do |f| %>
               <%= f.hidden_field :product_id, value: product.id%>
               <%= f.number_field :quantity, value: 1, min: 1, max: product.quantity, class:"w-75" %>
               <%= f.submit "Add To Order", id: "#{product.id}", class:"btn btn-primary", :onclick => "disableSubmit(#{product.id});" %>

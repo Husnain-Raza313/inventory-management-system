@@ -2,12 +2,11 @@
 
 class OrdersController < ApplicationController
   def index
-    @order_items = current_order.order_items
+    @products = Product.where(id: session[:order_array])
   end
 
   def list
-    @order_items = current_order.order_items.new
-    @product_ids = current_order.order_items.product_ids
+    session[:order_array] = Array.new if session[:order_array].nil?
     @products = Product.available_products
   end
 
@@ -22,6 +21,18 @@ class OrdersController < ApplicationController
     end
     session[:order_id] = nil
     flash[:success] = t('create.success', param: 'Order')
+    redirect_to user_route_path
+  end
+
+  def create
+    @order= Order.create(user_id: current_user.id)
+    session[:order_array].each do |order|
+    @order_items= @order.order_items.create(product_id: order, quantity: session[order])
+    end
+    if @order.update(total_price: 0)
+    flash[:success] = t('create.success', param: 'Order')
+    session[:order_array] =[]
+    end
     redirect_to user_route_path
   end
 
