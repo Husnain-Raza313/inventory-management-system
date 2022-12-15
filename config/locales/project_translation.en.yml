@@ -57,3 +57,6 @@ en:
   ordered: "Ordered!!!"
   home: "Home"
   project_title: "Inventory Management System"
+  item_id: "%{param} ID"
+  item_details: "%{param} Details"
+  item_total: "%{param} Total"
