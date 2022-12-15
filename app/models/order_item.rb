@@ -6,10 +6,10 @@ class OrderItem < ApplicationRecord
 
   before_save :set_total_price
   scope :product_ids, -> { pluck(:product_id) }
-  scope :product_quantity, ->(id){ where(product_id: id).pluck(:quantity)[0] }
+  scope :product_quantity, ->(id) { where(product_id: id).pluck(:quantity)[0] }
 
   def total_price
-    product.retail_price * self.quantity
+    product.retail_price * quantity
   end
 
   private
