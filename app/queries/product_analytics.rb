@@ -23,10 +23,10 @@ class ProductAnalytics < ApplicationQueries
   end
 
   def remaining_quantity_of_products
-    "Select name,Count(quantity) from products WHERE id = #{@product.id} GROUP BY name"
+    "Select name, SUM(quantity) from products WHERE id = #{@product.id} GROUP BY name"
   end
 
   def sold_quantity_of_products
-    "SELECT products.name, Sum(order_items.quantity) FROM products,order_items where products.id=order_items.product_id and order_items.product_id= #{@product.id}  GROUP BY products.name"
+    "SELECT products.name, SUM(order_items.quantity) FROM products,order_items where products.id=order_items.product_id and order_items.product_id= #{@product.id}  GROUP BY products.name"
   end
 end
