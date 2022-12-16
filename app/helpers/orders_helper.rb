@@ -13,7 +13,7 @@ module OrdersHelper
   end
 
   def total_price(item = nil)
-    if item.nil?
+    if item.blank?
       session[:total_order_price] = 0
     else
       total = item.retail_price * session[item.id]

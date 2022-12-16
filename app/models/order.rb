@@ -21,6 +21,8 @@ class Order < ApplicationRecord
   def set_sold_quantity
     order_items.collect do |order_item|
       product = Product.find(order_item.product_id)
+      next if product.blank?
+
       qty = product.quantity - order_item.quantity
       sold_qty = product.sold_quantity + order_item.quantity
       product.update(quantity: qty, sold_quantity: sold_qty)

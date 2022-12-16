@@ -5,8 +5,6 @@ class OrderItem < ApplicationRecord
   belongs_to :product
 
   before_save :set_total_price
-  scope :product_ids, -> { pluck(:product_id) }
-  scope :product_quantity, ->(id) { where(product_id: id).pluck(:quantity)[0] }
 
   def total_price
     product.retail_price * quantity
