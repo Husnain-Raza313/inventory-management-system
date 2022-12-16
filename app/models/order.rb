@@ -25,7 +25,13 @@ class Order < ApplicationRecord
 
       qty = product.quantity - order_item.quantity
       sold_qty = product.sold_quantity + order_item.quantity
-      product.update(quantity: qty, sold_quantity: sold_qty)
+      if qty === 0
+        product.update(quantity: qty, sold_quantity: sold_qty,
+                       available: false)
+      else
+        product.update(quantity: qty,
+                       sold_quantity: sold_qty)
+      end
     end
   end
 end
