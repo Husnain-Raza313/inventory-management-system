@@ -12,16 +12,19 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(user_id: current_user.id)
-    session[:order_array].each do |order|
-      @order_items = @order.order_items.create(product_id: order, quantity: session[order])
+    ActiveRecord::Base.transaction do
+      @order = Order.create(user_id: current_user.id)
+      session[:order_array].each do |order|
+        @order_items = @order.order_items.create(product_id: order, quantity: session[order])
+      end
+      if @order.update(total_price: session[:total_order_price])
+        flash[:success] = t('create.success', param: 'Order')
+        session[:order_array] = []
+      else
+        flash[:error] = @order.errors.full_messages
+      end
     end
-    if @order.update(total_price: session[:total_order_price])
-      flash[:success] = t('create.success', param: 'Order')
-      session[:order_array] = []
-    else
-      flash[:error] = @order.errors.full_messages
-    end
+
     redirect_to user_route_path
   end
 
