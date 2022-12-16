@@ -61,3 +61,4 @@ en:
   item_details: "%{param} Details"
   item_total: "%{param} Total"
   error-message: "Sorry! It Failed"
+  download-pdf: "Download PDF"

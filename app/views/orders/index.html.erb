@@ -1,5 +1,5 @@
 <div id="order-item">
-  <% if session[:order_array].length == 0 %>
+  <% if session[:order_array].blank? %>
     <div>
       <h1>
         <%= t('none',param: 'Order')%>

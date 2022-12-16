@@ -12,10 +12,10 @@ class OrderItemsController < ApplicationController
     if session[params[:product_id]].nil?
       flash[:error] = t('error-message')
     else
-      set_order_item('destroy')
+      set_order_item('update')
     end
 
-    redirect_to orders_path
+    redirect_to orders_path(status: 'order-list')
   end
 
   def destroy
@@ -25,7 +25,7 @@ class OrderItemsController < ApplicationController
       flash[:error] = t('error-message')
     end
 
-    redirect_to orders_path
+    redirect_to orders_path(status: 'order-list')
   end
 
   private

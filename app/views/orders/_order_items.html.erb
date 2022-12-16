@@ -21,11 +21,11 @@
                     <p><%= item.description%></p>
                   </div>
                   <div class="col-md-3 col-lg-3 col-xl-2 d-flex flex-column p-2">
-                    <%= f.number_field :quantity, value: session[item.id].to_i, min: 1, max: item.quantity %>
-                    <%= f.submit t('update-button',param: 'Order') , class:"btn btn-primary" %>
+                    <%= f.number_field :quantity, value: session[item.id].to_i, min: 1, max: item.quantity, onchange: "enableUpdate(#{item.id})" %>
+                    <%= f.submit t('update-button',param: 'Order') , class:"btn btn-primary", id:"update-btn-#{item.id}", disabled: true %>
                   </div>
                   <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 w-100">
-                    <h5 class="mb-2"><%=t('unit')%>: $<%= item.price_per_unit%></h5>
+                    <h5 class="mb-2"><%=t('unit')%>: $<%= item.retail_price%></h5>
                     <h5 class="mb-0"><%=t('total')%>: $<%= total_price(item) %></h5>
                   </div>
                   <div class="col-md-1 col-lg-1 col-xl-1 text-end mr-5">
@@ -39,9 +39,9 @@
         <div class="card">
           <div class="card-body">
             <h2><%= t('total')%>: $<%= session[:total_order_price] %></h2>
-            <%= link_to t('pay'), checkout_orders_path, class:"btn btn-warning btn-block btn-lg mb-2"%>
+            <%= link_to t('pay'), orders_path, class:"btn btn-warning btn-block btn-lg mb-2", method: :post %>
             <%= link_to t('preview'), preview_orders_path, class:"btn btn-primary"%>
-            <%= link_to t('download'), download_orders_path, class:"btn btn-success"%>
+            <%= link_to t('download-pdf'), pdf_orders_path, class:"btn btn-success"%>
           </div>
         </div>
       </div>
