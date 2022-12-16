@@ -1,13 +1,15 @@
 class ProductService < ApplicationService
-  def initialize(category_ids, supplier_ids, flash, product)
+  def initialize(category_ids, supplier_ids, flash, brand, product_params)
     @category_ids = category_ids
     @supplier_ids = supplier_ids
     @flash = flash
-    @product = product
+    @brand = brand
+    @product = @brand.products.new(product_params)
   end
 
   def execute
     assign_categories_and_supplier_to_product
+    @product
   end
 
   private
