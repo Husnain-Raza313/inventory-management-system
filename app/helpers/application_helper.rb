@@ -2,6 +2,7 @@
 
 module ApplicationHelper
   IMAGE_SIZE = '500x100'
+  SHOW_IMAGE_SIZE = '500x260'
   def image_view(obj, image_size = nil)
     if obj.image.attached?
       return image_tag(obj.image, size: image_size || ApplicationHelper::IMAGE_SIZE, alt: t('image', param: obj.class.name.to_s),

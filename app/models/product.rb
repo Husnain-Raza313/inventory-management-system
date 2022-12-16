@@ -20,7 +20,7 @@ class Product < ApplicationRecord
   before_create :generate_serial_number
 
   def generate_serial_number
-    serial_number = [*('A'..'Z')].sample(UNIQUE_SERIAL_NO_LENGTH).join
+    serial_number = [*('A'..'Z'), *('a'..'z'), *(0..9)].sample(UNIQUE_SERIAL_NO_LENGTH).join
     product = Product.find_by(serial_no: serial_number)
     if product.present?
       generate_serial_number
