@@ -11,14 +11,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = ProductService.new(params[:product][:category_ids], params[:product][:supplier_ids], flash, @brand,
-                                  product_params).execute
-    if @product.save
+    product_service = ProductService.new(category_ids: params[:product][:category_ids], supplier_ids: params[:product][:supplier_ids], brand: @brand,
+                                         product_params: product_params).execute
+    product = product_service[:product]
+    if product.present? && product.save
       flash[:success] = t('create.success', param: 'Product')
-      redirect_to product_url(@product)
+      redirect_to product_url(product)
     else
-      flash[:warning] = @product.errors.full_messages
-      redirect_to new_product_url(@product)
+      flash[:warning] = product_service[:message] || product.errors.full_messages
+      redirect_to new_product_url(product)
     end
   end
 
@@ -57,6 +58,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:serial_no, :name, :description, :image, :quantity, :price_per_unit,
-                                    :retail_price, :bulk_price, :brand_id)
+                                    :retail_price, :total_price, :brand_id)
   end
 end

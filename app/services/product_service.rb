@@ -1,40 +1,33 @@
 class ProductService < ApplicationService
-  def initialize(category_ids, supplier_ids, flash, brand, product_params)
-    @category_ids = category_ids
-    @supplier_ids = supplier_ids
-    @flash = flash
-    @brand = brand
-    @product = @brand.products.new(product_params)
+  attr_reader :product, :product_category_ids, :product_supplier_ids
+
+  def initialize(**args)
+    super
+    @product = params[:brand].products.new(params[:product_params])
+    @product_category_ids = params[:category_ids].drop(1)
+    @product_supplier_ids = params[:supplier_ids].drop(1)
   end
 
   def execute
     assign_categories_and_supplier_to_product
-    @product
   end
 
   private
 
-  def remove_empty_array_elements
-    @product_category = @category_ids.reject { |e| e.nil? || e&.empty? }
-    @product_supplier = @supplier_ids.reject { |e| e.nil? || e&.empty? }
-    [@product_category, @product_supplier]
-  end
-
   def assign_categories_and_supplier_to_product
-    remove_empty_array_elements  if @category_ids.present? && @supplier_ids.present?
-    if @product_category.present? && @product_supplier.present?
-      @product_category.each do |_product_category|
-        @category = Category.find(_product_category)
-        @product.categories << @category
-        @product_supplier.each do |_product_supplier|
-          @supplier = Supplier.find(_product_supplier)
-          @product.suppliers << @supplier
+    if product_category_ids.present? && product_supplier_ids.present?
+      product_category_ids.each do |product_category_id|
+        category = Category.find(product_category_id)
+        product.categories << category
+        product_supplier_ids.each do |product_supplier_id|
+          supplier = Supplier.find(product_supplier_id)
+          product.suppliers << supplier
         end
       end
 
+      { product: product, message: nil }
     else
-      @product.errors.add(:base, I18n.t('select_category_and_supplier'))
-      nil
+      { product: nil, message: I18n.t('select_category_and_supplier') }
     end
   end
 end

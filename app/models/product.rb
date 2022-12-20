@@ -2,8 +2,8 @@
 
 class Product < ApplicationRecord
   UNIQUE_SERIAL_NO_LENGTH = 5
-  validates :name, :image, :description, :bulk_price, :price_per_unit, :retail_price, presence: true
-  validates :bulk_price, numericality: { greater_than: :price_per_unit }
+  validates :name, :image, :description, :price_per_unit, :retail_price, presence: true
+  validates :name, uniqueness: true
   validates :retail_price, numericality: { greater_than: :price_per_unit }
   validates :image, presence: true,
                     blob: { content_type: ALLOWED_IMAGE_TYPES, size_range: ALLOWED_IMAGE_SIZE }
@@ -17,7 +17,7 @@ class Product < ApplicationRecord
   belongs_to :brand
   has_one_attached :image, dependent: :destroy
 
-  before_create :generate_serial_number
+  before_create :generate_serial_number, :calculate_total_price
 
   def generate_serial_number
     serial_number = [*('A'..'Z'), *('a'..'z'), *(0..9)].sample(UNIQUE_SERIAL_NO_LENGTH).join
@@ -27,5 +27,9 @@ class Product < ApplicationRecord
     else
       self.serial_no = serial_number
     end
+  end
+
+  def calculate_total_price
+    self.total_price = price_per_unit * quantity
   end
 end

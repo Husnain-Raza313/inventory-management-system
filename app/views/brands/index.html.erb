@@ -12,9 +12,9 @@
               <p class="card-text"><%= brand.description %></p>
             </div>  
             <div>
-              <%= link_to t('show-button'), brand, class:"btn btn-outline-primary" %>
-              <%= link_to t('edit-button'), edit_brand_path(brand), class:"btn btn-outline-warning" %>
-              <%= link_to t('delete-button'), brand, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
+              <%= link_to t('show-button'), brand, class: "btn btn-outline-primary" %>
+              <%= link_to t('edit-button'), edit_brand_path(brand), class: "btn btn-outline-warning" %>
+              <%= link_to t('delete-button'), brand, method: :delete, data: { confirm: t('confirmation_msg') }, class: "btn btn-outline-danger" %>
             </div>
           </div>
         </div>
@@ -23,4 +23,4 @@
   </div>
 <% end %>
 <br>
-<%= link_to t('add',param: 'Product'), new_product_path, class:"btn btn-dark btn-lg" %>
+<%= link_to t('add',param: 'Brand'), new_brands_path, class:"btn btn-dark btn-lg" %>
