@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   has_many :orders, dependent: :destroy
   has_one_attached :image, dependent: :destroy
+
   after_create :assign_default_role, if: -> { roles.blank? }
 
   private
