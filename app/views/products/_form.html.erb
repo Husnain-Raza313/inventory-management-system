@@ -5,25 +5,30 @@
         <div class="form-items">
           <%= form_with(model: product) do |form| %>
             <div class="col-md-12">
+              <%= form.label :name, class: "labels" %>
               <%= form.text_field :name, class:"form-control", placeholder: true  %>
             </div>
             <div class="col-md-12">
+              <%= form.label :description, class: "labels mt-4" %>
               <%= form.text_field :description, class: "form-control", placeholder: true %>
             </div>
             <div class="col-md-12">
+              <%= form.label :quantity, class: "labels mt-4" %>
               <%= form.number_field :quantity, class: "form-control", placeholder: true  %>
             </div>
             <div class="col-md-12">
+              <%= form.label :price_per_unit, class: "labels mt-4" %>
               <%= form.number_field :price_per_unit, class: "form-control", placeholder: true  %>
             </div>
-            <div class="col-md-12 dropdown">
+            <div class="col-md-12 selection">
               <%= form.select :category_ids, options_for_select(categories), { include_blank: true }, multiple: true, class: "select2 form-control" %>
             </div>
             <div class="col-md-12">
+              <%= form.label :retail_price, class: "labels mt-4" %>
               <%= form.number_field :retail_price, class:"form-control", placeholder: true %>
             </div>
-            <div class="col-md-12 dropdown">
-              <%= form.select :supplier_ids, options_for_select(suppliers), { include_blank: true }, multiple: true, class: "select2 form-control" %>
+            <div class="col-md-12 selection">
+              <%= form.select :supplier_ids, options_for_select(suppliers), { include_blank: true }, multiple: true, class: "select2 form-control mt-4" %>
             </div>
             <div class="col-md-12 mt-2">
               <%= form.select :brand_id, brands, prompt: 'Select Brand', required: true, class: "form-control select-tag" %>
