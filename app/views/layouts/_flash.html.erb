@@ -1,4 +1,4 @@
-<div id="flashes" class="d-none">
+<div id= "flashes" class= "d-none">
   <% flash.each do |key, value| %>
     <div class=<%= key.to_s.gsub('alert', 'error').gsub('notice', 'success') %>>
       <% if value.kind_of?(Array) %>

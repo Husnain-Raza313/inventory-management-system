@@ -5,12 +5,10 @@ class OrderItemService < ApplicationService
 
   def initialize(**args)
     super
-    @session = params[:session]
-    @args = params[:args]
-    @product_id = @args[:product_id]
-    @quantity = @args[:quantity].to_i
-    @product_quantity = @session[:product_quantity]
-    @order_array = @session[:order_array]
+    @product_id = params[:order_params][:product_id]
+    @quantity = params[:order_params][:quantity].to_i
+    @product_quantity = params[:session]["quantity_id_#{:product_quantity}"]
+    @order_array = params[:session][:order_array]
   end
 
   def execute
@@ -39,12 +37,3 @@ class OrderItemService < ApplicationService
     [order_array, product_quantity, message, type]
   end
 end
-
-# /**
-#   # if (arr.includes(:pro))
-#   #   update
-#   # else
-#   #   create
-#   # end
-
-# */

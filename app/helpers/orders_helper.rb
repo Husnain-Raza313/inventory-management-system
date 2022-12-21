@@ -16,7 +16,7 @@ module OrdersHelper
     if item.blank?
       session[:total_order_price] = 0
     else
-      total = item.retail_price * session[item.id]
+      total = item.retail_price * order_item_quantity(item.id)
       session[:total_order_price] = session[:total_order_price] + total
       total
     end
@@ -26,16 +26,12 @@ module OrdersHelper
     session[:order_array].include?(product.id.to_s)
   end
 
-  def check_address_type(request)
-    request === 'create'
-  end
-
-  def submit_name(request)
+  def submit_btn_name(request)
     request === 'create' ? t('add', param: 'Order') : t('update-button', param: 'Order')
   end
 
   def quantity_value(request, item)
-    request === 'create' ? 1 : session[item.id].to_i
+    request === 'create' ? 1 : order_item_quantity(item.id).to_i
   end
 
   def check_disabled(request)

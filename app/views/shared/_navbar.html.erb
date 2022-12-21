@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark justify-content-between mb-0">
-  <a class="navbar-brand"><%= t('project_title')%></a>
-  <%=link_to t('sign-out'), destroy_user_session_path, method: :delete, class:'btn btn-outline-light' %>
+<nav class= "navbar navbar-dark bg-dark justify-content-between mb-0">
+  <a class= "navbar-brand"><%= t('project_title') %></a>
+  <%= link_to t('sign-out'), destroy_user_session_path, method: :delete, class: 'btn btn-outline-light' %>
 </nav>

@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
 
   def create_order_items
     session[:order_array].each do |order|
-      @order_items = @order.order_items.create(product_id: order, quantity: session[order])
+      @order_items = @order.order_items.create(product_id: order, quantity: order_item_quantity(order))
     end
   end
 
