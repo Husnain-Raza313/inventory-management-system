@@ -1,36 +1,31 @@
 <h1><%= t('list',param: 'Products') %></h1>
-<%if @products.present?%>
-  <div class="d-flex flex-row">
+<% if @products.present? %>
+  <div class= "d-flex flex-row">
     <% @products.each do |product| %>
-      <div class="container d-flex flex-column">
-        <div class="card m-3 rounded-2 card-width">
+      <div class= "container d-flex flex-column">
+        <div class= "card m-3 rounded-2 card-width">
           <%= image_view(product) %>
-          <hr class="m-0">
-          <h5 class="card-title mx-3 mt-3"><%= product.name %></h5>
-          <div class="card-body d-flex flex-column justify-content-between">
-            <p class="card-text"><%= product.serial_no %></p>
-            <p class="card-text"><%= product.quantity %></p>
-            <p class="card-text"><%= t('sold') %>: <%= product.sold_quantity %></p>
+          <hr class= "m-0">
+          <h5 class= "card-title mx-3 mt-3"><%= product.name %></h5>
+          <div class= "card-body d-flex flex-column justify-content-between">
+            <p class= "card-text"><%= product.serial_no %></p>
+            <p class= "card-text"><%= product.quantity %></p>
+            <p class= "card-text"><%= "#{t('sold')} : #{product.sold_quantity}" %></p>
             <div>
-              <%= link_to t('show-button'), product, class:"btn btn-outline-primary" %>
-              <%= link_to t('edit-button'), edit_product_path(product), class:"btn btn-outline-warning" %>
-              <%= link_to t('delete-button'), product, method: :delete, data: { confirm: t('confirmation_msg') }, class:"btn btn-outline-danger" %>
+              <%= link_to t('show-button'), product, class: "btn btn-outline-primary" %>
+              <%= link_to t('edit-button'), edit_product_path(product), class: "btn btn-outline-warning" %>
+              <%= link_to t('delete-button'), product, method: :delete, data: { confirm: t('confirmation_msg') }, class: "btn btn-outline-danger" %>
             </div>
           </div>
         </div>
         <div>
-          <% if session[:order_array].include?(product.id.to_s) %>
-            <div class="bg-success text-center card-width m-3">
-              <p class="text-white"><%= t('ordered')%></p>
+          <% if check_order_array(product) %>
+            <div class= "bg-success text-center card-width m-3">
+              <p class= "text-white"><%= t('ordered') %></p>
             </div>
           <% else %>
-          <div class="d-flex flex-row ml-5">
-            <%= form_with url: order_items_path, local: false do |f| %>
-              <%= f.hidden_field :product_id, value: product.id%>
-              <%= f.number_field :quantity, value: 1, min: 1, max: product.quantity, class:"w-75" %>
-              <%= f.submit "Add To Order", id: "#{product.id}", class:"btn btn-primary", :onclick => "disableSubmit(#{product.id});" %>
-              <p class="d-none text-success mt-2"  id='btn<%=product.id%>'><%= t('ordered')%></p>
-            <% end %>
+          <div class= "d-flex flex-row ml-5">
+            <%= render 'orders/form', item: product, request: 'create' %>
           </div>
           <% end %>
         </div>
@@ -39,4 +34,4 @@
   </div>
 <% end %>
 <br>
-<%= link_to t('list',param: 'Order'), orders_path(status: "order-list"), class:"btn btn-dark btn-lg" %>
+<%= link_to t('list',param: 'Order'), orders_path(status: "order-list"), class: "btn btn-dark btn-lg" %>

@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   before_update :set_sold_quantity
 
   def total
-    order_items.collect { |order_item| order_item.valid? ? order_item.total_price : 0 }.sum
+    order_items.map { |order_item| order_item.valid? ? order_item.total_price : 0 }.sum
   end
 
   private
@@ -19,19 +19,14 @@ class Order < ApplicationRecord
   end
 
   def set_sold_quantity
-    order_items.collect do |order_item|
+    order_items.map do |order_item|
       product = Product.find(order_item.product_id)
       next if product.blank?
 
       qty = product.quantity - order_item.quantity
       sold_qty = product.sold_quantity + order_item.quantity
-      if qty === 0
-        product.update(quantity: qty, sold_quantity: sold_qty,
-                       available: false)
-      else
-        product.update(quantity: qty,
-                       sold_quantity: sold_qty)
-      end
+      product.update(quantity: qty, sold_quantity: sold_qty,
+                       available: qty == 0 ? false : true)
     end
   end
 end

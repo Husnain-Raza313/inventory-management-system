@@ -21,4 +21,24 @@ module OrdersHelper
       total
     end
   end
+
+  def check_order_array(product)
+    session[:order_array].include?(product.id.to_s)
+  end
+
+  def check_address_type(request)
+    request === 'create' ? true : false
+  end
+
+  def submit_name(request)
+    request === 'create' ? t('add', param: 'Order') : t('update-button', param: 'Order')
+  end
+
+  def quantity_value(request, item)
+    request === 'create' ? 1 : session[item.id].to_i
+  end
+
+  def check_disabled(request)
+    request === 'create' ? false : true
+  end
 end
