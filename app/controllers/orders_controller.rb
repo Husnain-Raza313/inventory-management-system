@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
     if @order.update(total_price: session[:total_order_price])
       flash[:success] = t('create.success', param: 'Order')
       session[:order_array] = []
+      session[:order_quantity] = Hash.new
     else
       flash[:error] = @order.errors.full_messages
     end
@@ -33,7 +34,10 @@ class OrdersController < ApplicationController
   private
 
   def set_session
-    session[:order_array] = [] if session[:order_array].blank?
+    if session[:order_array].blank?
+      session[:order_array] = []
+      session[:order_quantity] = Hash.new
+    end
   end
 
   def create_order_items

@@ -9,6 +9,6 @@ module ApplicationHelper
   end
 
   def order_item_quantity(id)
-    session["quantity_id_#{id}"]
+    session[:order_quantity][id.to_s]
   end
 end

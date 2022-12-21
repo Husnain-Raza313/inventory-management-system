@@ -7,7 +7,7 @@ class OrderItemService < ApplicationService
     super
     @product_id = params[:order_params][:product_id]
     @quantity = params[:order_params][:quantity].to_i
-    @product_quantity = params[:session]["quantity_id_#{:product_quantity}"]
+    @product_quantity = params[:session][:order_quantity][@product_id]
     @order_array = params[:session][:order_array]
   end
 

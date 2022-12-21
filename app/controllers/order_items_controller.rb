@@ -2,7 +2,7 @@
 
 class OrderItemsController < ApplicationController
   def create
-    session[:order_array], session["quantity_id_#{params[:product_id]}"], message, type = OrderItemService.new(order_params: params,
+    session[:order_array], session[:order_quantity][params[:product_id]], message, type = OrderItemService.new(order_params: params,
                                                                                               session: session).execute
     set_flash_message(type, message)
     redirect_back(fallback_location: root_path)
