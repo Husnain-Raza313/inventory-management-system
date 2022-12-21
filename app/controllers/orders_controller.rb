@@ -35,6 +35,7 @@ class OrdersController < ApplicationController
   def set_session
     session[:order_array] = [] if session[:order_array].blank?
   end
+
   def create_order_items
     session[:order_array].each do |order|
       @order_items = @order.order_items.create(product_id: order, quantity: session[order])

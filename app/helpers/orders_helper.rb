@@ -27,7 +27,7 @@ module OrdersHelper
   end
 
   def check_address_type(request)
-    request === 'create' ? true : false
+    request === 'create'
   end
 
   def submit_name(request)
@@ -39,6 +39,6 @@ module OrdersHelper
   end
 
   def check_disabled(request)
-    request === 'create' ? false : true
+    !(request === 'create')
   end
 end
