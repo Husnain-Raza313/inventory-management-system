@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
       flash[:danger] = @product.errors.full_messages
     end
 
-    redirect_to product_url
+    redirect_to products_url
   end
 
   private

@@ -3,14 +3,13 @@
     <div class="form-holder">
       <div class="form-content">
         <div class="form-items">
-          <h3><%= t('add', param: 'Category') %></h3>
           <%= form_with(model: category) do |form| %>
             <%= render "layouts/error_messages", messages: category.errors.full_messages %>
             <div class="col-md-12">
-              <%= form.text_field :name, class: "form-control" %>
+              <%= form.text_field :name, class: "form-control", placeholder: true %>
             </div>
             <div class="col-md-12">
-              <%= form.text_field :description, class: "form-control"%>
+              <%= form.text_field :description, class: "form-control",  placeholder: true %>
             </div>
             <div class="col-md-12 mt-2">
               <div class="w-25">
