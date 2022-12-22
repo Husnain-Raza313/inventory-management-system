@@ -11,4 +11,8 @@ module ApplicationHelper
   def order_item_quantity(id)
     session[:order_quantity][id.to_s]
   end
+
+  def check_validation(item)
+    item.blank? ? true : false
+  end
 end
