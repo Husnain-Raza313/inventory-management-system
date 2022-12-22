@@ -37,7 +37,8 @@ class OrdersController < ApplicationController
     return unless session[:order_array].blank? || flag
 
     session[:order_array] = []
-    session[:order_quantity] = {}
+    session[:order_quantity] = HashWithIndifferentAccess.new
+    byebug
   end
 
   def index_list
