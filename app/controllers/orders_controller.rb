@@ -8,16 +8,16 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.create(user_id: current_user.id)
-    create_order_items
-    if @order.update(total_price: session[:total_order_price])
-      flash[:success] = t('create.success', param: 'Order')
-      session[:order_array] = []
-      session[:order_quantity] = Hash.new
+    @order = Order.new(user_id: current_user.id)
+    if @order.save
+      message, type = OrderService.new(session: session, order: @order).execute
+      set_session(true)
     else
-      flash[:error] = @order.errors.full_messages
+      message = @order.errors.full_messages
+      type = 'error'
     end
 
+    flash[type] = message
     redirect_to user_route_path
   end
 
@@ -33,17 +33,11 @@ class OrdersController < ApplicationController
 
   private
 
-  def set_session
-    if session[:order_array].blank?
-      session[:order_array] = []
-      session[:order_quantity] = Hash.new
-    end
-  end
+  def set_session(flag = false)
+    return unless session[:order_array].blank? || flag
 
-  def create_order_items
-    session[:order_array].each do |order|
-      @order_items = @order.order_items.create(product_id: order, quantity: order_item_quantity(order))
-    end
+    session[:order_array] = []
+    session[:order_quantity] = {}
   end
 
   def index_list
