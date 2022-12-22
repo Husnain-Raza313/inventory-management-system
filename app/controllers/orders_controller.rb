@@ -38,7 +38,6 @@ class OrdersController < ApplicationController
 
     session[:order_array] = []
     session[:order_quantity] = HashWithIndifferentAccess.new
-    byebug
   end
 
   def index_list
