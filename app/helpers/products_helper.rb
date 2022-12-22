@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ProductsHelper
   def categories
     Category.all.map { |c| [c.name, c.id] }

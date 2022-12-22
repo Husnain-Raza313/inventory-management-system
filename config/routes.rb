@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :order_items, only: %i[index create update destroy]
+  resources :orders, only: %i[index create] do
+    collection do
+      get 'preview', to: 'orders#pdf'
+      get 'pdf', defaults: { format: :pdf }
+    end
+  end
   resources :categories
   resources :products
   resources :home, only: %i[index]
@@ -12,7 +19,7 @@ Rails.application.routes.draw do
     root to: 'home#index', as: :admin_route
   end
   authenticated :user, ->(u) { u.has_role?(:cashier) } do
-    root to: 'home#index', as: :user_route
+    root to: 'orders#index', as: :user_route
   end
   root to: 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

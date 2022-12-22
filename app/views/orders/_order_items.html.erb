@@ -1,0 +1,46 @@
+<section class="h-100" style="background-color: #eee;">
+  <div class="container h-100 py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black"><%= t('list',param: 'Order') %></h3>
+          <% total_price %>
+        </div>
+        <% @products.each do |item| %>
+          <div class="card rounded-3 mb-4">
+            <div class="card-body p-4">
+              <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                  <%= product_image(item) %>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <p class="fw-normal text-dark m-0"><%= item.name %></p>
+                  <p class="m-0"><%= item.serial_no %></p>
+                  <p><%= item.description %></p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex flex-column p-2">
+                  <%= render 'orders/form', item: item, request: 'update' %>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 w-100">
+                  <h5 class="mb-2"><%= "#{t('unit')} : $#{item.retail_price}" %></h5>
+                  <h5 class="mb-0"><%= "#{t('total')} : $#{total_price(item)}" %></h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end mr-5">
+                  <%= link_to t('remove'), order_item_url(item.id), class: "btn btn-danger", method: :delete %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="card">
+          <div class="card-body">
+            <h2><%= "#{t('total')} : $#{session[:total_order_price]}" %></h2>
+            <%= link_to t('pay'), orders_path, class: "btn btn-warning btn-block btn-lg mb-2", method: :post %>
+            <%= link_to t('preview'), preview_orders_path, class: "btn btn-primary" %>
+            <%= link_to t('download-pdf'), pdf_orders_path, class: "btn btn-success" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

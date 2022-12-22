@@ -17,6 +17,9 @@ class Product < ApplicationRecord
   belongs_to :brand
   has_one_attached :image, dependent: :destroy
 
+  scope :available_products, -> { where(available: true) }
+  scope :ordered_products, -> (ids) { where(id: ids) }
+
   before_create :generate_serial_number, :calculate_total_price
 
   def generate_serial_number
@@ -32,4 +35,5 @@ class Product < ApplicationRecord
   def calculate_total_price
     self.total_price = price_per_unit * quantity
   end
+
 end

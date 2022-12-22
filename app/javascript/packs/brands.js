@@ -13,3 +13,5 @@ $(document).on('change', '#image-file', function(){
     fileInput.value = '';
   }
 });
+
+

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rake reports:calculate_reports
 $total_retail_price_of_products = 0
 $total_price_of_product = 0
