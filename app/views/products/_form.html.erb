@@ -5,39 +5,41 @@
         <div class="form-items">
           <%= form_with(model: product) do |form| %>
             <div class="col-md-12">
-              <%= form.text_field :serial_no, class:"form-control", placeholder:true %>
+              <%= form.label :name, class: "labels" %>
+              <%= form.text_field :name, class:"form-control", placeholder: true  %>
             </div>
             <div class="col-md-12">
-              <%= form.text_field :name, class:"form-control", placeholder:true  %>
+              <%= form.label :description, class: "labels mt-4" %>
+              <%= form.text_field :description, class: "form-control", placeholder: true %>
             </div>
             <div class="col-md-12">
-              <%= form.text_field :description, class:"form-control", placeholder:true %>
+              <%= form.label :quantity, class: "labels mt-4" %>
+              <%= form.number_field :quantity, class: "form-control", placeholder: true  %>
             </div>
             <div class="col-md-12">
-              <%= form.number_field :quantity, class:"form-control", placeholder:true  %>
+              <%= form.label :price_per_unit, class: "labels mt-4" %>
+              <%= form.number_field :price_per_unit, class: "form-control", placeholder: true  %>
+            </div>
+            <div class="col-md-12 selection">
+              <%= form.select :category_ids, options_for_select(categories), { include_blank: true }, multiple: true, class: "select2 form-control" %>
             </div>
             <div class="col-md-12">
-              <%= form.number_field :price_per_unit, class:"form-control", placeholder:true  %>
+              <%= form.label :retail_price, class: "labels mt-4" %>
+              <%= form.number_field :retail_price, class:"form-control", placeholder: true %>
             </div>
-            <div class="col-md-12 dropdown">
-              <%= form.select :category_ids, options_for_select(all_categories), {include_blank: false}, multiple: true, class: "select2 form-control" %>
+            <div class="col-md-12 selection">
+              <%= form.select :supplier_ids, options_for_select(suppliers), { include_blank: true }, multiple: true, class: "select2 form-control mt-4" %>
             </div>
-            <div class="col-md-12">
-              <%= form.number_field :retail_price, class:"form-control",placeholder:true %>
+            <div class="col-md-12 mt-4">
+              <%= form.select :brand_id, brands, prompt: 'Select Brand', required: true, class: "form-control select-tag" %>
             </div>
-            <div class="col-md-12 dropdown">
-              <%= form.select :supplier_ids, options_for_select(all_suppliers), {include_blank: true}, multiple: true, class: "select2 form-control" %>
+            <div class="col-md-12 mt-2">
+              <div class="w-25 mt-4">
+                <%= image_view(product) %>
+              </div>
+              <%= form.file_field :image, class: "d-block image-file" %>
             </div>
-            <div class="col-md-12">
-              <%= form.number_field :bulk_price, class:"form-control", placeholder:true  %>
-            </div>
-            <div class="col-md-12">
-              <%= form.select :brand_id, all_brands,:prompt => 'Select Brand', required: true, class: 'form-control select-tag' %>
-            </div>
-            <div class="col-md-12">
-              <%= form.file_field :image,class:"image-field"%>
-            </div>
-            <div class="form-button mt-3 col-md-4">
+            <div class="form-button mt-4 col-md-4">
               <%= form.submit class: "btn btn-primary submit-button" %>
             </div>
           <%end%>

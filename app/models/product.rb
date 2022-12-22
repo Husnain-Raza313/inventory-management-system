@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
-  validates :name, :image, :description, :serial_no, :bulk_price, :price_per_unit, :retail_price, presence: true
-  validates :serial_no, :description, length: { minimum: 10, maximum: 30 }
-  validates :bulk_price, numericality: { greater_than: :price_per_unit }
+  UNIQUE_SERIAL_NO_LENGTH = 5
+  validates :name, :image, :description, :price_per_unit, :retail_price, presence: true
+  validates :name, uniqueness: true
   validates :retail_price, numericality: { greater_than: :price_per_unit }
   validates :image, presence: true,
                     blob: { content_type: ALLOWED_IMAGE_TYPES, size_range: ALLOWED_IMAGE_SIZE }
@@ -16,4 +16,20 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_items
   belongs_to :brand
   has_one_attached :image, dependent: :destroy
+
+  before_create :generate_serial_number, :calculate_total_price
+
+  def generate_serial_number
+    serial_number = [*('A'..'Z'), *('a'..'z'), *(0..9)].sample(UNIQUE_SERIAL_NO_LENGTH).join
+    product = Product.find_by(serial_no: serial_number)
+    if product.present?
+      generate_serial_number
+    else
+      self.serial_no = serial_number
+    end
+  end
+
+  def calculate_total_price
+    self.total_price = price_per_unit * quantity
+  end
 end

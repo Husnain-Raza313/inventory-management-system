@@ -8,9 +8,9 @@ en:
   analytics-button-sold-count: "Sold Products Ratio"
   page_not_found: " Page Not Found!!!"
   confirmation_msg: "Are You Sure?"
-  phone: "Phone No"
-  address: "Address"
-  name: "Name"
+  phone: "Phone No:"
+  address: "Address:"
+  name: "Name:"
 
   user:
     image: "needs to be a jpeg or png!"
@@ -34,7 +34,6 @@ en:
   quantity: "Quantity"
   availlable: "Availlable"
   price_per_unit: "Price-Per-Unit"
-  bulk_price: "Bulk-price"
   retail_price: "Retail-Price"
   select_category_and_supplier: "Select Category and Supplier"
   reports: "Reports"
@@ -48,3 +47,4 @@ en:
   yearly: "Yearly"
   sold: "sold"
   option: "Select Option"
+  categories: "Categories"

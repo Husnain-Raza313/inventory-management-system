@@ -21,7 +21,7 @@ class BrandsController < ApplicationController
       flash[:success] = t('create.success', param: 'brand')
       redirect_to brand_url(@brand)
     else
-      flash[:warning] = @brand.errors.full_messages.to_sentence
+      flash[:warning] = @brand.errors.full_messages
       render :new
     end
   end
@@ -31,7 +31,7 @@ class BrandsController < ApplicationController
       flash[:success] = t('update.success', param: 'brand')
       redirect_to brand_url(@brand)
     else
-      flash[:warning] = @brand.errors.full_messages.to_sentence
+      flash[:warning] = @brand.errors.full_messages
       render :edit
     end
   end
@@ -40,7 +40,7 @@ class BrandsController < ApplicationController
     if @brand.destroy
       flash[:success] = t('destroy.success', param: 'brand')
     else
-      flash[:danger] = @brand.errors.full_messages.to_sentence
+      flash[:danger] = @brand.errors.full_messages
     end
 
     redirect_to brands_url

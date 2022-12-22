@@ -6,7 +6,6 @@
       <h5 class="text-black" ><%= t('quantity ') %><%= @product.quantity %></h5>
       <h5 class="text-black" ><%= t('availlable ') %><%= @product.available %></h5>
       <h5 class="text-black" ><%= t('price_per_unit ') %><%= @product.price_per_unit %></h5>
-      <h5 class="text-black" ><%= t('bulk_price ') %><%= @product.bulk_price %></h5>
       <h5 class="text-black" ><%= t('retail_price ') %><%= @product.retail_price %></h5>
       <h5 class="text-black" ><%= t('retail_price ') %><%= @product.brand.name %></h5>
       <div class="my-3" >
@@ -16,7 +15,7 @@
       </div>
     </div>
     <div class="rounded overflow-hidden w-50 m-auto">
-      <%= image_view(@product) %>
+      <%= image_view(@product, ApplicationHelper::SHOW_IMAGE_SIZE) %>
     </div>
   </div>
 </div>

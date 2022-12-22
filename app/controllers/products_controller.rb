@@ -11,14 +11,15 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = @brand.products.new(product_params)
-    ProductService.new(params[:product][:category_ids], params[:product][:supplier_ids], flash, @product).execute
-    if @product.save
+    product_service = ProductService.new(category_ids: params[:product][:category_ids], supplier_ids: params[:product][:supplier_ids], brand: @brand,
+                                         product_params: product_params).execute
+    product = product_service[:product]
+    if product.present? && product.save
       flash[:success] = t('create.success', param: 'Product')
-      redirect_to product_url(@product)
+      redirect_to product_url(product)
     else
-      flash[:warning] = @product.errors.full_messages.to_sentence
-      redirect_to new_product_url(@product)
+      flash[:warning] = product_service[:message] || product.errors.full_messages
+      redirect_to new_product_url(product)
     end
   end
 
@@ -30,7 +31,7 @@ class ProductsController < ApplicationController
       flash[:success] = t('update.success', param: 'Product')
       redirect_to product_url(@product)
     else
-      flash[:warning] = @product.errors.full_messages.to_sentence
+      flash[:warning] = @product.errors.full_messages
       redirect_to edit_product_url(@product)
     end
   end
@@ -39,7 +40,7 @@ class ProductsController < ApplicationController
     if @product.destroy
       flash[:success] = t('destroy.success', param: 'Product')
     else
-      flash[:danger] = @product.errors.full_messages.to_sentence
+      flash[:danger] = @product.errors.full_messages
     end
 
     redirect_to product_url
@@ -57,6 +58,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:serial_no, :name, :description, :image, :quantity, :price_per_unit,
-                                    :retail_price, :bulk_price, :brand_id)
+                                    :retail_price, :total_price, :brand_id)
   end
 end

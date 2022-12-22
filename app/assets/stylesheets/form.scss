@@ -9,9 +9,6 @@
 .form-holder {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   min-height: 100vh;
 }
 
@@ -153,4 +150,14 @@
 
 .category-section {
   margin-top: 63px;
+}
+
+.selection {
+  margin-top: 28px;
+}
+
+.labels {
+  color: #B4886B;
+  font-weight: bold;
+  float: left;
 }

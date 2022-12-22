@@ -25,8 +25,8 @@ namespace :reports do
     product.each do |product|
       product.order_items.each do |prod_item|
         $total_retail_price_of_products = $total_retail_price_of_products + (product.retail_price * prod_item.quantity)
+        $total_price_of_product = $total_price_of_product + (product.price_per_unit * prod_item.quantity)
       end
-      $total_price_of_product = $total_price_of_product + (product.price_per_unit * product.order_items.count)
     end
 
     profit = $total_retail_price_of_products - $total_price_of_product

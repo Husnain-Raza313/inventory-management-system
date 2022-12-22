@@ -4,12 +4,12 @@
       <h1 class="text-black" ><b><%= @category.name %></b></h1>
       <p class="text-grey" ><%= @category.description %></p>
       <div class="my-3" >
-      <%= link_to t('edit', param: 'Category'), edit_category_path(@category), class:"btn btn-outline-primary btn-lg" %>
+        <%= link_to t('edit', param: 'Category'), edit_category_path(@category), class: "btn btn-outline-primary btn-lg" %>
       </div>
     </div>
     <div class="rounded overflow-hidden w-50 m-auto">
-      <%= image_view(@category) %>
+      <%= image_view(@category, ApplicationHelper::SHOW_IMAGE_SIZE) %>
     </div>
   </div>
 </div>
-<%= link_to t('all',param: 'Categories'), categories_path, class:"btn btn-dark btn-lg m-3" %>
+<%= link_to t('all',param: 'Categories'), categories_path, class: "btn btn-dark btn-lg m-3" %>
