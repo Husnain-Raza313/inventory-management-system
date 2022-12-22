@@ -5,12 +5,12 @@
   <hr>
   <% @products.each do |product| %>
     <h5><%= t('item_details', param: 'Product') %></h5>
-    <p class= "d-flex justify-content-between"><span><%= t('serial_number') %></span>: <span><%= product.serial_no %></span></p>
-    <p class= "d-flex justify-content-between"><span><%= t('name') %></span>: <span><%= product.name %></span></p>
-    <p class= "d-flex justify-content-between"><span><%= t('quantity') %></span>: <span><%= order_item_quantity(product.id) %></span></p>
-    <p class= "d-flex justify-content-between"><span><%= t('retail_price') %></span>: <span><%= product.retail_price %></span></p>
-    <p class= "d-flex justify-content-between"><span><%= t('total') %></span>: <span><%= total_price(product) %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('serial_number') %></span>: <span><%= product.serial_no %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('name') %></span>: <span><%= product.name %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('quantity') %></span>: <span><%= order_item_quantity(product.id) %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('retail_price') %></span>: <span><%= product.retail_price %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('total') %></span>: <span><%= total_price(product) %></span></p>
     <hr>
   <% end %>
-  <h4 class= "d-flex justify-content-between"><span><%= t('item_total', param: 'Order') %>: </span><span>$<%= session[:total_order_price] %></span></h4>
+  <h4 class="d-flex justify-content-between"><span><%= t('item_total', param: 'Order') %>: </span><span>$<%= session[:total_order_price] %></span></h4>
 </div>

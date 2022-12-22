@@ -1,14 +1,14 @@
-<nav id= "sidebar">
-  <div class= "sidebar-header">
+<nav id="sidebar">
+  <div class="sidebar-header">
     <h3><%= t('project_title') %></h3>
   </div>
-  <ul class= "list-unstyled components">
+  <ul class="list-unstyled components">
     <li>
       <%= link_to t('home'), root_path %>
     </li>
     <li>
-      <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" class= "dropdown-toggle">Products</a>
-      <ul class= "collapse list-unstyled" id= "productSubmenu">
+      <a href="#productSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products</a>
+      <ul class="collapse list-unstyled" id="productSubmenu">
         <li>
           <%= link_to t('add', param: 'Product'), new_product_path %>
         </li>
@@ -18,8 +18,8 @@
       </ul>
     </li>
     <li>
-      <a href="#brandSubmenu" data-toggle="collapse" aria-expanded="false" class= "dropdown-toggle">Brands</a>
-      <ul class= "collapse list-unstyled" id= "brandSubmenu">
+      <a href="#brandSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Brands</a>
+      <ul class="collapse list-unstyled" id="brandSubmenu">
         <li>
           <%= link_to t('add', param: 'Brand'), new_brand_path %>
         </li>
@@ -29,8 +29,8 @@
       </ul>
     </li>
     <li>
-      <a href="#supplierSubmenu" data-toggle="collapse" aria-expanded="false" class= "dropdown-toggle">Supplier</a>
-      <ul class= "collapse list-unstyled" id= "supplierSubmenu">
+      <a href="#supplierSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Supplier</a>
+      <ul class="collapse list-unstyled" id="supplierSubmenu">
         <li>
           <%= link_to t('add', param: 'Supplier'), new_supplier_path %>
         </li>
@@ -40,8 +40,8 @@
       </ul>
     </li>
     <li>
-      <a href="#categorySubmenu" data-toggle="collapse" aria-expanded="false" class= "dropdown-toggle">Category</a>
-      <ul class= "collapse list-unstyled" id= "categorySubmenu">
+      <a href="#categorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Category</a>
+      <ul class="collapse list-unstyled" id="categorySubmenu">
         <li>
           <%= link_to t('add', param:'Category'), new_category_path %>
         </li>
@@ -53,7 +53,7 @@
     <li>
       <a href="/reports"><%= t('reports') %></a>
     </li>
-    <ul class= "list-unstyled CTAs">
+    <ul class="list-unstyled CTAs">
       <li>
         <%= link_to t('sign-out'), destroy_user_session_path, method: :delete, class: 'info-button' %>
       </li>
