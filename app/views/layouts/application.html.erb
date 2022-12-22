@@ -12,7 +12,9 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
+    <% if !current_user.has_role?(:admin) %>
+        <%= render 'shared/navbar' %>
+    <% end %>
     <div class="wrapper">
       <% if current_user.has_role?(:admin) %>
         <%= render 'shared/sidebar' %>

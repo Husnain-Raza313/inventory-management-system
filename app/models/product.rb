@@ -3,6 +3,8 @@
 class Product < ApplicationRecord
   UNIQUE_SERIAL_NO_LENGTH = 5
   validates :name, :image, :description, :price_per_unit, :retail_price, presence: true
+  validates :name, length: { minimum: 5, maximum: 30 }
+  validates :description, length: { minimum: 10, maximum: 50 }
   validates :name, uniqueness: true
   validates :retail_price, numericality: { greater_than: :price_per_unit }
   validates :image, presence: true,
@@ -21,6 +23,8 @@ class Product < ApplicationRecord
   scope :ordered_products, -> (ids) { where(id: ids) }
 
   before_create :generate_serial_number, :calculate_total_price
+
+  accepts_nested_attributes_for :categories, :suppliers
 
   def generate_serial_number
     serial_number = [*('A'..'Z'), *('a'..'z'), *(0..9)].sample(UNIQUE_SERIAL_NO_LENGTH).join

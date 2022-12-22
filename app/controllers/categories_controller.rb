@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
       flash[:danger] = @category.errors.full_messages
     end
 
-    redirect_to category_url
+    redirect_to categories_path
   end
 
   private
