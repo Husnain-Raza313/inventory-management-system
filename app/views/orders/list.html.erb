@@ -1,8 +1,8 @@
 <h1><%= t('list',param: 'Products') %></h1>
 <% if @products.present? %>
-  <div class="d-flex flex-row">
+  <div class="container d-flex flex-row flex-wrap justify-content-start ">
     <% @products.each do |product| %>
-      <div class="container d-flex flex-column">
+      <div class="d-flex flex-column m-3">
         <div class="card m-3 rounded-2 card-width">
           <%= image_view(product, ApplicationHelper::SHOW_IMAGE_SIZE) %>
           <hr class="m-0">

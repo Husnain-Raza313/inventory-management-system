@@ -15,4 +15,8 @@ module ApplicationHelper
   def check_validation(item)
     item.blank? ? true : false
   end
+
+  def check_margin
+    current_user.has_role?(:admin) ? "content-margin" : ""
+  end
 end
