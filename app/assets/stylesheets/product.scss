@@ -1,56 +1,56 @@
 .showproductdiv {
-    margin-top: 64px;
+  margin-top: 64px;
 }
 
 .searchlabels>.searchcategorylabel {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 .searchlabels>.searchbrandslabel {
-    margin-left: 156px;
+  margin-left: 156px;
 }
 
 .products_pagination {
-    background: #f1f1f1;
-    border: 1px solid #e5e5e5;
-    text-align: center;
-    padding: 1em;
-    cursor: default;
+  background: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  padding: 1em;
+  cursor: default;
 }
 
 .products_pagination a,
 .products_pagination span {
-    padding: 0.2em 0.3em;
+  padding: 0.2em 0.3em;
 }
 
 .products_pagination .disabled {
-    color: #aaaaaa;
+  color: #aaaaaa;
 }
 
 .products_pagination .current {
-    font-style: normal;
-    font-weight: bold;
-    background-color: #bebebe;
-    display: inline-block;
-    width: 1.4em;
-    height: 1.4em;
-    line-height: 1.5;
-    -moz-border-radius: 1em;
-    -webkit-border-radius: 1em;
-    border-radius: 1em;
-    text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+  font-style: normal;
+  font-weight: bold;
+  background-color: #bebebe;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.5;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
 
 .products_pagination a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .products_pagination a:hover,
 .products_pagination a:focus {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .form-fields>.select2 {
-    margin: 6px;
+  margin: 6px;
 }
