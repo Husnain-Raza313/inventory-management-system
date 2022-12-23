@@ -1,5 +1,8 @@
 <div class="jumbotron bg-white p-5 border-info border rounded-2 ml-5">
   <div class="container d-flex flex-row justify-content-between">
+    <div class="rounded overflow-hidden w-50 m-auto">
+      <%= image_view(@supplier, ApplicationHelper::SHOW_IMAGE_SIZE) %>
+    </div>
     <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
       <h2 class="text-black" ><b><%= @supplier.name %></b></h2>
       <h5 class="text-black" ><b><%= t('phone') %><%= @supplier.phone_no %></b></h5>
@@ -7,9 +10,6 @@
       <div class="my-3" >
         <%= link_to t('edit-button'), edit_supplier_path(@supplier), class: "btn btn-outline-primary btn-lg" %>
       </div>
-    </div>
-    <div class="rounded overflow-hidden w-50 m-auto">
-      <%= image_view(@supplier, ApplicationHelper::SHOW_IMAGE_SIZE) %>
     </div>
   </div>
 </div>

@@ -1,5 +1,8 @@
 <div class="jumbotron bg-white p-5 border rounded-2 w-60 ml-5 showproductdiv">
   <div class="container d-flex flex-row justify-content-between">
+    <div class="rounded overflow-hidden w-50 m-auto">
+      <%= image_view(@product, ApplicationHelper::SHOW_IMAGE_SIZE) %>
+    </div>
     <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
       <h1 class="text-black" ><b><%= t('serial_number') %><%= @product.serial_no %></b></h1>
       <p class="text-grey" ><%= t('description ') %><%= @product.description %></p>
@@ -13,9 +16,6 @@
         <%= link_to t('analytics-button-remaining-count'), analytics_path(@product, type:"remaining"),class:"btn btn-outline-success " %>
         <%= link_to t('analytics-button-sold-count'), analytics_path(@product, type:"sold"), class:"btn btn-outline-dark " %>
       </div>
-    </div>
-    <div class="rounded overflow-hidden w-50 m-auto">
-      <%= image_view(@product, ApplicationHelper::SHOW_IMAGE_SIZE) %>
     </div>
   </div>
 </div>
