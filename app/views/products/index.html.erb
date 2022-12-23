@@ -1,6 +1,6 @@
 <h1><%= t('products') %></h1>
 <%= render "search_form", path: products_path %>
-<%if @products.present?%>
+<% if @products.present? %>
   <div class="container">
     <div class="row hidden-md-up">
       <% @products.each do |product| %>
