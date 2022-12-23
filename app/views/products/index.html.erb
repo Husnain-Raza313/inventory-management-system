@@ -1,5 +1,5 @@
 <h1><%= t('products') %></h1>
-<%= render "search_form"%>
+<%= render "search_form", path: products_path %>
 <%if @products.present?%>
   <div class="container">
     <div class="row hidden-md-up">
@@ -24,10 +24,5 @@
   </div>
 <% end %>
 <br>
-<div class="products_pagination mb-2">
-  <div class="page_info">
-    <%= page_entries_info @products %>
-  </div>
-  <%= will_paginate @products, container: false %>
-</div>
+<%= render "pagination", product: @products %>
 <%= link_to t('add',param: 'Product'), new_product_path, class: "btn btn-dark btn-lg mt-2" %>

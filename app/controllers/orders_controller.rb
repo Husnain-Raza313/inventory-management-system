@@ -43,9 +43,18 @@ class OrdersController < ApplicationController
   def index_list
     if params[:status] == 'order-list'
       @products = Product.ordered_products(session[:order_array])
+    elsif params[:brand_ids].present? || params[:category_ids].present?
+      @products = get_all_products
+      @products = ProductService.new(category_ids: params[:category_ids], brand_ids: params[:brand_ids],
+                                     products: @products).filter
+      render 'list' and return
     else
-      @products = Product.available_products
+      @products = get_all_products
       render 'list' and return
     end
+  end
+
+  def get_all_products
+    Product.paginate(page: params[:page], per_page: 10).available_products
   end
 end
