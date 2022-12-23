@@ -56,6 +56,6 @@ class OrdersController < ApplicationController
   end
 
   def get_all_products
-    Product.paginate(page: params[:page], per_page: 10).available_products
+    Product.paginate(page: params[:page], per_page: RECORDS_PER_PAGE).available_products
   end
 end
