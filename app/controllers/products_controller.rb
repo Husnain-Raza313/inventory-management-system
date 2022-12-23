@@ -5,7 +5,11 @@ class ProductsController < ApplicationController
   before_action :set_brand, only: %i[create]
 
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page], per_page: 10).all
+    return unless params[:brand_ids].present? || params[:category_ids].present?
+
+    @products = ProductService.new(category_ids: params[:category_ids], brand_ids: params[:brand_ids],
+                                   products: @products).filter
   end
 
   def new
