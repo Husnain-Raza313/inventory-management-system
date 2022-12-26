@@ -17,6 +17,6 @@ module ApplicationHelper
   end
 
   def check_margin
-    current_user.has_role?(:admin) ? "content-margin" : ""
+    current_user.has_role?(:admin) ? 'content-margin' : ''
   end
 end

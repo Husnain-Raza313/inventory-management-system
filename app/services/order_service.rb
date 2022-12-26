@@ -28,16 +28,17 @@ class OrderService < ApplicationService
       return [message, type]
     end
 
-    message = update_order
-    [message, type]
+    update_order
   end
 
   def update_order
     if order.update(total_price: total_order_price)
-      message = I18n.t('create.success', param: 'Order')
+      message = nil
+      type = nil
     else
       message = @order.errors.full_messages
       type = 'error'
     end
+    [message, type]
   end
 end

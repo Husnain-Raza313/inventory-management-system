@@ -1,16 +1,22 @@
 <h1><%= t('item_details', param: 'Order') %></h1>
-<% total_price %>
+<% if check_format_type(params[:type]) %>
+<h2 class='text-success'>YOUR ORDER HAS BEEN CONFIRMED!!!</h2>
+<% end %>
 <br>
-<div>
+<div class="mb-5">
   <hr>
   <% @products.each do |product| %>
     <h5><%= t('item_details', param: 'Product') %></h5>
     <p class="d-flex justify-content-between"><span><%= t('serial_number') %></span>: <span><%= product.serial_no %></span></p>
     <p class="d-flex justify-content-between"><span><%= t('name') %></span>: <span><%= product.name %></span></p>
-    <p class="d-flex justify-content-between"><span><%= t('quantity') %></span>: <span><%= order_item_quantity(product.id) %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('quantity') %></span>: <span><%= invoice_item_quantity(@order, product.id) %></span></p>
     <p class="d-flex justify-content-between"><span><%= t('retail_price') %></span>: <span><%= product.retail_price %></span></p>
-    <p class="d-flex justify-content-between"><span><%= t('total') %></span>: <span><%= total_price(product) %></span></p>
+    <p class="d-flex justify-content-between"><span><%= t('total') %></span>: <span><%= invoice_item_total_price(@order, product.id) %></span></p>
     <hr>
   <% end %>
-  <h4 class="d-flex justify-content-between"><span><%= t('item_total', param: 'Order') %>: </span><span>$<%= session[:total_order_price] %></span></h4>
+  <h4 class="d-flex justify-content-between"><span><%= t('item_total', param: 'Order') %>: </span><span>$<%= @order.total_price %></span></h4>
 </div>
+<% if check_format_type(params[:type]) %>
+  <%= link_to t('download-pdf'), pdf_orders_path, class: "btn btn-success mr-2", onclick: "showHomeBtn()" %>
+  <%= link_to t('back-to-home'), user_route_path, class: "btn btn-primary d-none", id: 'home-pdf-btn' %>
+<% end %>

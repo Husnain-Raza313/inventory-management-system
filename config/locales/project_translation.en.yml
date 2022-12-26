@@ -71,3 +71,4 @@ en:
   min-characters: "minimum characters"
   sign-up: "Sign Up"
   user-friendly-errors: "No %{param} Found / No %{param} Selected!"
+  back-to-home: "Back to Home"

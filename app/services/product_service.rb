@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductService < ApplicationService
   attr_reader :product, :product_category_ids, :product_supplier_ids
 

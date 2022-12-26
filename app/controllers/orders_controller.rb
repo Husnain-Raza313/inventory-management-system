@@ -12,17 +12,19 @@ class OrdersController < ApplicationController
     if @order.save
       message, type = OrderService.new(session: session, order: @order).execute
       set_session(true)
+      byebug
     else
       message = @order.errors.full_messages
       type = 'error'
     end
-
     flash[type] = message
-    redirect_to user_route_path
+    redirect_to preview_orders_path(type: 'preview')
   end
 
   def pdf
-    @products = Product.ordered_products(session[:order_array])
+    @order = Order.last
+    @products = Product.ordered_products(@order.order_items)
+
     respond_to do |format|
       format.html
       format.pdf do
@@ -42,7 +44,7 @@ class OrdersController < ApplicationController
 
   def index_list
     if params[:status] == 'order-list'
-      @products = Product.ordered_products(session[:order_array])
+      @products = Product.ordered_session_products(session[:order_array])
     else
       @products = Product.available_products
       render 'list' and return

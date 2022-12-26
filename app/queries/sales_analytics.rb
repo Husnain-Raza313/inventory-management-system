@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SalesAnalytics < ApplicationQueries
   def call
     if params[:reports] == I18n.t('yearly')
