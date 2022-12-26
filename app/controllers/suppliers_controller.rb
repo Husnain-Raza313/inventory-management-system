@@ -4,7 +4,7 @@ class SuppliersController < ApplicationController
   before_action :set_supplier, only: %i[show edit update destroy]
 
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.paginate(page: params[:page], per_page: RECORDS_PER_PAGE).all
   end
 
   def show; end

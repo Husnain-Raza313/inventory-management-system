@@ -4,7 +4,7 @@ class BrandsController < ApplicationController
   before_action :set_brand, only: %i[show edit update destroy]
 
   def index
-    @brands = Brand.all
+    @brands = Brand.paginate(page: params[:page], per_page: RECORDS_PER_PAGE).all
   end
 
   def show; end

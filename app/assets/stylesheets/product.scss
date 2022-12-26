@@ -10,7 +10,7 @@
   margin-left: 156px;
 }
 
-.products_pagination {
+.records_pagination {
   background: #f1f1f1;
   border: 1px solid #e5e5e5;
   text-align: center;
@@ -18,16 +18,16 @@
   cursor: default;
 }
 
-.products_pagination a,
-.products_pagination span {
+.records_pagination a,
+.records_pagination span {
   padding: 0.2em 0.3em;
 }
 
-.products_pagination .disabled {
+.records_pagination .disabled {
   color: #aaaaaa;
 }
 
-.products_pagination .current {
+.records_pagination .current {
   font-style: normal;
   font-weight: bold;
   background-color: #bebebe;
@@ -41,13 +41,13 @@
   text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
 }
 
-.products_pagination a {
+.records_pagination a {
   text-decoration: none;
   color: black;
 }
 
-.products_pagination a:hover,
-.products_pagination a:focus {
+.records_pagination a:hover,
+.records_pagination a:focus {
   text-decoration: underline;
 }
 

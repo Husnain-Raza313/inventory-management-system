@@ -22,5 +22,6 @@
     </div>
   </div>
 <% end %>
+<%= render "shared/pagination", object: @brands %>
 <br>
 <%= link_to t('add',param: 'Brand'), new_brand_path, class: "btn btn-dark btn-lg" %>

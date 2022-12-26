@@ -36,5 +36,5 @@
   </div>
 <% end %>
 <br>
-<%= render "products/pagination", product: @products %>
+<%= render "shared/pagination", object: @products %>
 <%= link_to t('list',param: 'Order'), orders_path(status: "order-list"), class: "btn btn-dark btn-lg" %>
