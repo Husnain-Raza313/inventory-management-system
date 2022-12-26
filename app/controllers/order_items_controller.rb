@@ -4,10 +4,10 @@ class OrderItemsController < ApplicationController
   def create
     session[:order_array], session[:order_quantity][params[:product_id]], message, type = OrderItemService.new(order_params: params,
                                                                                                                session: session).execute
-    if params[:request] != 'create'
-      flash[type] = message
-      redirect_back(fallback_location: root_path)
-    end
+    return unless params[:request] != 'create'
+
+    flash[type] = message
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
