@@ -72,3 +72,4 @@ en:
   sign-up: "Sign Up"
   user-friendly-errors: "No %{param} Found / No %{param} Selected!"
   back-to-home: "Back to Home"
+  order-confirmation: "YOUR ORDER HAS BEEN PLACED!!!"

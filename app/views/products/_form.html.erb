@@ -1,24 +1,24 @@
 <div class="form-body">
   <div class="row">
     <div class="form-holder">
-      <div class="form-content">
+      <div class="form-content container">
         <div class="form-items">
           <%= form_with(model: product, validate: true) do |form| %>
             <div class="col-md-12">
               <%= form.label :name, class: "labels" %>
-              <%= form.text_field :name, class:"form-control", placeholder: true  %>
+              <%= form.text_field :name, class:"form-control" %>
             </div>
             <div class="col-md-12">
               <%= form.label :description, class: "labels mt-4" %>
-              <%= form.text_field :description, class: "form-control", placeholder: true %>
+              <%= form.text_area :description, class: "form-control" %>
             </div>
             <div class="col-md-12">
               <%= form.label :quantity, class: "labels mt-4" %>
-              <%= form.number_field :quantity, class: "form-control", placeholder: true  %>
+              <%= form.number_field :quantity, class: "form-control" %>
             </div>
             <div class="col-md-12">
               <%= form.label :price_per_unit, class: "labels mt-4" %>
-              <%= form.number_field :price_per_unit, class: "form-control", placeholder: true  %>
+              <%= form.number_field :price_per_unit, class: "form-control" %>
             </div>
             <div class="col-md-12 selection">
               <div class="col-md-12 select2options labels">
@@ -30,7 +30,7 @@
             </div>
             <div class="col-md-12">
               <%= form.label :retail_price, class: "labels mt-4" %>
-              <%= form.number_field :retail_price, class:"form-control", placeholder: true %>
+              <%= form.number_field :retail_price, class:"form-control" %>
             </div>
             <div class="col-md-12 selection">
               <div class="col-md-12 select2options labels">
@@ -44,13 +44,13 @@
               <%= form.select :brand_id, brands, prompt: 'Select Brand', required: true, class: "form-control select-tag" %>
             </div>
             <div class="col-md-12 mt-2">
-              <div class="w-25 mt-4">
+              <div class="image-width mt-4 mb-2">
                 <%= image_view(product) %>
               </div>
               <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@supplier) %>
             </div>
             <div class="form-button mt-4 col-md-4">
-              <%= form.submit class: "btn btn-primary submit-button" %>
+              <%= form.submit class: "btn btn-success submit-button" %>
             </div>
           <% end %>
         </div>

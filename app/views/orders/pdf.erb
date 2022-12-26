@@ -1,6 +1,6 @@
 <h1><%= t('item_details', param: 'Order') %></h1>
 <% if check_format_type(params[:type]) %>
-<h2 class='text-success'>YOUR ORDER HAS BEEN CONFIRMED!!!</h2>
+<h2 class='text-success'><%= t('order-confirmation') %></h2>
 <% end %>
 <br>
 <div class="mb-5">

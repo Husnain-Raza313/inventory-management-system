@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
     if @order.save
       message, type = OrderService.new(session: session, order: @order).execute
       set_session(true)
-      byebug
     else
       message = @order.errors.full_messages
       type = 'error'

@@ -5,19 +5,21 @@
         <div class="form-items">
           <%= form_with(model: category, validate: true) do |form| %>
             <div class="col-md-12">
-              <%= form.text_field :name, class: "form-control", placeholder: true %>
+              <%= form.label :name, class: "labels" %>
+              <%= form.text_field :name, class: "form-control" %>
             </div>
             <div class="col-md-12">
-              <%= form.text_field :description, class: "form-control",  placeholder: true %>
+              <%= form.label :description, class: "labels mt-4" %>
+              <%= form.text_area :description, class: "form-control" %>
             </div>
-            <div class="col-md-12 mt-2">
-              <div class="w-25">
+            <div class="col-md-12 mt-4">
+              <div class="image-width mb-2">
                 <%= image_view(category) %>
               </div>
-              <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@supplier) %>
+              <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@category) %>
             </div>
             <div class="form-button mt-3 col-md-4">
-              <%= form.submit class: "btn btn-primary submit-button" %>
+              <%= form.submit class: "btn btn-success submit-button" %>
             </div>
           <%end%>
         </div>

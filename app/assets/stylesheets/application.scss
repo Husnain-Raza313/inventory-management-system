@@ -35,12 +35,15 @@ p {
   line-height: 1.7em;
   color: #999;
 }
+
 .alert-alert {
   @extend .alert-warning !optional;
 }
+
 .alert-notice {
   @extend .alert-success !optional;
 }
+
 .flash {
   position: absolute;
   z-index: 100;
@@ -51,7 +54,11 @@ p {
   margin-top: 20px;
   margin-right: 20px;
 }
+
 .card-width {
   width: 18rem;
 }
 
+.card-text {
+  height: 3rem;
+}

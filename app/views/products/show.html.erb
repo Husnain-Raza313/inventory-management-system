@@ -3,20 +3,22 @@
     <div class="rounded overflow-hidden w-50 m-auto">
       <%= image_view(@product, ApplicationHelper::SHOW_IMAGE_SIZE) %>
     </div>
-    <div class="m-5 d-flex flex-column justify-content-between w-75 h-75" >
-      <h1 class="text-black" ><b><%= t('serial_number') %><%= @product.serial_no %></b></h1>
-      <p class="text-grey" ><%= t('description ') %><%= @product.description %></p>
-      <h5 class="text-black" ><%= t('quantity ') %><%= @product.quantity %></h5>
-      <h5 class="text-black" ><%= t('availlable ') %><%= @product.available %></h5>
-      <h5 class="text-black" ><%= t('price_per_unit ') %><%= @product.price_per_unit %></h5>
-      <h5 class="text-black" ><%= t('retail_price ') %><%= @product.retail_price %></h5>
-      <h5 class="text-black" ><%= t('retail_price ') %><%= @product.brand.name %></h5>
-      <div class="my-3" >
-        <%= link_to t('edit-button'), edit_product_path(@product), class:"btn btn-outline-primary " %>
-        <%= link_to t('analytics-button-remaining-count'), analytics_path(@product, type:"remaining"),class:"btn btn-outline-success " %>
-        <%= link_to t('analytics-button-sold-count'), analytics_path(@product, type:"sold"), class:"btn btn-outline-dark " %>
+    <div class="m-5 d-flex flex-column justify-content-between" >
+      <h2 class="text-black" ><%= t('serial_number') %>: <%= @product.serial_no %></h2>
+      <p class="text-grey" ><%= t('description ') %>: <%= @product.description %></p>
+      <h5 class="text-black" ><%= t('quantity ') %>: <%= @product.quantity %></h5>
+      <h5 class="text-black" ><%= t('availlable ') %>: <%= @product.available %></h5>
+      <h5 class="text-black" ><%= t('price_per_unit ') %>: <%= @product.price_per_unit %></h5>
+      <h5 class="text-black" ><%= t('retail_price ') %>: <%= @product.retail_price %></h5>
+      <h5 class="text-black" ><%= t('retail_price ') %>: <%= @product.brand.name %></h5>
+      <div class="my-3">
+        <% if check_user_role %>
+          <%= link_to t('edit-button'), edit_product_path(@product), class:"btn btn-outline-primary " %>
+          <%= link_to t('analytics-button-remaining-count'), analytics_path(@product, type:"remaining"),class:"btn btn-outline-success " %>
+          <%= link_to t('analytics-button-sold-count'), analytics_path(@product, type:"sold"), class:"btn btn-outline-dark " %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-<%= link_to t('list',param: "Products"), products_path, class:"btn btn-dark btn-lg m-3" %>
+<%= link_to t('list',param: "Products"), check_products_path, class:"btn btn-dark btn-lg m-3" %>
