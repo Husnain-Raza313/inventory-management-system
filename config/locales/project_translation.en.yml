@@ -70,3 +70,4 @@ en:
   confirm-password: "Confirm Password"
   min-characters: "minimum characters"
   sign-up: "Sign Up"
+  user-friendly-errors: "No %{param} Found / No %{param} Selected!"

@@ -9,7 +9,6 @@
 .form-holder {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .form-holder .form-content {
@@ -32,7 +31,6 @@
   padding: 40px;
   display: inline-block;
   width: 100%;
-  min-width: 540px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
