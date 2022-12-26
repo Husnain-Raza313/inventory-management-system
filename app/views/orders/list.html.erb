@@ -20,13 +20,16 @@
         </div>
         <div>
           <% if check_order_array(product) %>
-            <div class="bg-success text-center card-width m-3">
-              <p class="text-white"><%= t('ordered') %></p>
-            </div>
+            <%= render 'orders/order_success_div' %>
           <% else %>
-          <div class="d-flex flex-row ml-5">
-            <%= render 'orders/form', item: product, request: 'create' %>
-          </div>
+            <div id="order-div-<%= product.id %>">
+              <div class="d-flex flex-row ml-5">
+                <%= render 'orders/form', item: product, request: 'create' %>
+              </div>
+            </div>
+            <div id="order-msg-<%= product.id %>" class="d-none">
+              <%= render 'orders/order_success_div' %>
+            </div>
           <% end %>
         </div>
       </div>

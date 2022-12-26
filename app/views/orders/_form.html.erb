@@ -1,5 +1,5 @@
-<%= form_with url: order_items_path do |f| %>
+<%= form_with url: order_items_path(request: request), local: false do |f| %>
   <%= f.hidden_field :product_id, value: item.id %>
   <%= f.number_field :quantity, value: quantity_value(request, item), min: 1, max: item.quantity, onchange: "enableUpdate(#{item.id})", class: 'w-75' %>
-  <%= f.submit submit_btn_name(request), class: "btn btn-primary", id: "update-btn-#{item.id}", disabled: check_disabled(request) %>
+  <%= f.submit submit_btn_name(request), class: "btn btn-primary", id: "update-btn-#{item.id}", onclick: "disableSubmit(#{item.id})", disabled: check_disabled(request) %>
 <% end %>
