@@ -1,5 +1,5 @@
 $(document).on("change", "#reports_dropdown", function () {
-  var state = $(this).val();
+  let state = $(this).val();
   $.ajax({
     url: "/reports",
     type: "get",
