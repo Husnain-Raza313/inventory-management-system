@@ -26,7 +26,9 @@
                   <h5 class="mb-0"><%= "#{t('total')} : $#{total_price(item)}" %></h5>
                 </div>
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end mr-5">
-                  <%= link_to t('remove'), order_item_url(item.id), class: "btn btn-danger", method: :delete %>
+                  <%= form_with url: order_item_url(item.id), method: :delete, local: false do |f| %>
+                    <%= f.submit 'Remove', class: "btn btn-danger" %>
+                  <% end %>
                 </div>
               </div>
             </div>
