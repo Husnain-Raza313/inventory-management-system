@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class OrderItemsController < ApplicationController
-
   def create
     session[:order_array], session[:order_quantity][params[:product_id]], @message, @type = OrderItemService.new(order_params: params,
-                                                                                                               session: session).execute
+                                                                                                                 session: session).execute
     return unless params[:request] != 'create'
 
     set_products
