@@ -4,25 +4,22 @@
       <div class="form-content">
         <div class="form-items">
           <%= form_with(model: @brand, validate: true) do |form| %>
-            <%= render 'layouts/error_messages', messages: @brand.errors.full_messages %>
             <div class="col-md-12">
               <%= form.label :name, class: "labels" %>
               <%= form.text_field :name, class: "form-control" %>
             </div>
             <div class="col-md-12">
               <%= form.label :description, class: "labels mt-4" %>
-              <%= form.text_field :description, class: "form-control" %>
+              <%= form.text_area :description, class: "form-control" %>
             </div>
-            <div class="col-md-12">
-              <%= form.label :image, class: "labels mt-4" %>
-              <div class="w-25">
+            <div class="col-md-12 mt-4">
+              <div class="image-width mb-2">
                 <%= image_view(@brand) %>
               </div>
               <%= form.file_field :image, class: "d-block image-file", id: "image-file", validate: check_validation(@brand) %>
-              <br/>
-              <p id="error-msg", class="text-danger" ></p>
+              <p id="error-msg", class="text-danger mt-2" ></p>
             </div>
-            <div class="actions form-button mt-4 col-md-4">
+            <div class="form-button col-md-4">
               <%= form.submit class: "btn btn-success submit-button" %>
             </div>
           <% end %>

@@ -37,4 +37,24 @@ module OrdersHelper
   def check_disabled(request)
     !(request === 'create')
   end
+
+  def check_format_type(type)
+    type == 'preview'
+  end
+
+  def invoice_item_quantity(order, id)
+    order_products(order, id).quantity if check_order_presence(order, id)
+  end
+
+  def invoice_item_total_price(order, id)
+    order_products(order, id).total_price if check_order_presence(order, id)
+  end
+
+  def order_products(order, id)
+    order.order_items.find_by(product_id: id)
+  end
+
+  def check_order_presence(order, id)
+    order.present? && id.present?
+  end
 end

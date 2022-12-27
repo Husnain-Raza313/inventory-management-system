@@ -1,0 +1,11 @@
+<div id="order-item">
+  <% if session[:order_array].blank? %>
+    <div>
+      <h1>
+        <%= t('none',param: 'Order') %>
+      </h1>
+    </div>
+  <% else %>
+    <%= render 'orders/order_items' %>
+  <% end %>
+</div>

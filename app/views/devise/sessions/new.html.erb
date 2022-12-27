@@ -6,23 +6,19 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-outline mb-4">
             <%= f.email_field :email, autofocus: true, class:"form-control form-control-lg",placeholder:"Enter a valid email address" %>
-            <label class="form-label" for="form3Example3">Email address</label>
           </div>
-
           <div class="form-outline mb-3">
             <%= f.password_field :password, class:"form-control form-control-lg",placeholder:"Enter password" %>
-            <label class="form-label" for="form3Example4">Password</label>
           </div>
-
           <div class="text-center text-lg-start mt-4 pt-2">
             <%=f.submit "Login",class:"btn btn-primary btn-lg login-button"%>
             <p class="small fw-bold mt-2 pt-1 mb-0"> Dont have an account? <a href="<%=new_user_registration_path%>"
                 class="link-danger">Register</a></p>
           </div>
-          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

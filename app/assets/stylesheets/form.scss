@@ -9,7 +9,6 @@
 .form-holder {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .form-holder .form-content {
@@ -25,6 +24,7 @@
   -webkit-align-items: center;
   align-items: center;
   padding: 60px;
+  width: 50rem;
 }
 
 .form-content .form-items {
@@ -32,7 +32,6 @@
   padding: 40px;
   display: inline-block;
   width: 100%;
-  min-width: 540px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -105,16 +104,7 @@
   outline: none;
   border: 0px;
   box-shadow: none;
-  margin-left: 118px;
-}
 
-.submit-button:hover,
-.submit-button:focus,
-.submit-button:active {
-  background-color: #495056;
-  outline: none !important;
-  border: none !important;
-  box-shadow: none;
 }
 
 .form-content textarea {
@@ -164,4 +154,11 @@
 
 .selection>.select2options {
   padding-left: 0px;
+}
+
+.image-width {
+  max-width: 10rem;
+  width: 10rem;
+  min-height: 5rem;
+  border: 1px groove grey;
 }

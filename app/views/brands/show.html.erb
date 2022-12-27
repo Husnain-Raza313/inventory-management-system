@@ -1,15 +1,15 @@
-<div class="jumbotron p-5 border rounded-2 w-70 ml-5 showproductdiv">
+<div class="jumbotron p-5 border rounded-2 ml-5 showproductdiv">
   <div class="container d-flex flex-row justify-content-between">
-    <div class="m-5 d-flex flex-column justify-content-between w-75 h-75">
-      <h1 class="text-black"><b><%= @brand.name %></b></h1>
-      <p class="text-grey"><%= @brand.description %></p>
-      <div class="my-3" >
-        <%= link_to t('edit-button'), edit_brand_path(@brand), class: "btn btn-outline-primary btn-lg" %>
-      </div>
-    </div>
-    <div class="rounded overflow-hidden w-50 m-auto">
+    <div class="rounded overflow-hidden show-image-width m-auto">
       <%= image_view(@brand, ApplicationHelper::SHOW_IMAGE_SIZE) %>
+    </div>
+    <div class="m-5 d-flex flex-column">
+      <h1 class="text-black"><b><%= t('name') %> <%= @brand.name %></b></h1>
+      <p class="text-grey"><%= t('description') %>: <%= @brand.description %></p>
     </div>
   </div>
 </div>
-<%= link_to t('list',param: "Brands"), brands_path, class: "btn btn-dark btn-lg m-3" %>
+<div class="m-5">
+  <%= link_to t('list',param: "Brands"), brands_path, class: "btn btn-dark btn-lg" %>
+  <%= link_to t('edit-button'), edit_brand_path(@brand), class: "btn btn-primary btn-lg ml-2" %>
+</div>

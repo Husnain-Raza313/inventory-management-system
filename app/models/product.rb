@@ -20,7 +20,8 @@ class Product < ApplicationRecord
   has_one_attached :image, dependent: :destroy
 
   scope :available_products, -> { where(available: true) }
-  scope :ordered_products, -> (ids) { where(id: ids) }
+  scope :ordered_session_products, ->(ids) { where(id: ids) }
+  scope :ordered_products, ->(items) { where(id: items.pluck(:product_id)) }
 
   before_create :generate_serial_number, :calculate_total_price
 
@@ -39,5 +40,4 @@ class Product < ApplicationRecord
   def calculate_total_price
     self.total_price = price_per_unit * quantity
   end
-
 end
