@@ -43,18 +43,18 @@ module OrdersHelper
   end
 
   def invoice_item_quantity(order, id)
-    order_products(order, id).quantity if order_check(order, id)
+    order_products(order, id).quantity if check_order_presence(order, id)
   end
 
   def invoice_item_total_price(order, id)
-    order_products(order, id).total_price if order_check(order, id)
+    order_products(order, id).total_price if check_order_presence(order, id)
   end
 
   def order_products(order, id)
     order.order_items.find_by(product_id: id)
   end
 
-  def order_check(order, id)
+  def check_order_presence(order, id)
     order.present? && id.present?
   end
 end
