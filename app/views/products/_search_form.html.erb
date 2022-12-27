@@ -1,0 +1,18 @@
+<div class="card my-auto">
+  <%= form_with url: path , method: :get, local: true  do |f| %>
+    <div class="card-body">
+      <div class= "searchlabels">
+        <span class="searchcategorylabel"><b><%= t('search_categories') %></b></span>
+        <span class="searchbrandslabel"><b><%= t('search_brands') %></b></span>
+      </div>
+      <div class= "form-fields">
+        <%= f.select :category_ids, options_for_select(categories, selected: params[:category_ids]),  { include_blank: true }, multiple: true, class: "select2 form-control w-25" %>
+        <%= f.select :brand_ids, options_for_select(brands, selected: params[:brand_ids]), { include_blank: true }, multiple: true, class: "select2 form-control w-25 " %>
+        <span class="input-group-btn">
+          <%= f.submit 'Search', class: 'btn btn-outline-success' %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
+<hr>
