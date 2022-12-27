@@ -35,7 +35,7 @@
         <div class="card">
           <div class="card-body">
             <h2><%= "#{t('total')} : $#{session[:total_order_price]}" %></h2>
-            <%= link_to t('pay'), orders_path, class: "btn btn-warning btn-block btn-lg mb-2", method: :post %>
+            <%= link_to t('confirm-order'), orders_path, class: "btn btn-success btn-block btn-lg mb-2", method: :post %>
           </div>
         </div>
       </div>

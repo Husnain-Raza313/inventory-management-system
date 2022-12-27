@@ -18,5 +18,5 @@
 </div>
 <% if check_format_type(params[:type]) %>
   <%= link_to t('download-pdf'), pdf_orders_path, class: "btn btn-success mr-2", onclick: "showHomeBtn()" %>
-  <%= link_to t('back-to-home'), user_route_path, class: "btn btn-primary d-none", id: 'home-pdf-btn' %>
+  <%= link_to t('home'), user_route_path, class: "btn btn-primary d-none", id: 'home-pdf-btn' %>
 <% end %>
