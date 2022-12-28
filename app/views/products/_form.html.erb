@@ -48,6 +48,7 @@
                 <%= image_view(product) %>
               </div>
               <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@product) %>
+              <p id="error-msg", class="text-danger mt-2" ></p>
             </div>
             <div class="form-button mt-4 col-md-4">
               <%= form.submit class: "btn btn-success submit-button" %>

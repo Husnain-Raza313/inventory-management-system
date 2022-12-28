@@ -17,6 +17,7 @@
                 <%= image_view(category) %>
               </div>
               <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@category) %>
+              <p id="error-msg", class="text-danger mt-2" ></p>
             </div>
             <div class="form-button mt-3 col-md-4">
               <%= form.submit class: "btn btn-success submit-button" %>
