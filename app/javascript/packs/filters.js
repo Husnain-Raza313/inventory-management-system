@@ -11,6 +11,6 @@ $(document).on("turbolinks:load", function () {
 });
 const submitForm = (state) => {
   if (state == "") {
-    return $("form").submit();
+    return $("#search-form").submit();
   }
 };
