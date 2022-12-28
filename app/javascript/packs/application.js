@@ -22,4 +22,6 @@ global.toastr = require('toastr')
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "@fortawesome/fontawesome-free/js/all"
 import "chartkick/chart.js"
+import $ from 'jquery';
+global.$ = jQuery;
 

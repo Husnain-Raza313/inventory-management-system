@@ -1,2 +1,2 @@
-document.getElementById("order-item").innerHTML = "<%= j render 'order_list.html.erb' %>"
-toastr['<%=@type%>']("<%=@message%>")
+$("#order-item").html("<%= j render 'order_list.html.erb' %>")
+toastr['<%= @type %>']("<%= @message %>")
