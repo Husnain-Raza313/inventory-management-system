@@ -9,14 +9,15 @@
               <%= form.text_field :name, class: "form-control" %>
             </div>
             <div class="col-md-12">
-              <%= form.label :description, class: "labels mt-4" %>
-              <%= form.text_area :description, class: "form-control" %>
+              <%= form.label :description, class: "labels mt-2" %>
+              <%= form.text_area :description, class: "form-control mb-0" %>
             </div>
             <div class="col-md-12 mt-4">
               <div class="image-width mb-2">
                 <%= image_view(category) %>
               </div>
               <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@category) %>
+              <p id="error-msg", class="text-danger mt-2" ></p>
             </div>
             <div class="form-button mt-3 col-md-4">
               <%= form.submit class: "btn btn-success submit-button" %>

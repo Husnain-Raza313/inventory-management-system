@@ -9,11 +9,11 @@
               <%= form.text_field :name, class:"form-control" %>
             </div>
             <div class="col-md-12">
-              <%= form.label :description, class: "labels mt-4" %>
-              <%= form.text_area :description, class: "form-control" %>
+              <%= form.label :description, class: "labels mt-3" %>
+              <%= form.text_area :description, class: "form-control mb-0" %>
             </div>
             <div class="col-md-12">
-              <%= form.label :quantity, class: "labels mt-4" %>
+              <%= form.label :quantity, class: "labels mt-2" %>
               <%= form.number_field :quantity, class: "form-control" %>
             </div>
             <div class="col-md-12">
@@ -47,7 +47,8 @@
               <div class="image-width mt-4 mb-2">
                 <%= image_view(product) %>
               </div>
-              <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@supplier) %>
+              <%= form.file_field :image, class: "d-block image-file", id: 'image-file', validate: check_validation(@product) %>
+              <p id="error-msg", class="text-danger mt-2" ></p>
             </div>
             <div class="form-button mt-4 col-md-4">
               <%= form.submit class: "btn btn-success submit-button" %>

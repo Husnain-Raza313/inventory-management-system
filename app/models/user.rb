@@ -5,7 +5,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i.freeze
   validates :username, :image, :description, :email, presence: true
   validates :username, :email, uniqueness: true
-  validates :description, length: { minimum: 10, maximum: 30 }
+  validates :description, length: { minimum: 10, maximum: 400 }
   validates :email, format: { with: VALID_EMAIL_REGEX, multiline: true }
   validate :image_type, if: -> { image.attached? && !image.content_type.in?(%('image/jpeg image/png image/heic')) }
 
